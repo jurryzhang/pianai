@@ -1,0 +1,408 @@
+<include file="public/head2" />
+	
+
+<div class="s-topbox">
+	
+		<div class="s-top">
+			    <div class="preview">
+	               <div id="vertical" class="bigImg"><img src="__PUBLIC__/Home/image/img01_03.png" alt="" id="midimg" /></div>
+	               <div class="smallImg">
+		              <div class="scrollbutton smallImgUp disabled"></div>
+		              <div id="imageMenu">
+			            <ul>
+				           <li id="onlickImg"><img src="__PUBLIC__/Home/image/img01_03.png" width="60" height="60" /></li>
+				           <li><img src="__PUBLIC__/Home/image/img01_03.png" width="68" height="68" /></li>
+				           <li><img src="__PUBLIC__/Home/image/img01_03.png" width="68" height="68" /></li>
+				           <!--<li><img src="__PUBLIC__/Home/image/img01_03.png" width="68" height="68" /></li>-->
+				           <div class="clearfix">  </div>
+			            </ul>
+		              </div>
+		               <div class="scrollbutton smallImgDown"></div>
+	                 </div>
+                </div>
+                
+                <div class="s-minfor">
+                	<div class="tit">
+                		<div class="">
+                			<h1 class="s-mname">{$user['nickname']}</h1>
+                			<img src="__PUBLIC__/Home/image/img01_06.png"/ style="float: left; margin: 9px 0 0 10px;">
+                			<span style=" color: #ec9e4d; font-size: 16px; margin: 9px 0 0 5px;">V2</span>	
+                		</div>
+                			
+                		
+                		<div class="m-icon">
+                			<p style="font-size:16px; float: left; margin-right: 40px; color: #666;">会员号：000001</p>
+                			<a href="" class="m-icon-iphone"></a>
+                			<a href="" class="m-icon-man"></a>
+                			<a href="" class="m-icon-email"></a>
+                			<a href="" class="m-icon-xue"></a>
+                		</div>
+                	</div>
+                	<ul class="infor">
+                	   <li>
+                		  <p>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<span>
+                		  <if condition="$user['sex'] eq '1'">男                         <else/>女
+                		  </if>
+
+                		  </span></p>
+                		  <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span>
+                		  {$user['qualification']}</span></p>
+                	   </li>
+                	   <li>
+                		  <p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span>
+                		  {$user['age']}</span></p>
+                		  <p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span>
+                		  {$user['height']}</span></p>
+                	   </li>
+                	   <li>
+                		  <p>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;肖：<span>
+                		  {$user['ani']}</span></p>
+                		  <p>婚姻状况：<span>
+                           <switch name="$user['marriage']" >
+							<case value="1">离婚</case>
+							<case value="2">丧偶</case>
+							<default />未婚
+							</switch>
+                		  <span></p>
+                	   </li>
+                
+                    </ul>
+
+                    <div class="s-introduce">
+                    	<div class="tit01">自我介绍</div>
+                    	<p>{$user['intro']|htmlspecialchars_decode=###}
+                    	</p>
+              
+              	 <ul class="infor_button">
+                   	<li>
+                   		<img src="__PUBLIC__/Home/image/img01_30.png"/>
+                   		<span>暗恋她</span>
+                   	</li>
+                   	<li>
+                   		<img src="__PUBLIC__/Home/image/img01_33.png"/>
+                   		<span>求照片</span>
+                   	</li>
+                   	<li>
+                   		<img src="__PUBLIC__/Home/image/img01_35.png"/>
+                   		<span>个人VCR</span>
+                   	</li>
+                   	<div class="clearfix"></div>
+                   </ul>
+     
+                    </div>
+                    
+             
+                </div>
+                </div>
+             
+  </div>           
+
+
+
+<!--<div class="main">-->
+		<div class="main-box1">
+			<div class="main-left"><!--left-->
+
+         <div class="s-introduce"> 
+             	<img src="__PUBLIC__/Home/image/img01_43.png"/>
+             	<div class="tit">详细资料</div>
+             	<div class="clearfix"></div>
+             </div>
+              <ul class="s-yaoqiu">
+              	<li>
+              		<p>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<span> 
+              		<if condition="$user['sex'] eq '1'">男             
+              		            <else/>女
+                		  </if></span></p>
+              		<p>血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：<span>{$user['blood']}</span></p>
+              		<p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span>{$user['qualification']}</span></p>
+              		<p>婚姻状况：<span>
+              			<switch name="$user['marriage']" >
+							<case value="1">离婚</case>
+							<case value="2">丧偶</case>
+							<default />未婚
+							</switch>
+              		</span></p>
+              	</li>
+              	<li>
+              		<p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span>{$user['age']}</span></p>
+              		<p>属&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相：<span>{$user['ani']}</span></p>
+              		<p>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：<span>
+
+              		<switch name="$user['housing']" >
+							<case value="1">已购房（有贷款）</case>
+							<case value="2">已购房（无贷款）</case>
+							<default />无
+							</switch></span></p>
+              	</li>
+              	<li>
+              		<p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span>{$user['height']}</span></p>
+              		<p>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：<span>{$user['const']}</span></p>
+              		<p>月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;薪：<span>{$user['monthly']}</span></p>
+              	</li>
+              	<li>
+              		<p>体&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重：<span>{$user['weight']}</span></p>
+              		<p>民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：<span>{$user['nation']}</span></p>
+              		<p>从事工作：<span>{$user['work']}</span></p>
+              	</li>
+              </ul>
+              
+
+               
+               <div class="s-introduce"> 
+               	<img src="__PUBLIC__/Home/image/img01_46.png"/>
+               	<div class="tit">生活状况</div>
+               	<div class="clearfix"></div>
+               </div>
+               <ul class="s-yaoqiu1">
+              	<li>
+              		<p>吸&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;烟：<span>{$user['smoking']}</span></p>
+              		<p>较大消费：<span>{$user['consumption']}</span></p>
+              		<p>是否与父母同住：<span>{$user['livingwithparents']}</span></p>
+              	</li>
+              	<li>
+              		<p>饮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酒：<span>{$user['drinking']}</span></p>
+              		<p>购物逛街：<span>{$user['shopping']}</span></p>
+              		<p>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务：<span>{$user['housework']}</span></p>
+              	</li>
+              	<li>
+              		<p>是否购车：<span>{$user['car']}</span></p>
+              		<p>宗教信仰：<span>{$user['beliefs']}</span></p>
+              	</li>
+              	<li>
+              </ul>
+      
+              
+              <div class="s-introduce"> 
+              	<img src="__PUBLIC__/Home/image/img01_48.png"/>
+              	<div class="tit">择偶要求</div>
+              	<div class="clearfix"></div>
+              </div>
+               <ul class="s-yaoqiu1">
+               	
+
+              	<li>
+              		<p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span>
+              		 {$chuser['cage']}岁之间</span></p>
+              		<p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span>{$chuser['qualification']}</span></p>
+              		<!-- <p>婚后是否与父母同住：<span>{$chuser['']}</span></p> -->
+              		<p>从事工作：<span>{$chuser['work']}</span></p>
+              	</li>
+              	<li>
+              		<p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span>{$chuser['height']}</span></p>
+              		<p>婚后是否要小孩：<span>
+
+              		<switch name="$chuser['child']" >
+							<case value="1">有同住</case>
+							<case value="2">有不同住</case>
+							<default />无
+							</switch></span></p>
+              		<!-- <p>购&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车：<span>{$chuser['']}</span></p> -->
+              		<!-- <p>工作地点：<span>{$chuser['work']}</span></p> -->
+              	</li>
+              	<li>
+              		<p>月&nbsp;&nbsp;收&nbsp;&nbsp;入：<span>{$chuser['monthly']}</span></p>
+              		<p>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：<span>
+              		<switch name="$chuser['housing']" >
+							<case value="1">已购房（有贷款）</case>
+							<case value="2">已购房（无贷款）</case>
+							<default />无
+							</switch></span></p>
+              		<p>婚姻状况：<span>
+
+              		<switch name="$chuser['marriage']" >
+							<case value="1">已婚</case>
+							<case value="2">丧偶</case>
+							<default />未婚
+							</switch></span></p>
+              	</li>
+              	<li>
+              </ul>
+  
+               <div class="s-introduce"> 
+               	<img src="__PUBLIC__/Home/image/img01_50.png"/>
+               	<div class="tit">关于婚姻</div>
+               <div class="clearfix"></div>
+               </div>
+               <ul class="s-yaoqiu1" style="border-bottom: none;">
+              	<li>
+              		<p>是否要小孩：<span>{$user['getchild']}</span></p>
+              		<p>家中排行：<span>{$user['ranking']}</span></p>
+              		<p>兄弟姐妹：<span>{$user['brothersandsisters']}</span></p>
+              	
+              	</li>
+              	<li>
+              		<p>何时结婚：<span>{$user['whenmarried']}</span></p>
+              		<p>父母情况：<span>{$user['parents']}</span></p>
+              		<p>父母经济情况：<span>{$user['parentseconomic']}</span></p>
+              	</li>
+              	<li>
+              		<p>愿与对方父母同住：<span>{$user['wishlivewithparents']}</span></p>             		
+              		<p>父母医保情况：<span>{$user['parentshealth']}</span></p>
+              	</li>
+              	<li>
+              </ul>
+    
+			</div><!--left-->
+
+<!--在线客服-->
+<!--<div id="floatTools" class="rides-cs" style="height:246px;">
+  <div class="floatL">
+  	<a id="aFloatTools_Show" class="btnOpen" title="查看在线客服" style="top:20px;display:block" href="javascript:void(0);">展开</a>
+  	<a id="aFloatTools_Hide" class="btnCtn" title="关闭在线客服" style="top:20px;display:none" href="javascript:void(0);">收缩</a>
+  </div>
+  <div id="divFloatToolsView" class="floatR" style="display: none;height:237px;width: 140px;">
+    <div class="cn">
+      <h3 class="titZx">南昌万家喜在线客服</h3>
+      <ul>
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img border="0" src="__PUBLIC__/Home/image/qq.png" alt="点击这里给我发消息" title="点击这里给我发消息"/></a> <span>客服1</span></li>
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img border="0" src="__PUBLIC__/Home/image/qq.png" alt="点击这里给我发消息" title="点击这里给我发消息"/></a><span>客服2</span> </li>
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img border="0" src="__PUBLIC__/Home/image/qq.png" alt="点击这里给我发消息" title="点击这里给我发消息"/></a> <span>客服3</span></li>
+        <li><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=123456789&site=qq&menu=yes"><img border="0" src="__PUBLIC__/Home/image/qq.png" alt="点击这里给我发消息" title="点击这里给我发消息"/></a> <span>客服4</span></li>
+        <li style="border:none;"><span>电话：400-000-0000</span> </li>
+      </ul>
+    </div>
+  </div>
+</div>-->
+
+</div>
+
+<!--right-->
+			<div class="main-right">
+
+
+				<div class="main-message">
+					
+				<div class="tit">最新会员推荐</div>
+					
+					<ul class="member-list">
+
+					 <volist name="userrecom" id="vo">
+						<li>
+							<img src="__PUBLIC__/Home/image/img01_52.png" />
+							<div class="name_title">
+								<h1>{$vo['nickname']}</h1>
+								<img src="__PUBLIC__/Home/image/img01_06.png"/>
+								<span>v2</span>
+								<div class="clearfix"></div>
+							</div>
+							
+							<p>会员号：{$vo['id']}</p>
+                            <p style=" padding: 5px 0 10px;">{$vo['age']}岁    {$vo['workad']}    {$vo['marriage']}</p>
+                            <p style="padding: 10px 0 20px; border-top: 1px dashed #D9D9D9;">自我介绍：{$vo['intro']|mb_substr=###,0,10,'utf-8'}</p>
+                           
+                          <div class="member_button">
+                          	<img src="__PUBLIC__/Home/image/img01_30.png"/>
+                          	<span>暗恋她</span>
+                          </div> 
+						</li>
+						
+						</volist>
+						<div class="clearfix"></div>
+					</ul>
+				
+				</div>
+								
+			</div>
+
+<div class="bgbox">
+		<ul class="couter_box">
+			<li class="foot_box">
+				<dl>
+					<dt>
+						<img src="__PUBLIC__/Home/image/img_56.png"/>
+						<h2>关于我们</h2>
+						<div class="clearfix"></div>
+					</dt>
+					<dd>关于我们</dd>
+					<dd>媒体报道 </dd>
+					<dd>恋爱百科 </dd>
+					<dd>招商合作</dd>
+					<div class="clearfix"></div>
+				</dl>
+			</li>
+			
+			<li class="foot_box">
+				<dl>
+					<dt>
+						<img src="__PUBLIC__/Home/image/img_58.png"/>
+						<h2>帮助中心</h2>
+						<div class="clearfix"></div>
+					</dt>
+					<dd> 会员条款</dd>
+					<dd>常见问题 </dd>
+					<dd>征婚提醒 </dd>
+					<div class="clearfix"></div>
+				</dl>
+			</li>
+			
+			<li class="foot_box">
+				<dl>
+					<dt>
+						<img src="__PUBLIC__/Home/image/img_61.png"/>
+						<h2>服务热线</h2>
+						<div class="clearfix"></div>
+					</dt>
+					<dd>热线电话：0855-85855200  18085055520</dd>
+					<dd>地址：贵州省凯里市永丰南路 锐馨鑫园A栋2208</dd>
+
+					<div class="clearfix"></div>
+				</dl>
+			</li>
+			
+			<li class="foot_box foot_box4">
+				<dl>
+					<dt>
+						<img src="__PUBLIC__/Home/image/img_64.png"/>
+						<h2>关于我们</h2>
+						<div class="clearfix"></div>
+					</dt>
+					<dd>郑州交友</dd>
+					<dd>情缘活动</dd>
+					<dd>选秀投票</dd>
+					<dd>相亲大会</dd>
+					<dd>交友活动</dd>
+					<dd>找对象</dd>
+					<div class="clearfix"></div>
+				</dl>
+			</li>
+			<div class="clearfix">
+				
+			</div>
+		</ul>
+</div>
+
+ 
+<!--举报-->
+
+<!--<div class="ddd">
+	<div class="popup-title"><i class="popup-close"><img src="__PUBLIC__/Home/image/close.png"/></i></div>
+    <div class="s-jubao-box">
+    	<div class="s-jubao-left">
+    	   <img src="__PUBLIC__/Home/image/bgimg.jpg" />
+    	   <p class="title">菇凉有点温柔</p>
+    	   <p>会员号：<span>100001</span></p>
+           <p>年龄：<span>26</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 学历：<span>大专</span>   </p>
+           <p>身高：<span>160cm</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职业：<span>销售</span></p>
+           <p>房产：<span>有房</span></p>
+    	</div>
+    	<div class="s-jubao-right">
+    	   <img src="__PUBLIC__/Home/image/mlogo.png" />
+    	   <ul class="jubao-infor">
+    	    	<li><span>标题：</span><input type="text" class="jubao-name"/></li>
+    	   	    <li><span>会员号：</span><em>0001</em></li>
+    	     	<li><span>上传图像等文件：</span><input type="file" class="jubao-pic"/></li>
+    	   	    <li><span>举报理由：</span><textarea class="jubao-text"></textarea></li>
+    	   	    <li><button class="jubao-btn">确认提交</button></li>
+    	   </ul>
+    	</div>
+    </div>
+</div>-->
+
+		
+	
+<script type='text/javascript'>
+	(function(){
+		 new PopUp_api({el:'.s-jubao',html:'.ddd'});	 
+	})()
+</script>

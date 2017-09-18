@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/images/metinfo.css" />
+  <script type="text/javascript" src="__PUBLIC__/Admin/js/jquery-1.8.2.min.js"></script>
+
+<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/themes/default/default.css" />
+
+	<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/kindeditor.js"></script>
+	<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/lang/zh_CN.js"></script>
+
+   <style>#main{position:absolute;top:5%;left:30%;}#title{width:500px;height:19px;border-top:#85ABE4 1px solid;border-right:#222 1px solid;border-left:#85ABE4 1px solid;border-bottom:none;background:#5B8BD9;}#content{border:#85ABE4 1px solid;background:#fff;border-top:none;width:500px;height:300px;}#content img{width:450px;height:320px;}#off{float:right;cursor:pointer;}.none{display:none;}.show{display:block;}#img{background:url(images/s.jpg) no-repeat;float:right;width:49px;height:19px;}#img: hover{background: url(images/sh.jpg) no-repeat;}#ten{float:left;width:400px;}</style>
+
+<script type="text/javascript">
+
+	KindEditor.ready(function(K) {
+				var editor = K.editor({
+					allowFileManager : true
+				});
+				K('#image1').click(function() {
+					editor.loadPlugin('image', function() {
+						editor.plugin.imageDialog({
+							imageUrl : K('#url1').val(),
+							clickFn : function(url, title, width, height, border, align) {
+								K('#url1').val(url);
+								editor.hideDialog();
+							}
+						});
+					});
+				});
+			
+			
+			});
+
+
+</script>	
+</head>
+
+<body>
+
+	<div class="metinfotop">
+	<div class="position">简体中文：系统通知 > <a href="{:U('Index/banner')}">banner图管理</a></div>
+
+	</div>
+	<div class="clear"></div>
+
+
+<div class="stat_list">
+	
+</div>
+
+
+ <form method="POST" name="myform" enctype="multipart/form-data" action="{:U('Index/doAddplanPic')}" target="_self">
+<table width="100%" height="200px">
+ 		<tr>
+            <td>图片标题:<input type="text" name="title"/></td>
+       </tr>
+       <tr>
+       	    <td>链接地址:<input type="text"  name="urls" value=""></td>	
+	   </tr>
+	   <tr>
+		<td>图片上传:<input type="text" style="margin-left:10px;" id="url1" name="albums" value=""><input style="margin-left:5px;" type="button" id="image1" value="选择图片">（网络图片 + 本地上传）</td></tr>
+		<tr>
+   <td><input type="submit" name="submit1" value="保存" class="submit" onclick="return Smit($(this),'myform')" /></td>
+   		</tr>
+</table>
+ </form>
+ 
+<div>
+
+<ul>          
+                <foreach name="plan" item="vo">
+              <li style="float:left; border:1px solid #0C3; margin:5px;">  <div>
+              <img src="http://115.28.215.122{$item['pic']}" width="200" height="150"/>  </div>
+              <div>
+              <a href="{:U('Index/delete',array('bid'=>$vo['bid']))}">删除</a></div>
+                 </li>
+              </foreach>
+               
+</ul>
+<div style="clear:both;"/>
+
+
+
+
+</body>
+</html>

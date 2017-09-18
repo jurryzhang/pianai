@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>投票</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,target-densitydpi=device-dpi">
+<link href="__PUBLIC__/Home/css/vote.css" rel="stylesheet" type="text/css">
+<script src="__PUBLIC__/Admin/js/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+<div class="vote_bigbox">
+	<div class="title">
+    	<h1>偏爱网投票</h1>
+        <!-- <p>已有151203人参与投票</p> -->
+        <div class="clearfix"></div>
+    </div>
+	<ul class="vote_box">
+    <form name="myform" id="myform" method="post" >
+  <foreach name="result" item="item" key="key">
+    	<li>
+        	<div class="vote_img">
+              <!--	<img style="width:200px;height:180px;" src="__PUBLIC__/Admin/note/{$item.pic}" class="vote_img01" alt="图片">-->
+            	{++$key}
+                
+            </div>
+            
+          <div class="vote_content">  
+            	<h1 class="vote_title"><a href="#">{$item.title}</a></h1>
+            	<dl>
+        			<dt>{$item.content}</dt>
+                    
+            		<dd>当前得票：<span id="praise_{$item['tid']}">{$item.praise}</span></dd>
+                    <div class="clearfix"></div>
+            	</dl>
+           </div>
+           
+
+          <a href="#" data-id="{$item['tid']}" style="float: right;" >
+          	<!-- <img src="__PUBLIC__/Home/images/vote.png"> -->
+           <!-- 	<p> 点赞</p> -->
+          <input type="checkbox" value="{$item.tid}" id="Checkbox{$item.tid}" name="tid[]" class="tid"/>
+		</a>
+
+           <div class="clearfix"></div>
+        
+
+        </li>
+    </foreach>
+  </form>
+    </ul>
+
+  </div>
+
+
+
+ <div class="vote_arrow" id="login">
+           
+           <form action="{:U('Mobile/login')}" method="post">
+           <dl class="register_box">
+		<dt>用户登录</dt>
+              <dd>
+                <h3>手机号:</h3>
+                  <input type="text" name="username"/>
+                <div class="clearfix"></div>
+                </dd>
+                
+              <dd>
+                <h3>密&nbsp;码:</h3>
+                  <input type="password" name="password"/>
+                <div class="clearfix"></div>
+                </dd>
+                
+              <dd>
+                  <input type="submit" value="登&nbsp;录" class="register">
+                </dd>
+                
+           </dl>
+           </form>
+          </div> 
+          <div style="position:fixed;bottom:10px;right:30px;" id="toupiao">
+
+<img src="__PUBLIC__/Home/image1/vote.png">
+<span  style="color:#333;font-weight:bold;font-size:14px;" >投票</span>
+          </div>
+<script type="text/javascript">
+    if ("{$uid}"==0) {
+        $("#login").show();
+      }
+
+    //点击投票
+    /*$("#toupiao").click(function(){
+          if ("{$uid}"==0) {
+            $("#login").show();
+          }else{
+                var count=0;
+                $('input[class="tid"]:checked').each(function(){
+                     count++;
+                     //alert($(this).val());
+                });
+                  if (count==10){
+                    $("#myform").attr("action", "{:U('Vote/praise')}");
+                      $("#myform").submit();
+                  }else if(count<10){
+                     alert("您好，您的票数是"+count+",还剩"+(10-count)+"票。");
+                  }else{
+                    alert("您好，您的票数是"+count+",已超过10票。请重新选择！");
+                  }
+
+          }
+    });*/
+</script>
+</body>
+</html>

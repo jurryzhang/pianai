@@ -1,0 +1,103 @@
+<include file="public/head" />
+
+<form action="{:U('Index/register_no2')}" method="post" id="loginform">	
+		
+<div class="ddd" style="margin-top: 90px;">
+	
+    <div class="s-jubao-box" style="padding-top: 150px;">
+    	
+    	<div class="register_box">
+	<img src="__PUBLIC__/Home/image/no01.png"/>
+	<div class="register_title">
+		
+		<p>创建账号</p>
+		<p style=" margin-left: 280px; margin-right: 280px;">完善信息</p>
+		<p>择偶条件</p>
+		<div class="clearfix"></div>
+	</div>
+	
+</div>
+
+    	
+    	
+    	
+    	<div style=" border-right: 1px solid #DDDDDD; width: 400px; height: 530px; float: left;">
+    		<div class="s-jubao-left" style="background: url(__PUBLIC__/Home/image/img.png) no-repeat; background-size: contain; background-position: 0 70px;"></div>
+    	</div>
+    	
+    	
+    	<div class="s-jubao-right" style=" padding-top:initial;">
+    	  
+    	   <div class="s-jubao-title">
+    	   		<h1>偏爱婚恋交友网</h1>
+    	   		<p>www.pahl.com</p>
+    	   </div>
+    	   
+    	   <div class="jubao-infor" style=" width: 450px;">
+    	    	<dl class="main-log" style="margin: 0 auto;">
+					<dt class="tit">注册账号</dt>
+					
+					<dd class="main-logbox">
+						<i class="main-user"></i>
+						<input placeholder="手机号/账户名" type="text" name="username" class="main-user-input username">
+					</dd>
+					
+					<dd class="main-logbox">
+						<i class="main-password"></i>
+						<input placeholder="请输入新密码" type="password" name="password" class="main-user-input password">
+					</dd>
+				
+					
+						<dd class="main-logbox">
+						<i class="main-password"></i>
+						<input placeholder="请确认新密码" type="password" name="repassword" class="main-user-input repassword">
+					</dd>
+					<input  type="hidden" name="year" value="{$info.year}" />
+                    <input  type="hidden" name="month" value="{$info.month}" />
+                    <input  type="hidden" name="workad" value="{$info.workad}" />
+                    <input  type="hidden" name="marriage" value="{$info.marriage}" />
+                   <input  type="hidden" name="sex" value="{$info.sex}" />
+                  
+                    
+					
+						<button type="button" class="main-btn" style=" float: none; width: 90%; margin: 0 auto;">下一步</button>
+				
+						
+					
+					<div class="main-pass-text">已有账号？<a href="{:U('Login/login')}">直接登录>></a>
+						</div>
+				</dl>
+    	   </div>
+    	</div>
+    	<div class="clearfix">
+    		
+    	</div>
+    </div>
+    
+</div>
+</form>
+<include file="public/foot" />
+<script>
+ $('.main-btn').click(function(){
+ 	 var username=$('.username').val();
+     var password=$('.password').val();
+     var repassword=$('.repassword').val();
+     var url="{:U('Index/ajaxregister')}";
+	   if(!username || !password){
+	   	 alert('用户名或密码不能为空');
+	   	 return false;
+	   }
+	   if(password != repassword){
+	   	  alert('两次密码输入不一致');
+	   	  return false;
+	   }
+	   $.post(url,{username:username},function(data){
+            if(data=='1'){
+            	alert('用户已经注册过，请登录');
+            	location.href="{:U('Login/login')}";
+            }else{
+            	$('#loginform').submit();
+            }
+	   },'json');
+ })
+</script>

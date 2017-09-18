@@ -1,0 +1,55 @@
+<include file="public/head2" />
+		
+		<div class="main">
+			<div class="main-box1">
+				
+				
+				<div class="main-left"><!--left-->
+					<div class="s-address">当前位置：<a href="">首页 </a>&gt; 个人形象
+					&婚恋教育</div>
+					<ul class="success">
+						<volist name="newslist" id="vo">
+						<li>
+							<a href="" class="success-pic">
+							<img style="width:180px;height:160px;" src="__PUBLIC__/Uploads/news/{$vo['thumb']}" ></a>
+
+							<div class="success-text">
+            	               <a href="">{$vo['title']}</a>
+                               <h5>时间：{$vo['upTime']}<span style="color: #bbb;">|</span>来源：{$vo['tags']|}</h5>
+                               <p> {$vo['cons']|}</p>        
+                               <p><a href="" class="cf60">[查看详情]</a></p>
+							</div>
+						</li>
+						</volist>
+					</ul>
+					
+					<div class="page">
+					
+				    	<div colspan="10">{$page}</div>
+				    <div>
+					
+				</div><!--left-->
+			</div>
+			
+
+		</div>
+	
+		
+	
+<include file="public/foot" />
+
+	
+		  <script>
+        $(".css3-animated-example").collapse({
+          accordion: true,
+          open: function() {
+            this.addClass("open");
+            this.css({ height: this.children().outerHeight() });
+          },
+          close: function() {
+            this.css({ height: "0px" });
+            this.removeClass("open");
+          }
+        });
+      </script>
+

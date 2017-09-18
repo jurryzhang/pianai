@@ -1,0 +1,5 @@
+	<!-- <input type="file" name="photo" /> -->
+							<!-- <div id="imgPicker1" style="float:left;">ักิ๑อผฦฌ</div>  <?php if($user['face']) {?> <img id="preview" class="account_img" src="__ROOT__<?php echo $user['face'];?>" style="width:110px;height:110px;"> <?php } else { ?><img id="preview" class="account_img" src="__PUBLIC__/Home/image/nopic.png" style="width:110px;height:110px;"> <?php }?> <div id="fileList" class="uploader-list" style="position:absolute;"></div>-->
+
+
+<div id="imgPicker1" style="position:absolute;top:50;left:280;padding-left:140px;opacity: 0">ักิ๑อผฦฌ</div><?php if($user['face']) {?> <img id="preview" class="account_img" src="__ROOT__<?php echo $user['face'];?>" style="width:110px;height:110px;"> <?php } else { ?><img id="preview" class="account_img" src="__PUBLIC__/Home/image/nopic.png" style="width:110px;height:110px;"> <?php }?> 

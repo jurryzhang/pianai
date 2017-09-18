@@ -1,0 +1,138 @@
+<include file="public/head2" />
+	</ul>
+</div>	
+		
+<div class="search_box">
+  <form action="{:U('Search/find_accurate')}" method="get" id="seform">	
+	<div class="search-top"></div>
+  </form>
+</div>			
+	<!--	<div class="main"></div>-->
+			
+			<div class="main-box1">
+			<div class="main-left">
+				<ul class="sequence">
+					<if condition="$_GET">
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">综合排序</i></a></li>
+						<else/>
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1 current">综合排序</i></a></li>
+					</if>
+					<if condition="$Think.get.sid neq ''">
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1 current">最新会员  </i></a></li>
+						<else/>
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">最新会员  </i></a></li>
+					</if>
+					<if condition="$Think.get.sage neq ''">
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1 current">年龄</i></a></li>
+						<else/>
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">年龄</i></a></li>
+					</if>
+					<if condition="$Think.get.sheight neq ''">
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1 current">身高</i></a></li>
+						<else/>
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">身高</i></a></li>
+					</if>
+					<if condition="$Think.get.smonthly neq ''">
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1 current">收入</i></a></li>
+						<else/>
+						<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">收入</i></a></li>
+					</if>
+
+					<div class="clearfix"></div>
+				</ul>
+
+	    <script>
+	       $('.sequence>li').click(function(){
+	       	  var i=$(this).index();
+	       	  var ul='';
+	       	  switch (i){
+	       	  	case 0:
+                break;
+                case 1:
+                   ul='sid';
+                break;
+                case 2:
+                    ul='sage';
+                break;
+                case 3:
+                    ul='sheight';
+                break;
+                default:
+                    ul='smonthly';
+                break;
+	       	  }
+	       	  tr="<input type='hidden' name='"+ul+"' value='"+ul+"'>";
+	       	  $('.search-top').after(tr);
+	       	  $('#seform').submit();
+	       })
+	    </script>
+
+
+				<ul class="main-member">
+				 <volist name="user" id="vo">
+					<li>
+					 <php> $piclist = explode(",",substr($vo['photo'],1,strlen($vo['photo']))); </php>
+						<a href="{:U('Userinfo/index',array('uid'=>$vo['id']))}">
+						  	<img src="{$piclist[0]}" style="width:262px;height:262px;"/>
+							<div class="name_title">
+								<h1>{$vo['nickname']}</h1>
+								<img src="__PUBLIC__/Home/image/img01_06.png"/>
+								<span>v2</span>
+								<div class="clearfix"></div>
+							</div>
+							
+							<p>会员号：{$vo['id']}</p>
+                            <p style=" padding: 5px 0 10px;">{$vo['agenow']}岁    {$vo['wordad']}    {$vo['marriage']}</p>
+                            <p style="padding: 10px 0 20px; border-top: 1px dashed #D9D9D9;">自我介绍：{$vo['intro']|mb_substr=###,0,9,'utf-8'}...</p>
+                           
+                          <div class="member_button">
+                          	<img src="__PUBLIC__/Home/image/img01_30.png"/>
+                          	<span id="likeit" data-id="{$vo['id']}" onclick="checkD({$vo['id']})">暗恋她</span>
+                          </div> 
+					    </a>
+					</li>
+			     </volist>
+					<div class="clearfix"></div>
+				</ul>
+								
+			</div>
+		
+
+	</div>
+	
+			<div class="page">{$page}</div>
+<include file="public/foot" />
+<script type='text/javascript'>
+	(function(){
+		 new PopUp_api({el:'.s-jubao',html:'.ddd'});	 
+	})()
+
+
+
+	
+	$("#likeit").click(
+ 		function(){
+ 			var _this = $(this);
+ 			var id = $(this).attr('data-id');
+ 			alert(id+"sssdf");
+ 			var url="{:U('User/likeit')}";
+ 			// if(confirm('删除后不可恢复,您确认要删除吗？')){
+ 			// 	$.ajax({
+ 			// 		type : 'post',
+ 			// 		data : "id="+id,
+ 			// 		url  : url,
+ 			// 		dataType : 'json',
+ 			// 		success : function(msg){
+ 			// 			if(msg == 1){
+ 			// 				alert('删除成功！');
+ 			// 				_this.parent().parent('tr').remove();
+ 			// 			}else{
+ 			// 				alert(msg.error);
+ 			// 			}
+ 			// 		}
+ 			// 	});
+ 			// }	
+ 		}
+ 	);
+ 	
+</script>

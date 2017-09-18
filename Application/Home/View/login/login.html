@@ -1,0 +1,70 @@
+<include file="public/head" />		
+<div class="ddd">
+	
+    <div class="s-jubao-box">
+    	<div style=" border-right: 1px solid #DDDDDD; width: 400px; height: 530px; float: left;">
+    		<div class="s-jubao-left" style="background: url(__PUBLIC__/Home/image/img.png) no-repeat; background-size: contain; background-position: 0 70px;"></div>
+    	</div>
+    	
+    	
+    	<div class="s-jubao-right">
+    	   <!--<img src="images/mlogo.png" style="margin-top: 100px;" />-->
+    	   <div class="s-jubao-title">
+    	   		<h1>偏爱婚恋交友网</h1>
+    	   		<p>www.pahl.com</p>
+    	   </div>
+    	   
+    	   <div class="jubao-infor" style=" width: 450px;">
+    	    	<dl class="main-log" style="margin: 0 auto;">
+					<dt class="tit">会员登录</dt>
+					
+					<dd class="main-logbox">
+						<i class="main-user"></i>
+						<input placeholder="手机号/账户名" type="text" class="main-user-input username" name="username">
+					</dd>
+					
+					<dd class="main-logbox">
+						<i class="main-password"></i>
+						<input placeholder="请输入密码" type="password" class="main-user-input password" name="password">
+					</dd>
+					
+					<dd class="main-button">
+						<button type="button" class="main-btn" >立即登录</button>
+						<a href="" class="forget">忘记密码?</a>
+						<div class="clearfix"></div>
+					</dd>
+					
+					<div class="main-pass-text">还不是会员？<a href="{:U('Index/register_no1')}">立即注册>></a>
+						</div>
+				</dl>
+    	   </div>
+    	</div>
+    	<div class="clearfix">
+    		
+    	</div>
+    </div>
+    
+</div>
+<include file="public/foot" />	
+<script>
+//ajax判断用户名密码是否正确
+$(".main-btn").click(function(){
+   var username=$('.username').val();
+   var password=$('.password').val();
+   var url="{:U('Login/dologin')}";
+   if(!username || !password){
+   	 alert('用户名或密码不能为空');
+   	 return false;
+   }
+   $.post(url,{password:password,username:username},function(data){
+        if(data.success=='1'){
+        	alert(data.msg);
+        	location.href="{:U('Index/index')}";
+        }else{
+        	alert(data.msg);
+        	return false;
+        }
+   },'json')
+
+})
+</script>

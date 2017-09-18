@@ -1,0 +1,13 @@
+/*成功页面显示样式*/
+.main  .suc{border:1px solid #008800;height:70px;background-color:#dff0d8;padding:15px 30px;}
+.main  .suc  img{padding-right:5px;}
+.main  .suc  .suc_alert{color:#008800;font-size:16px;font-weight:normal;}
+
+.page{text-align: center;padding:10px 10px;}
+.meslist .nobor_td{border: none;border-top: 1px solid #eee;}
+
+.tishi{font-size: 13px;color:#666;}
+.err_alert{border-top:1px solid #ff6666;border-left:1px solid #ff6666;border-right:1px solid #ffbdb9;border-bottom:1px solid #ffbdb9;background-color: #fdf4f4}
+.main  .suc #skip{font-size:14px;color: #666;font-weight: normal;}
+.main  .suc #skip .jump{color:#f00;}
+a{text-decoration: none;}

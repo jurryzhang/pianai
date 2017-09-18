@@ -1,0 +1,111 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/images/metinfo.css" />
+
+<script charset="utf-8" src="__PUBLIC__/Admin/js/jquery.min.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/themes/default/default.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.css" />
+	<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/kindeditor.js"></script>
+	<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/lang/zh_CN.js"></script>
+	<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.js"></script>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor1 = K.create('textarea[name="editor01"]', {
+				cssPath : '__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.css',
+				uploadJson : '__PUBLIC__/Admin/kindeditor-4.1.10/php/upload_json.php',
+				fileManagerJson : '__PUBLIC__/Admin/kindeditor-4.1.10/php/file_manager_json.php',
+				allowFileManager : true,
+				afterCreate : function() {
+					var self = this;
+					K.ctrl(document, 13, function() {
+						self.sync();
+						K('form[name=example]')[0].submit();
+					});
+					K.ctrl(self.edit.doc, 13, function() {
+						self.sync();
+						K('form[name=example]')[0].submit();
+					});
+				}
+			});
+			prettyPrint();
+		});
+	</script>
+</head>
+
+<body>
+
+	<div class="metinfotop">
+	<div class="position">简体中文：店铺管理 > <a href="{:U('Shop/edit')}">修改店铺</a></div>
+{$data}
+	</div>
+	<div class="clear"></div>
+
+
+<div class="stat_list">
+	<ul>
+		<li class="now"><a href="#" title="基本信息">基本信息</a></li>
+	    <li class="now"><a href="#" title="商铺列表">商铺列表</a></li>
+	</ul>
+</div>
+<form method="POST" name="myform" enctype="multipart/form-data" action="{:U('News/doEdit')}" target="_self">
+	<input name="id" type="hidden" value="{$data.id}" />
+<table cellpadding="2" cellspacing="1" class="table">
+
+    <tr> 
+        <td class="text"><span class="bi_tian">*</span>标题：</td>
+        <td class="input"><input name="title" placeholder="标题"  type="text" class="text" value="{$data.title}" /></td>
+    </tr>
+     <tr> 
+        <td class="text"><span class="bi_tian">*</span>简介：</td>
+        <td class="input"><input name="cons" placeholder="简介"  type="text" class="text" value="{$data.cons}" /></td>
+    </tr>
+	  <tr> 
+        <td class="text"><span class="bi_tian">*</span>案例图片：</td>
+        <td class="input upload">
+			<input name="thumb" type="file" id="file_upload" />
+			<script type='text/javascript'>
+				$(document).ready(function(){
+					metuploadify('#file_upload','upimage','met_logo');
+				});
+			</script>		
+            <img src="__PUBLIC__/Uploads/news/{$data.thumb}" style="width:50px;"/>
+            </td>
+    </tr>
+    <input type="hidden" name="type" value="{$data.type}" />
+ 
+    <tr>
+      <td class="text"><span class="bi_tian">*</span>顺序：</td>
+      <td class="input"><input name="sequence" placeholder="请填写标题"  type="text" class="text" value="{$data.sequence}" />
+          <input type="hidden" name="type" value="$_GET['type']">
+      </td>
+     </tr>
+    <tr>
+      <td class="text"><span class="bi_tian">*</span>内容：</td>
+      <td colspan="2" class="text">
+			<textarea name="editor01" style="width:800px;height:300px;">
+            {$data.intro}
+			</textarea>		
+		</td>
+    </tr> 	
+	<tr> 
+        <td class="text"></td>
+	    <td class="submit">
+		<input type="submit" name="submit1" value="修改" class="submit" onclick="return Smit($(this),'myform')" />		</td>
+    </tr>
+  </table>
+</form>
+<script>
+
+$("input[type='radio']").each(function(){
+
+if($('#typenum').val()==$(this).val()){
+$(this).attr("checked","checked");	
+}
+});
+</script>
+</body>
+</html>
+

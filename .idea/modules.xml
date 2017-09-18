@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../01/.idea/01.iml" filepath="$PROJECT_DIR$/../01/.idea/01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../TP_Projecttwo/.idea/TP_Projecttwo.iml" filepath="$PROJECT_DIR$/../TP_Projecttwo/.idea/TP_Projecttwo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../check/.idea/check.iml" filepath="$PROJECT_DIR$/../check/.idea/check.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../excel/.idea/excel.iml" filepath="$PROJECT_DIR$/../excel/.idea/excel.iml" />
+      <module fileurl="file://D:\phpStudy\WWW\mail\.idea\mail.iml" filepath="D:\phpStudy\WWW\mail\.idea\mail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pianai.iml" filepath="$PROJECT_DIR$/.idea/pianai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../psd1608/.idea/psd1608.iml" filepath="$PROJECT_DIR$/../psd1608/.idea/psd1608.iml" />
+      <module fileurl="file://D:\phpStudy\WWW\register\.idea\register.iml" filepath="D:\phpStudy\WWW\register\.idea\register.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tuisong/.idea/tuisong.iml" filepath="$PROJECT_DIR$/../tuisong/.idea/tuisong.iml" />
+    </modules>
+  </component>
+</project>

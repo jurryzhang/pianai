@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<script type="text/javascript" src="./dist/js/jquery-1.7.1.min.js"></script>
+
+	<title></title>
+
+	<!--
+		<script src="http://192.168.1.100:8881/target/target-script-min.js#anonymous"></script>
+	-->
+
+	<!--引用css-->
+	<link rel="stylesheet" type="text/css" href="./dist/css/wangEditor-mobile.css">
+	<script language="javascript" type="text/javascript">   
+            
+            function click_a(divDisplay)   
+            {   
+                if(document.getElementById(divDisplay).style.display != "block")   
+                {   
+                    document.getElementById(divDisplay).style.display = "block";   
+                }   
+                else  
+                {   
+                    document.getElementById(divDisplay).style.display = "none";   
+                }   
+            }   
+</script>
+	<style type="text/css">
+
+		body {
+			background-color:#f1f1f1;
+			text-shadow: 0 0 2px #ccc;
+		}
+
+		.wangEditor-mobile-menu-container {
+			text-shadow: none;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.title {
+			padding: 15px 0;
+			text-align: center;
+			opacity: 0.7;
+		}
+
+		.container {
+			width:100%; 
+			height:100%; 
+			border:1px solid #ccc;
+			background-color: #fff;
+			text-align: left;
+			box-shadow: 0 0 10px #ccc;
+			text-shadow: none;
+		}
+
+		footer {
+			width: 100%;
+			text-align: center;
+			padding: 10px 0;
+			opacity: 0.6;
+			margin-top: 10px;
+		}
+.do_btm{position:fixed; bottom:0;height:38px;line-height:38px;width:50%; background:#4d7de2;color:#fff;}
+#divOne_1{display:none;border-radius: 5px;width:200px;height:50px;position: fixed;top:0;left:50%;margin-left: -100px;top: 50%;margin-top: -25px;}
+
+
+	</style>
+</head>
+<body>
+
+<div id="mypic"></div>
+
+<div class="do_btm" onclick="return click_a('divOne_1')" style="left:0;text-align:center;">上传图片</div>
+
+
+<div id="divOne_1" style="background:#ededed;">
+        	
+			     
+  <div class="camera-area">
+      <form enctype="multipart/form-data" method="post">
+        <input type="file" name="fileToUpload" class="fileToUpload" accept="image/*" capture="camera"/>
+          <div class="upload-progress"><span></span></div>
+        </form>
+      <div class="thumb"></div>
+  </div>
+			
+		</div>
+</body>
+</body>
+
+
+	 <script type="text/javascript" src="./zepto.min.js"></script>
+  <script type="text/javascript" src="./upload.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      $(".camera-area").fileUpload({
+        "url": "savetofile.php",
+        "file": "myFile"
+      });
+    })
+
+
+	
+	function setimg(path){
+  
+       $("#mypic").append('<img src="http://115.28.215.122/upimg/uploads/"'+path+'>');
+       window.stub.jsMethod("meimeide");
+	}
+
+
+	</script>
+
+
+
+ 
+</html>
+
+

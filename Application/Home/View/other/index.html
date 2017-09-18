@@ -1,0 +1,42 @@
+
+
+	<include file="public/head2" />	
+<div class="remind_box" style="background: #f2f2f2;">
+	<div class="remind_title">
+		
+	
+	<h1> 
+  <switch name="datas['nid']" >
+    <case value="1" >企业介绍</case>
+    <case value="2">会员条款</case>
+    <case value="3">常见问题</case>
+    
+    <case value="4">征婚提醒</case>
+    
+ 
+    </switch></h1>
+	
+{$datas.intro|htmlspecialchars_decode=###}
+
+</div>
+
+</div>
+
+
+<!--底部栏-->
+<include file="public/foot" />
+	
+		
+		  <script>
+        $(".css3-animated-example").collapse({
+          accordion: true,
+          open: function() {
+            this.addClass("open");
+            this.css({ height: this.children().outerHeight() });
+          },
+          close: function() {
+            this.css({ height: "0px" });
+            this.removeClass("open");
+          }
+        });
+      </script>

@@ -1,0 +1,319 @@
+<include file="public/head2" />
+	</ul>
+</div>	
+		
+<div class="search_box">
+  <form action="{:U('Search/index')}" method="get" id="seform">	
+	<div class="search-top">
+		
+					<!--<div class="search">
+						<input type="text" placeholder="更多心仪对象，请搜索" />
+						<button class="search-btn"><img src="__PUBLIC__/Home/image/search.png"/></button>
+					</div>
+					-->
+					<h1>条件查找</h1>
+					<ul class="search-find">
+						<li>
+							<span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+							<select name="sex">
+							<?php if($search['sex']=='1'){ ?>
+								<option value="1" selected>男</option>
+								<option value="2">女</option>
+							<?php }else{?>
+							     <option value="1">男</option>
+								 <option value="2" selected>女</option>
+							<?php }?>
+							</select>
+						</li>
+						<li>
+							<span>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</span>
+							<select name="age">
+							<?php if($search['age']=='35以上'){ ?>
+								<option value="-1">不限</option>
+								<option value="20~25">20~25</option>
+								<option value="25~30">25~30</option>
+								<option value="30~35">30~35</option>
+								<option value="35以上" selected>35以上</option>
+							<?php }else if($search['age']=='20~25'){?>
+							    <option value="-1">不限</option>
+								<option value="20~25" selected>20~25</option>
+								<option value="25~30">25~30</option>
+								<option value="30~35">30~35</option>
+								<option value="35以上">35以上</option>
+							<?php }else if($search['age']=='25~30'){?>
+							    <option value="-1">不限</option>
+								<option value="20~25">20~25</option>
+								<option value="25~30" selected>25~30</option>
+								<option value="30~35">30~35</option>
+								<option value="35以上">35以上</option>
+							<?php }else if($search['age']=='30~35'){?>
+							    <option value="-1">不限</option>
+								<option value="20~25">20~25</option>
+								<option value="25~30">25~30</option>
+								<option value="30~35" selected>30~35</option>
+								<option value="35以上">35以上</option>
+							<?php }else{?>
+							    <option value="-1" selected>不限</option>
+								<option value="20~25">20~25</option>
+								<option value="25~30">25~30</option>
+								<option value="30~35">30~35</option>
+								<option value="35以上">35以上</option>
+							<?php }?>
+							</select>
+						</li>
+								<li>
+							<span>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：</span>
+							<select name="height">
+							<?php if($search['height']=='180以上'){ ?>
+								<option value="-1" selected>不限</option>
+								<option value="170~175">170~175</option>
+								<option value="175~180">175~180</option>
+								<option value="180以上">180以上</option>
+							<?php }else if($search['height']=='170~175'){?>
+							    <option value="-1">不限</option>
+								<option value="170~175" selected>170~175</option>
+								<option value="175~180">175~180</option>
+								<option value="180以上">180以上</option>
+							<?php }else if($search['height']=='175~180'){?>
+							    <option value="-1">不限</option>
+								<option value="170~175">170~175</option>
+								<option value="175~180" selected>175~180</option>
+								<option value="180以上">180以上</option>
+							<?php }else{?>
+							    <option value="-1" selected>不限</option>
+								<option value="170~175">170~175</option>
+								<option value="175~180">175~180</option>
+								<option value="180以上">180以上</option>
+							<?php }?>
+							</select>
+						</li>
+						<li>
+							<span>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：</span>
+							<select name="housing">
+							<?php if($search['housing']=='1'){ ?>
+								<option value="-1">不限</option>
+								<option value="2">已购房（无贷款）</option>
+								<option value="1" selected>已购房（有贷款）</option>
+							<?php }else if($search['housing']=='2'){?>
+							    <option value="-1">不限</option>
+								<option value="2" selected>已购房（无贷款）</option>
+								<option value="1">已购房（有贷款）</option>	
+							<?php }else{?>	
+								<option value="-1" selected>不限</option>
+								<option value="2">已购房（无贷款）</option>
+								<option value="1">已购房（有贷款）</option>
+							<?php }?>
+							</select>
+						</li>
+								<li>
+							<span>收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入：</span>
+							<select name="monthly">
+							<?php if($search['monthly']=='20000以上'){ ?>
+								<option value="-1">不限</option>
+								<option value="5000以下">5000以下</option>
+								<option value="5000~10000">5000~10000</option>
+								<option value="10000~20000">10000~20000</option>
+								<option value="20000以上" selected>20000以上</option>
+							<?php }else if($search['housing']=='5000以下'){?>
+							    <option value="-1">不限</option>
+								<option value="5000以下" selected>5000以下</option>
+								<option value="5000~10000">5000~10000</option>
+								<option value="10000~20000">10000~20000</option>
+								<option value="20000以上">20000以上</option>
+							<?php }else if($search['housing']=='5000~10000'){?>
+							    <option value="-1">不限</option>
+								<option value="5000以下">5000以下</option>
+								<option value="5000~10000" selected></option>
+								<option value="10000~20000">10000~20000</option>
+								<option value="20000以上">20000以上</option>
+							<?php }else if($search['housing']=='10000~20000'){?>
+							    <option value="-1">不限</option>
+								<option value="5000以下">5000以下</option>
+								<option value="5000~10000">5000~10000</option>
+								<option value="10000~20000" selected>10000~20000</option>
+								<option value="20000以上">20000以上</option>
+							<?php }else{?>	
+							    <option value="-1" selected>不限</option>
+								<option value="5000以下">5000以下</option>
+								<option value="5000~10000">5000~10000</option>
+								<option value="10000~20000">10000~20000</option>
+								<option value="20000以上">20000以上</option>
+							<?php }?>	
+							</select>
+						</li>
+						<li>
+							<span>婚姻状况：</span>
+							<select name="marriage">
+							<?php if($search['marriage']=='2'){ ?>
+								<option value="-1">不限</option>
+								<option value="3">未婚</option>
+								<option value="1">离婚</option>
+								<option value="2" selected>丧偶</option>
+							<?php }else if($search['marriage']=='3'){?>
+							    <option value="-1">不限</option>
+								<option value="3" selected>未婚</option>
+								<option value="1">离婚</option>
+								<option value="2">丧偶</option>
+							<?php }else if($search['marriage']=='1'){?>
+							    <option value="-1">不限</option>
+								<option value="3">未婚</option>
+								<option value="1" selected>离婚</option>
+								<option value="2">丧偶</option>
+							<?php }else{?>
+							    <option value="-1" selected>不限</option>
+								<option value="3">未婚</option>
+								<option value="1">离婚</option>
+								<option value="2">丧偶</option>
+							<?php }?>
+							</select>
+						</li>
+								<li>
+							<span>有无小孩：</span>
+							<select name="child">
+							<?php if($search['child']=='2'){ ?>
+								<option value="-1">不限</option>
+								<option value="3">无</option>
+								<option value="1">有，不同住</option>
+								<option value="2" selected>有，同住</option>
+							<?php }else if($search['child']=='3'){ ?>
+							    <option value="-1">不限</option>
+								<option value="3" selected>无</option>
+								<option value="1">有，不同住</option>
+								<option value="2">有，同住</option>
+							<?php }else if($search['child']=='1'){ ?>
+							    <option value="-1">不限</option>
+								<option value="3">无</option>
+								<option value="1" selected>有，不同住</option>
+								<option value="2">有，同住</option>
+							<?php }else{?>
+							    <option value="-1" selected>不限</option>
+								<option value="3">无</option>
+								<option value="1">有，不同住</option>
+								<option value="2">有，同住</option>
+							<?php }?>
+							</select>
+						</li>
+						<li>
+							<span>籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：</span>
+							<select name="wordad">
+							<?php if($search['wordad']=='郑州'){ ?>
+								<option value="-1">不限</option>
+								<option value="郑州" selected>河南 郑州</option>
+							<?php }else{?>
+							    <option value="-1" selected>不限</option>
+								<option value="郑州">河南 郑州</option>
+							<?php }?> 
+							</select>
+						</li>
+						
+						<div class="clearfix"></div>
+					</ul>
+					<div class="s-btnbox">
+						<button class="s-btn">搜索</button>
+					</div>				
+	</div>	
+  </form>
+</div>			
+	<!--	<div class="main"></div>-->
+			
+			<div class="main-box1">
+			<div class="main-left">
+				<ul class="sequence">
+					<li><a href="javascript:void(0)" class="sort_a"><i style="color: #333333;">综合排序</i></a></li>
+					<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">最新会员  </i></a></li>
+					<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">年龄</i></a></li>
+					<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">身高</i></a></li>
+					<li><a href="javascript:void(0)" class="sort_a"><i class="sort_a1">收入</i></a></li>
+					<div class="clearfix"></div>
+				</ul>
+	    <script>
+	       $('.sequence>li').click(function(){
+	       	  var i=$(this).index();
+	       	  var ul='';
+	       	  switch (i){
+	       	  	case 0:
+                break;
+                case 1:
+                   ul='sid';
+                break;
+                case 2:
+                    ul='sage';
+                break;
+                case 3:
+                    ul='sheight';
+                break;
+                default:
+                    ul='smonthly';
+                break;
+	       	  }
+	       	  tr="<input type='hidden' name='"+ul+"' value='"+ul+"'>";
+	       	  $('.s-btnbox').after(tr);
+	       	  $('#seform').submit();
+	       })
+	    </script>
+				<ul class="main-member">
+				 <volist name="user" id="vo">
+					<li>
+						<a href="{:U('Userinfo/index',array('uid'=>$vo['id']))}">
+						  	<img src="{$vo['headpic']}" style="width:262px;height:262px;"/>
+							<div class="name_title">
+								<h1>{$vo['nickname']}</h1>
+								<img src="__PUBLIC__/Home/image/img01_06.png"/>
+								<span>v2</span>
+								<div class="clearfix"></div>
+							</div>
+							
+							<p>会员号：100{$vo['id']}</p>
+                            <p style=" padding: 5px 0 10px;">{$vo['agenow']}岁    {$vo['wordad']}    {$vo['marriage']}</p>
+                            <p style="padding: 10px 0 20px; border-top: 1px dashed #D9D9D9;">自我介绍：{$vo['intro']|mb_substr=###,0,9,'utf-8'}...</p>
+                            </a>
+                          <div class="member_button">
+                          	<img src="__PUBLIC__/Home/image/img01_30.png"/>
+                          	<span class="likeit" data-id="{$vo['id']}">暗恋她</span>
+                          </div> 
+					   
+					</li>
+			     </volist>
+					<div class="clearfix"></div>
+				</ul>
+								
+			</div>
+		
+
+	</div>
+	
+			<div class="page">{$page}</div>
+<include file="public/foot" />
+<script type='text/javascript'>
+	(function(){
+		 new PopUp_api({el:'.s-jubao',html:'.ddd'});	 
+	})()
+
+	$("span.likeit").click(function(){
+ 			var _this = $(this);
+ 			var hisid = $(this).attr('data-id');
+ 			// alert(hisid);
+ 			var url="{:U('Search/likeit')}";
+ 			if ("{$Think.session.uid}") { 
+               	$.ajax({
+ 					type : 'post',
+ 					data : "hisid="+hisid,
+ 					url  : url,
+ 					//dataType : 'json',
+ 					success : function(msg){
+ 						if(msg != 0){
+ 							alert('暗恋成功！');
+ 							//_this.parent().parent('tr').remove();
+ 						}else{
+ 							alert('不好意思！暗恋过了或出错了！');
+ 						}
+ 					}
+ 				});
+ 			}else{
+ 			   window.location.href="{:U('Login/login')}";	
+ 			};
+ 			
+ 			
+ 		}
+ 	);
+</script>

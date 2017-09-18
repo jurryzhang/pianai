@@ -1,0 +1,182 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*重置*/
+body{margin: 0; padding: 0; background-color: #f2f2f2; font-family: "微软雅黑"; color: #333333;}
+ul,dl,dd,h1,h2,h3,p{ margin: 0;padding: 0; font-weight: normal;}
+li{list-style: none;}
+a{ text-decoration: none; color: #fff;}
+img{ display: block;}
+.clearfix{clear: both;}
+
+/*页头*/
+.top_title{ background-color: #fff;}
+.top_title ul{max-width: 1200px; min-width: 940px; margin: 0 auto; padding: 0 20px; position: relative;}
+.top_title ul li{float: left; padding: 40px 0;}
+.top_title .logo{width: 200px; margin-right:3%;}
+.top_title .logo img{ width: 100%;}
+.login_box{ margin-top: 25px; width: 50%}
+.login_box input{border: 1px solid #d9d9d9; color: #999; line-height: 40px; height: 40px; font-size: 18px; 
+				text-indent: 10px; width:40%;}
+.login_box .login_button{ background-color: #d00053; color:#FFFFFF; border-radius: 6px; 
+				text-indent:initial; padding: 0 20px; width: auto;}
+.top_title .select_box{ float: right; }
+.select_box a{line-height: 90px; font-size: 18px; color: #999999; margin-left: 10px;}
+.select_box .register{color: #d00053;}
+.select_box a:hover{ color: #d00053;}
+
+/*banner*/
+.banner_box{ width:100%;position:relative; cursor:pointer; height: 540px; overflow: hidden;}
+.banner_box>img{ position: absolute; left: 50%; margin-left: -960px; height: 540px;}
+
+
+
+.btn li{ float:left; width:40px; height:12px; background-color:#d00053; border-radius:15px; margin-left:10px;
+ margin-right:10px;}
+.btn{ position:absolute; bottom:10px; left:50%; margin-left:-120px;}
+.btn .current{ border:1px #d00053 solid; background-color:rgba(0,255,255,0);}
+
+.registry_entry{ background: rgba(255,255,255,0.6); width: 30%; position: absolute; top:40px; padding: 30px; left: 20px; z-index: 1;}
+.registry_entry dt{ font-size: 26px; color: #d00053; text-align: center; margin-bottom: 20px;}
+.registry_entry dd{ margin-bottom: 20px;}
+.registry_entry dd p{ float: left;margin-bottom: 10px;}
+.registry_entry dd .gender{ border: 1px solid #666666;}
+
+.years select{ width: 23%; border-radius: 4px; height: 30px;}
+.years option { border: 1px solid #999999;}
+.registry_entry input{ line-height: 26px; text-indent: 5px; border-radius: 4px;border: 1px solid #999; }
+
+.registry_botton{ margin-top: 40px;}
+.registry_botton button{background: #d00053; color: #fff; border: 0; font-size: 18px;width:100%;line-height: 40px; border-radius: 6px;}
+.registry_botton .register{ text-align: center; color: #666666; display: block; line-height: 30px;}
+
+
+.leftarrows{ position:absolute; top:50%; left:10px; width: 4%;}
+.rightarrows{position:absolute; top:50%; right:10px; margin-top: -36px; width: 4%;}
+.leftarrows img,.rightarrows img{ width: 100%;}
+
+.couter_box{max-width: 1200px;min-width: 940px; margin: 0 auto; padding: 60px 20px;}
+.handpick_title{text-align: center;}
+.handpick_title img{width:300px; margin: 0 auto;}
+.handpick_title h1{ font-size: 16px; color:#999999; padding-top: 10px;}
+
+.handpick_nav{ margin: 0 auto; width: 788px; padding-top: 20px; padding-bottom: 40px;}
+.handpick_nav li{ float: left; border: 2px solid #d00053; border-radius: 6px; margin-left: 10px; margin-right: 10px; 
+line-height: 30px; padding: 0 10px; color: #d00053; cursor: pointer;}
+.handpick_nav .current{background-color: #d00053; color: #FFFFFF;}
+/*@font-face {
+ font-family:"微软雅黑";
+ src:url(../fonts/fangzhengkatongjian.ttf);
+}*/
+.handpick_img{ margin-bottom: 40px;}
+.handpick_img li{ width: 50%; float: left;}
+.handpick_img img{width: 100%;}
+.handpick_img .img_left{float: left; width: 49%;}
+.handpick_img .img_right01,.handpick_img .img_right02{ width: 49%; margin-right: 1%; float: right;}
+.handpick_img .img_right02{ margin-top: 1%;}
+
+.handpick_img .img_box{ position: relative; overflow: hidden;}
+.img_message{ position: absolute; width: 100%; bottom: 0; background: rgba(0,0,0,0.6); color: #FFFFFF; text-align: center; padding: 10px 0;}
+.img_message dt{ font-size: 18px;}
+.img_message dt span{font-size: 14px; margin-left: 10px;}
+.img_message dd .botton{ color: #FFFFFF; background-color:#d00053; font-size: 14px; line-height: 30px; padding: 0 10px 3px; border-radius: 3px; 
+margin-left: 5px; margin-right: 5px;} 
+
+.more{ font-size: 22px; color: #999999; line-height: 60px; width: 200px; margin: 0 auto; text-align: center; border-radius: 8px; 
+border: 1px solid #cccccc; display: block;}
+
+
+
+.bgbox{ background: #FFFFFF; width: 100%;}
+.serve { margin-top: 20px;}
+.serve li{ width: 32%; float: left; text-align: center; margin-top: 30px; }
+.serve .serve_center{margin-left: 2%; margin-right: 2%; }
+.serve img{ width: 100%;}
+.serve h1{ font-size: 22px; color:#d00053; line-height: 40px; margin-top: 10px;}
+.serve p{color: #333333; font-size: 18px; line-height: 26px}
+
+
+.wachet_box{ margin: 0 auto; width: 646px; padding: 40px 0;}
+.wachet_box>img{ float: left;}
+.qr_code{ margin-top: 100px; float: right;}
+.qr_code p{ text-align: center; color: #999999;}
+
+.foot_box{ width: 24.5%; height: 180px; border-right: 1px  #C0C0C0 dashed; float: left;}
+.foot_box4{ border: none;}
+.foot_box dl{ padding-left: 20px;}
+.foot_box dt img{ float: left; margin-right: 10px;}
+.foot_box dt h2{ font-size: 20px; line-height: 36px;} 
+.foot_box dd{ float: left; margin-right: 20px; color: #666; margin-top: 20px; line-height: 22px;}
+.foot_box dd a{color: #666;}
+
+
+/*个人信息页*/
+
+.infor_button{ width: 720px;margin: 0 auto; margin-top: 20px;}
+.infor_button li{ float: left; background:#d00053; margin-left: 10px; margin-right: 10px; 
+padding:0px 30px; border-radius: 8px;}
+.infor_button li img{ float: left; margin-right: 10px; margin-top: 10px;}
+.infor_button li span{ float: left; color: #FFFFFF; line-height: 40px;}
+
+.s-introduce { margin-top: 20px; overflow: hidden;}
+.s-introduce>img{ float: left; width: 50px; margin-right: 10px;}
+.s-introduce .tit{ float: left; font-size: 22px; color: #d00053; line-height: 40px;}
+
+
+.name_title h1{float: left; font-size: 18px;color: #d00053; line-height:40px;}
+.name_title img{ width: 26px; float: left; margin: 10px 5px 0 10px;}
+.name_title span{ font-size: 16px; line-height: 40px; color:#ec9e4d;}
+
+.member_button{background:#d00053; padding: 10px 20px; border-radius: 8px; width: 96px; margin:0 auto;}
+.member_button img{ float: left; margin-right: 10px;}
+.member_button span {color: #FFFFFF; line-height: 20px;}
+
+
+/*搜索页*/
+.search_box{background: #FFFFFF; margin-top: 20px;}
+
+/*登录页*/
+.top_title .right{ float: right;}
+.top_title .right img{ width: 100px; float: left; margin-right: 10px;}
+.top_title .right span{ color: #999999; line-height: 26px; margin-top: 20px; display: inline-block;}
+
+.s-jubao-title{color: #d00053; text-align: center; margin-bottom: 20px;}
+.s-jubao-title h1{ font-size: 30px; }
+.s-jubao-title p{font-size: 20px; line-height: 34px;}
+
+.main-button{ width: 90%; margin: 0 auto;}
+.main-button .forget{ float: right; color: #999999; line-height: 40px;}
+
+/*注册页*/
+.register_box{ width: 850px; margin: 0 auto; position:absolute; top: -52px;}
+.register_box img{width: 100%;}
+.register_title p{ float: left; font-size: 24px; line-height: 40px;}
+
+/*完善信息*/
+.message_box{ border: 1px solid #e6e6e6;}
+.message_box h1{ background: #e6e6e6; line-height: 60px;text-indent: 30px;}
+.message{ padding: 30px 30px 16px;}
+.message input{font-size: 16px; border: 1px solid #999; width: 40%; height: 30px; 
+background: transparent; border-radius: 4px; color: #333; text-indent: 5px;}
+
+
+.message_box01{ padding: 0 30px; color: #666666;}
+.message_box01 li{ margin-bottom: 30px;}
+.message_box01 li span{ float: left; margin-right: 10px; line-height: 20px; text-align: center;}
+
+
+.next{ width: 400px; margin-bottom: 40px;}
+.next p{ font-size: 14px; color: #999; line-height: 30px; text-align: center;}
+.next span{ color:#d00053 ;}
+
+
+/*征婚提醒*/
+
+.remind_box{background:#fff; border-top: 1px solid #D9D9D9; padding-bottom: 20px;}
+.remind_title{max-width: 1200px;min-width: 940px; margin: 0 auto; padding:20px;}
+.remind_title h1{ font-size: 30px; text-align: center;color:#d00053 ; margin-bottom:20px; line-height: 80px;}
+.remind_title h2{ margin-bottom: 10px; margin-left: 20px;}
+.remind_title p{ line-height: 30px; color: #808080; margin-left: 20px;}
+.remind_title span{ color: #999; margin-left: 20px;}
+
+.remind_title h3{ margin-left: 20px; line-height: 26px; color: #666;}

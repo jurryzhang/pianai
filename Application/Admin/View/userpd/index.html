@@ -1,0 +1,203 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/images/metinfo.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/css/table.css"/>
+<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/themes/default/default.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.css" />
+<script charset="utf-8" src="__PUBLIC__/Admin/js/jquery.min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/kindeditor.js"></script>
+<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/lang/zh_CN.js"></script>
+<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.js"></script>
+<style>
+    .link a{
+    	text-decoration: none;
+        padding:3px 5px;
+        margin:0 3px;
+        border:1px solid #0291d4;
+        background-color:white;
+    }
+    .link .current{
+        padding:3px 5px;
+        margin:0 3px;
+        border:1px solid #0291d4;
+        color:white;
+        background-color:#0291d4;
+    }
+</style>
+	<script>
+		KindEditor.ready(function(K) {
+			var editor1 = K.create('textarea[name="editor01"]', {
+				cssPath : '__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.css',
+				uploadJson : '__PUBLIC__/Admin/kindeditor-4.1.10/php/upload_json.php',
+				fileManagerJson : '__PUBLIC__/Admin/kindeditor-4.1.10/php/file_manager_json.php',
+				allowFileManager : true,
+				afterCreate : function() {
+					var self = this;
+					K.ctrl(document, 13, function() {
+						self.sync();
+						K('form[name=example]')[0].submit();
+					});
+					K.ctrl(self.edit.doc, 13, function() {
+						self.sync();
+						K('form[name=example]')[0].submit();
+					});
+				}
+			});
+			prettyPrint();
+		});
+	</script>
+	<script type="text/javascript">
+	  function checkSearch()
+	  {
+		  if(document.frm.keyword.value == "")
+		  {
+			  alert("红娘姓名不能为空！");
+			  document.frm.keyword.focus();
+			  return false;
+		  }
+	  }
+	</script>
+</head>
+
+<body>
+<div class="metinfotop">
+	<div class="position">简体中文：后台管理 > <a href="javascript:">配对成功用户列表</a></div>
+</div>
+<div class="clear"></div>
+<if condition="$status eq 1"> 
+	<div class="main">
+		<div class="suc">
+			<p class="suc_alert"><img src="__PUBLIC__/Admin/images/suc.png">信息添加成功！ <span id = "skip"><b class="jump">3</b> 秒钟后自动跳转回信息列表...</span></p>
+			<p>【<a href="userpd">信息列表</a>】【<a href="userpdadd">继续添加</a>】</p>
+		</div>
+	</div>
+	<script>skip("{:U('Admin/usercheck')}");</script>
+<else />
+<form name="frm" method="post" action="{:U('Admin/userpd')}" onsubmit="return checkSearch()">
+	<div>&nbsp;&nbsp;&nbsp;&nbsp;通过红娘查找
+	  <input type="text" name="keyword" size="20">
+	  <input type="submit" value="&nbsp;&nbsp;查&nbsp;找&nbsp;&nbsp;">
+	</div>
+  </form>
+  <!-- 显示搜索到的用户信息 -->
+  <div>
+	<div>&nbsp;&nbsp;&nbsp;&nbsp;一共搜索到<if condition="$count!=0"> {$count} <else/> 0 </if>对用户</div>
+  </div>
+<div id="tablecontent">
+	<table cellpadding="2" cellspacing="1" id ="list_table" >
+		<tr class="th">
+			<th width="50px">编号</th>
+			<th width="80px">男方姓名</th>  
+			<th width="80px">女方姓名</th> 
+			<th width="80px">红娘姓名</th>
+			<th width="80px">牵手时间</th>    
+			<th width="100px">操作</th>
+			<th width="80px">
+			  <a data-ids=2 class="fdelete" href="javascript:void(0)">反选</a>|
+			  <a data-ids=1 class="pdelete" href="javascript:void(0)">删除</a>
+			</th>
+		</tr>
+		<foreach name="userpd" item="item">
+	    <tr>
+	    	<td align="center">{$item.id}</td>
+	        <td align="center">{$item.user1name}</td>
+	        <td align="center">{$item.user2name}</td>	      
+	        <td align="center">{$item.lovem}</td>
+	        <td align="center">{$item.userpdn}{$item.userpdy}{$item.userpdr}</td>
+	        <td align="center" >
+	          <a href="{:U('Admin/editpd',array('id'=>$item['id']))}">编辑</a> |
+	          <a data-id="{$item.id}" class="delete" href="javascript:void(0)">删除</a>
+	        </td>
+	        <td align="center"><label ><input name="d"  type="checkbox" value="{$item.id}"/></label></td>
+	    </tr>
+	    </foreach>
+	    <tr class="pagenation">
+	    	<td colspan="10">{$page}</td>
+	    </tr>
+	</table>
+ </div>
+ </if>
+ <script>
+ 	$("a.delete").click(
+ 		function(){
+ 			var _this = $(this);
+ 			var id = $(this).attr('data-id');
+ 			if(confirm('删除后不可恢复,您确认要删除吗？')){
+ 				$.ajax({
+ 					type : 'post',
+ 					data : "id="+id,
+ 					url  : "delpd",
+ 					dataType : 'json',
+ 					success : function(msg){
+ 						alert(msg);
+ 						if(msg.errno == 0){
+ 							alert('删除成功！');
+ 							_this.parent().parent('tr').remove();
+ 						}else{
+ 							alert(msg.error);
+ 						}
+ 					}
+ 				});
+ 			}	
+ 		}
+ 	);
+</script>
+<script>
+ 	$("a.pdelete").click(
+ 		function(){
+ 			var _this = $(this);
+ 			var aid = $(this).attr('data-ids');
+ 			var bb = "";
+ 			var temp = "";
+ 			var m = "";
+ 			var a = document.getElementsByName("d");
+ 			for ( var i = 0; i < a.length; i++) {
+ 				if (a[i].checked) {
+ 					temp = a[i].value;
+ 					bb = bb + "," +temp;
+ 					m = m + ","+i;
+ 				}
+ 				if (m.substr(0,1)==',') 
+					m=m.substr(1);
+				    
+ 			} 
+			var m = m.split(",");
+ 			if(confirm('删除后不可恢复,您确认要删除吗？')){
+ 				$.ajax({
+ 					type : 'post',
+ 					data : "bb="+bb,
+ 					url  : "pdeluser",
+ 					dataType:"json",
+ 					success : function(msg){
+ 						if(msg.errno == 0){
+ 							alert('删除成功！');
+ 							for(var i=0;i<m.length;i++){
+     							var w=m[i];//数组的索引是从0开始的
+     							var $w1=Number(w);    							
+							$("tr:eq("+w1+")").remove();
+							}
+ 						}else{
+ 							alert(msg.error);
+ 						}
+ 					}
+ 				});
+ 			}	 
+        } 
+ 	);
+ 	</script>
+ 	<script>
+ 	$("a.fdelete").click(
+ 		function(){							
+			var ocheck = document.getElementsByName("d");
+ 			for(var i=0;i<ocheck.length;i++){						
+ 				ocheck[i].checked = !ocheck[i].checked;					
+ 			}				
+        } 
+ 	);
+ </script>
+</body>
+</html>
+

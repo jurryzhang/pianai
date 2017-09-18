@@ -1,0 +1,55 @@
+/*head*/
+.head_box{width:1200px; margin:0 auto;height:30px;background-color:#d7edfb;}
+.head{width:1200px; margin:0 auto;}
+.head_left{float:left;line-height:30px; font-size:12px; color:#333;margin-left:20px;}
+.head_right{float:right;line-height:30px;margin-right:20px;}
+.head_right a{font-size:12px; color:#333;}
+
+.banner_box{width:1200px;margin:0 auto;position: relative;}
+.bannerbox{width:1200px;margin:0 auto;}
+.bannerbox img{width:100%;}
+
+.swiper-container {width: 100%;}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide img{width:100%;margin:0 auto;}
+
+.nav_box{width:1200px;margin:0 auto; height:46px; background-color:#268c02;}
+.nav{width:1200px; margin:0 auto;}
+.nav ul{width:100%; line-height:46px;}
+.nav ul li{float:left;height:46px;line-height: 46px; font-size:16px; width:9%;text-align: center; color:#fff;border-right:1px solid #42b617;}
+.navcolor{background-color:#b3ff99; color:#268c02;}
+.nav ul li:hover{background-color:#b3ff99;color:#268c02;}
+
+/*connect*/
+.ds_top{width:100%;height:40px;background-color:#f3fbec;}
+.ds_top1{width:140px;height:40px;border-bottom:2px solid #20cf7e; text-indent:10px;display:inline-block;}
+.ds_top1 span{height:40px; line-height: 40px; font-size:16px; color:#333;font-weight:bold;}
+
+.connect_box{width:1200px; margin:0 auto;background-color:#fff;}
+.connect1{width:30%;float:left;margin-left:3%;padding:20px 0;}
+/*foot*/
+.xlj {margin-top: 15px;width:1200px;height: 40px;margin:0 auto;background-color:#195b03;}
+.xlj ul {width: 1100px;text-align: center;margin: 0 auto;}
+.xlj ul li{float:left;margin-top:10px;width:9%;height:20px;font-size:14px; color:#fff; border-right:1px solid #fff;}
+
+.foot_text{width:1200px; margin:0 auto;background-color:#fff;padding:10px 0;}
+.foot_text span{ font-size:14px; color:#333; line-height: 30px;width:100%; display: inline-block;}
+

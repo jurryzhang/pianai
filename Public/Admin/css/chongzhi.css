@@ -1,0 +1,9 @@
+body{ font-family: "Microsoft YaHei"; background-color:#eee;}
+a{ text-decoration:none;}
+body,span{margin:0;}
+img{ display:block; border:none;}
+p{margin:0;padding:0;}
+ul,li{ list-style:none;margin:0; padding:0;}
+input{margin:0;padding:0; border:none;}
+h1,h2,h3,h4,h5,h6{ margin:0;padding: 0; font-weight:normal; }
+.clear{clear:both;}

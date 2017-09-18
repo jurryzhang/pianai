@@ -1,0 +1,697 @@
+<include file="public/head" />	
+<script type="text/javascript"  src="__PUBLIC__/Home/js/jquery-1.9.1.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/themes/default/default.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.css" />
+	<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/kindeditor.js"></script>
+	<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/lang/zh_CN.js"></script>
+	<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.js"></script>
+
+<div class="ddd" style="margin-top: 90px; border: 1px solid #fff;">
+	
+    <div class="s-jubao-box" style="padding-top: 100px;">
+    	
+    	<div class="register_box">
+			<img src="__PUBLIC__/Home/image/no02.png"/>
+			<div class="register_title">		
+				<p>创建账号</p>
+				<p style=" margin-left: 280px; margin-right: 280px;">完善信息</p>
+				<p>择偶条件</p>
+				<div class="clearfix"></div>
+			</div>
+	
+		</div>
+    </div>
+  <style>
+
+.imglist{clear:both;height:110px; }
+
+.imgitem{position:relative;  width: 110px;height: 110px; float:left;}
+
+.imglistid{clear:both;height:110px; }
+
+.imgitemid{position:relative;  width: 110px;height: 110px; float:left;}
+.imgdelete{position:absolute; top: 4px; right: 4px; width: 20px; z-index: 1;}
+  </style>
+   <script>
+var n = 0;
+
+	// KindEditor.ready(function(K) {
+	// 		var editor1 = K.create('textarea[name="intro"]', {
+	// 			cssPath : '__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.css',
+	// 			uploadJson : '__PUBLIC__/Admin/kindeditor-4.1.10/php/upload_json.php',
+	// 			fileManagerJson : '__PUBLIC__/Admin/kindeditor-4.1.10/php/file_manager_json.php',
+	// 			allowFileManager : true,
+	// 			afterCreate : function() {
+	// 				var self = this;
+	// 				K.ctrl(document, 13, function() {
+	// 					self.sync();
+	// 					K('form[name=example]')[0].submit();
+	// 				});
+	// 				K.ctrl(self.edit.doc, 13, function() {
+	// 					self.sync();
+	// 					K('form[name=example]')[0].submit();
+	// 				});
+	// 			}
+	// 		});
+	// 		prettyPrint();
+	// 	});
+
+
+	KindEditor.ready(function(K) {
+				var editor1 = K.editor({
+					 allowImageRemote : false,
+					allowFileManager : false
+				});
+				K('#image1').click(function() {
+					editor1.loadPlugin('image', function() {
+						editor1.plugin.imageDialog({
+							imageUrl : K('#url1').val(),
+							clickFn : function(url) {
+
+								K('#url1').val(K('#url1').val()+","+url.replace('/pahl/Public/Admin/kindeditor-4.1.10/attached/image',''));
+
+								K('#imgli').append('<li class="imgitem" ><img src='+url+'  style="width:100%; height: 100%;"><a class="deleteimg" href="javascript:void(0);" data-id='+url+'><img src="__PUBLIC__/Home/image/delete.png" class="imgdelete"></a></li>');
+
+								editor1.hideDialog();
+							}
+						});
+					});
+				});
+
+
+			});
+
+KindEditor.ready(function(K) {
+				var editor2 = K.editor({
+					 allowImageRemote : false,
+					allowFileManager : false
+				});
+				K('#image2').click(function() {
+
+					editor2.loadPlugin('image', function() {
+						editor2.plugin.imageDialog({
+							imageUrl : K('#urlid').val(),
+							clickFn : function(url) {
+								
+								K('#urlid').val(K('#urlid').val()+","+url.replace('/pahl/Public/Admin/kindeditor-4.1.10/attached/image',''));
+						n++;
+								K('#imgliid').append('<li class="imgitem" ><img src='+url+'  style="width:100%; height: 100%;"><a class="deleteimg" href="javascript:void(0);" data-id='+url+'><img src="__PUBLIC__/Home/image/delete.png" class="imgdelete"></a></li>');
+									if (n==2) {
+                                     K('#image2').hide();
+									}
+								editor2.hideDialog();
+							}
+						});
+					});
+				});
+			
+			
+			});
+	</script>    
+       
+    
+<form action="{:U('Index/register')}" method="post" id="loginform" enctype="multipart/form-data">	
+	   
+       <div class="search_box" style="margin-top: 0; margin-bottom: 100px;max-width: 1200px; min-width: 940px; margin: 0 auto; padding: 0 20px;">
+			
+	 		<div class="message_box message_box1">
+				
+					<h1>个人资料</h1>
+					
+					<ul class="search-find message">
+						<li>
+							<span style="float: left;">会&nbsp&nbsp员&nbsp&nbsp号：</span>
+							<p>100{$info.id}</p>
+							<div class="clearfix"></div>
+						</li>
+						
+						<li>
+							<span>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：</span>
+							<input type="text" placeholder="哈哈" name="nickname"/>
+						</li>
+							<li>
+							<span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+							<input type="text" placeholder="哈哈" name="name"/>
+						</li>
+						
+						<li>
+							<span>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+							<select name="sex">
+							<if condition="$info['sex'] eq '1'">
+								<option value="1" selected>男</option>
+								<option  value="2">女</option>
+								<else/>
+								<option value="1" >男</option>
+								<option  value="2" selected>女</option>
+								</if>
+							</select>
+						</li>
+						<li>
+							<span>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</span>
+							<select name="age">
+								<option value="20~25">20~25</option>
+								<option value="25~30">25~30</option>
+								<option value="35~35">35~35</option>
+								<option value="35以上">35以上</option>
+							</select>
+						</li>
+						
+						<li>
+							<span>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：</span>
+							<select name="height">
+								
+								<option value="170~175">170~175</option>
+								<option value="175~180">175~180</option>
+								<option value="180以上">180以上</option>
+							</select>
+						</li>
+						<li>
+							<span>体&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重：</span>
+							<select name="weight">
+								<option value="0">保密</option>
+								<option value="90以下">90斤以下</option>
+								<option value="90~100">90~100斤</option>
+								<option value="100~120">100~120斤</option>
+								<option value="120~150">120~150斤</option>
+								<option value="150以上">150以上</option>
+							</select>
+						</li>
+								<li>
+							<span>血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span>
+							<select name="blood">
+								<option value="保密">保密</option>
+								<option value="A型">A型</option>
+								<option value="B型">B型</option>
+								<option value="AB型">AB型</option>
+								<option value="RH型">RH型</option>
+								
+								
+							</select>
+						</li>
+						<li>
+							<span>属&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相：</span>
+							<select name="ani">
+								<option value="保密">保密</option>
+								<option value="鼠">鼠</option>
+								<option value="牛">牛</option>
+								<option value="虎">虎</option>
+								<option value="兔">兔</option>
+								<option value="龙">龙</option>
+								<option value="蛇">蛇</option>
+								<option value="马">马</option>
+								<option value="羊">羊</option>
+								<option value="猴">猴</option>
+								<option value="鸡">鸡</option>
+								<option value="狗">狗</option>
+								<option value="猪">猪</option>
+							</select>
+						</li>
+						<li>
+							<span>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：</span>
+							<select name="const">
+								<option value="保密">保密</option>
+								<option value="白羊座">白羊座</option>
+								<option value="金牛座">金牛座</option>
+								<option value="双子座">双子座</option>
+								<option value="巨蟹座">巨蟹座</option>
+								<option value="狮子座">狮子座</option>
+								<option value="处女座">处女座</option>
+								<option value="天秤座">天秤座</option>
+								<option value="天蝎座">天蝎座</option>
+								<option value="射手座">射手座</option>
+								<option value="摩羯座">摩羯座</option>
+								<option value="水瓶座">水瓶座</option>
+								<option value="双鱼座">双鱼座</option>
+							</select>
+						</li>
+				
+						
+							<li>
+							<span>民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：</span>
+							<select name="nation">
+								<option value="汉族">汉族</option>
+								<option value="回族">回族</option>
+								<option value="蒙古族">蒙古族</option>
+								<option value="维吾尔族">维吾尔族</option>
+								<option value="朝鲜族">朝鲜族</option>
+								<option value="藏族">藏族</option>
+								<option value="傣族">傣族</option>
+								<option value="其他">其他</option>
+							</select>
+						</li>
+						<li>
+							<span>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：</span>
+							<select name="qualification">
+								
+								<option value="博士研究生">博士研究生</option>
+								<option value="硕士研究生">硕士研究生</option>
+								<option value="本科">本科</option>
+								<option value="专科">专科</option>
+								<option value="中专/高中">中专/高中</option>
+								<option value="初中">初中</option>
+							</select>
+						</li>
+								<li>
+							<span>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：</span>
+							<select name="housing">
+								<option value="2">已购房（无贷款）</option>
+								<option value="1">已购房（有贷款）</option>
+								<option value="3">无</option>
+								
+							</select>
+						</li>
+						<li>
+							<span>月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;薪：</span>
+							<select name="monthly">
+								
+								<option value="5000以下">5000以下</option>
+								<option value="5000~10000">5000~10000</option>
+								<option value="10000~20000">10000~20000</option>
+								<option value="20000以上">20000以上</option>
+								
+							</select>
+						</li>
+						<li>
+							<span>从事工作：</span>
+							<input type="text" placeholder="" name="work" />
+						</li>
+						
+						<li>
+							<span>婚姻状况：</span>
+							<select name="marriage">
+								<option value="未婚">未婚</option>
+								<option value="离婚">离婚</option>
+								<option value="丧偶">丧偶</option>
+							</select>
+						</li>
+							<li>
+							<span>微&nbsp;&nbsp;信&nbsp;&nbsp;号：</span>
+							<input type="text" placeholder="" name="wxnum"/>
+						</li>
+						<li>
+							<span>Q&nbsp;&nbsp;Q&nbsp;&nbsp;号：</span>
+							<input type="text" placeholder=""  name="qqnum"/>
+						</li>
+						<li>
+							<span>手&nbsp;&nbsp;机&nbsp;&nbsp;号：</span>
+							<input type="text" placeholder="" name="phone"/>
+						</li>
+						<li>
+						  <span>有无小孩：</span>
+						   <select name="cchild">
+								<option value="无">无</option>
+								<option value="有，不同住">有，不同住</option>
+								<option value="有，同住">有，同住</option>
+							</select>
+						</li>
+						<div class="clearfix"></div>
+					</ul>
+					
+					<ol class="message_box01" style="position:relative">
+						<li style="">
+							<span>上&nbsp;&nbsp;&nbsp;传&nbsp;&nbsp;&nbsp;照&nbsp;&nbsp;&nbsp; 片：</span>
+						
+							<!-- <div id="imgPicker2" style="position:absolute;top:50;left:280;padding-left:140px;opacity: 0"> --><!-- </div> -->
+                   <input type="hidden" style="margin-left:10px;" id="url1" name="photo" value="">
+                     <input style="margin-left:5px; margin-right:50px; padding:0 10px; line-height:30px; border-radius:4px;" type="button" id="image1" value="选择图片">
+                     <div class="imglist"> <ul id="imgli"></ul></div>
+							<div class="clearfix"></div>
+						</li>
+						
+						<li>
+							<span>上传身份证照片：<br>（正反面）</span>
+						
+				 <input type="text" style="margin-left:10px;" id="urlid" name="idcardpic" value="">
+                     <input style="margin-left:5px; margin-right:50px;padding:0 10px; line-height:30px; border-radius:4px;" type="button" id="image2" value="选择图片">
+                     <div class="imglistid"> <ul id="imgliid"></ul></div>
+							<div class="clearfix"></div>
+						</li>
+						
+						<li>
+							<span>自&nbsp;&nbsp;&nbsp;我&nbsp;&nbsp;&nbsp;介&nbsp;&nbsp;&nbsp; 绍：</span>
+							<textarea name="intro" style="width:500px;height:200px;">
+			</textarea>
+							<div class="clearfix"></div>
+						</li>
+					</ol>	
+					<input  type="hidden" name="year" value="{$info.year}" />
+					<input  type="hidden" name="username" value="{$info.username}" />
+                    <input  type="hidden" name="month" value="{$info.month}" />
+                    <input  type="hidden" name="workad" value="{$info.workad}" />
+					<input  type="hidden" id="password" name="password" value="{$info.password}" />	
+					<div class="s-btnbox next">
+					<button class="s-btn next-sub" type="button">下一步</button>
+					</div>
+						
+			</div>
+			<div class="message_box message_box2" style="display:none">
+				
+					<h1>择偶条件</h1>
+					
+					<ul class="search-find message">
+						<li>
+							<span>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</span>
+							<select name="cage">
+								<option value="20~25" selected="selected">20~25</option>
+								<option value="25~30">25~30</option>
+								<option value="30~35">30~35</option>
+								<option value="35以上">35以上</option>
+							</select>
+						</li>
+						
+						<li>
+							<span>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：</span>
+							<select name="cheight">
+								<option value="170~175" selected="selected">170~175</option>
+								<option value="175~180">175~180</option>
+								<option value="180以上">180以上</option>
+							</select>
+						</li>
+									
+						<li>
+							<span>民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：</span>
+							<select name="cnation">
+								<option value="汉族" selected="selected">汉族</option>
+								<option value="回族">回族</option>
+								<option value="蒙古族">蒙古族</option>
+								<option value="维吾尔族">维吾尔族</option>
+								<option value="朝鲜族">朝鲜族</option>
+								<option value="藏族">藏族</option>
+								<option value="傣族">傣族</option>
+								<option value="其他">其他</option>
+							</select>
+						</li>
+						<li>
+							<span>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：</span>
+							<select name="cqualification">
+								
+								<option value="博士研究生" selected="selected">博士研究生</option>
+								<option value="硕士研究生">硕士研究生</option>
+								<option value="本科">本科</option>
+								<option value="专科">专科</option>
+								<option value="中专/高中">中专/高中</option>
+								<option value="初中">初中</option>
+							</select>
+						</li>
+								<li>
+							<span>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：</span>
+							<select name="chousing">
+								<option value="2" >已购房（无贷款）</option>
+								<option value="1">已购房（有贷款）</option>
+								<option value="3" selected="selected">无</option>
+								
+							</select>
+						</li>
+						<li>
+							<span>从事工作：</span>
+							<input type="text" placeholder="" name="cwork"/>
+						</li>
+						
+						<li>
+							<span>月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;薪：</span>
+							<select name="cmonthly">
+								<option value="5000以下" selected="selected">5000以下</option>
+								<option value="5000~10000">5000~10000</option>
+								<option value="10000~20000">10000~20000</option>
+								<option value="20000以上">20000以上</option>
+							</select>
+						</li>
+						<li>
+							<span>婚姻状况：</span>
+							<select name="cmarriage">
+								<option value="3" selected="selected">未婚</option>
+								<option value="1">离婚</option>
+								<option value="2">丧偶</option>
+							</select>
+						</li>
+							<li>
+							<span>有无小孩：</span>
+							<select name="cchild">
+								<option value="3" selected="selected">无</option>
+								<option value="1" >有，不同住</option>
+								<option value="2">有，同住</option>
+							</select>
+						</li>
+							
+						
+						<div class="clearfix"></div>
+					</ul>
+						
+						
+					<div class="s-btnbox next">
+						<a href="#" style="border: 1px solid;">
+							<button class="s-btn">完成注册</button>
+						</a>
+						<p>注册代表我已同意<span>《偏爱婚恋会员用户协议》</span></p>
+					</div>
+						
+			</div>				
+	</div>	
+	</form>
+</div>	
+<script>
+ $('.next-sub').click(function(){
+ 	 var imgsrc="__PUBLIC__/Home/image/no3.png";
+ 	 $('.message_box1').hide();
+ 	 $('.message_box2').show();
+ 	 $('.register_box').find('img').attr('src',imgsrc);
+ 	 $(window).scrollTop(220)
+ })
+</script>	
+<include file="public/foot" />
+
+
+<script>
+
+
+
+
+$(".imglist ul").on("click","li a", function() { 
+            var _this = $(this);
+           var aimurl= $("#url1").val().replace(","+_this.attr('data-id').replace('/pahl/Public/Admin/kindeditor-4.1.10/attached/image',''), "");
+             $("#url1").val(aimurl);
+ 			var imgsrc = _this.attr('data-id').replace("/pahl", ".");
+ 			//alert(imgsrc.replace("/pahl", "."));
+ 			var url="{:U('Index/deleteimg')}";
+               	$.ajax({
+ 					type : 'post',
+ 					data : "imgsrc="+imgsrc,
+ 					url  : url,
+ 					//dataType : 'json',
+ 					success : function(msg){
+ 						if(msg != 0){
+ 							alert('成功！');
+ 							_this.parent('li').remove();
+ 						}else{
+ 							alert('出错了！');
+ 						}
+ 					}
+ 				});
+ 			
+
+ });
+
+$(".imglistid ul").on("click","li a", function() { 
+            var _this = $(this);
+           var aimurl= $("#urlid").val().replace(","+_this.attr('data-id').replace('/pahl/Public/Admin/kindeditor-4.1.10/attached/image',''), "");
+             $("#urlid").val(aimurl);
+ 			var imgsrc = _this.attr('data-id').replace("/pahl", ".");
+ 			//alert(imgsrc.replace("/pahl", "."));
+ 			var url="{:U('Index/deleteimg')}";
+               	$.ajax({
+ 					type : 'post',
+ 					data : "imgsrc="+imgsrc,
+ 					url  : url,
+ 					//dataType : 'json',
+ 					success : function(msg){
+ 						if(msg != 0){
+ 							n--;
+ 							if (n<2) {
+                               $('#image2').show();
+							}
+ 							alert('成功！');
+ 							_this.parent('li').remove();
+ 						}else{
+ 							alert('出错了！');
+ 						}
+ 					}
+ 				});
+ 			
+
+ });
+//上传图片
+//  // 初始化Web Uploader
+// var uploader = WebUploader.create({
+
+//     // 选完文件后，是否自动上传。
+//     auto: true,
+
+//     // swf文件路径
+//     swf: 'js/Uploader.swf',
+
+//     // 文件接收服务端。
+//     server: "{:U('Index/ajaxpic',array('idcard'=>1))}",
+
+//     // 选择文件的按钮。可选。
+//     // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+//     pick: '#imgPicker1',
+
+//     // 只允许选择图片文件。
+//     accept: {
+//         title: 'Images',
+//         extensions: 'gif,jpg,jpeg,bmp,png',
+//         mimeTypes: 'image/*'
+//     }
+// });
+
+// // 当有文件添加进来的时候
+//   var n=0;
+// uploader.on( 'fileQueued', function( file ) {
+//   n++;
+
+//     var $list = $("#imgPicker1"),
+//         $li = $(
+//             '<div id="WU_FILE" class="file-item thumbnail" style="position:absolute; width: 140px; height: 140px" border-radius:50px; >' +
+//                 '<img style="padding-left:135px">' +
+//             '</div>'
+//             ),
+//         $img = $li.find('img');
+
+
+//     // $list为容器jQuery实例
+//    if(n>2){
+//      $('#WU_FILE').remove();
+//   } 
+//     $list.before( $li );
+
+//     // 创建缩略图
+//     // 如果为非图片文件，可以不用调用此方法。
+//     // thumbnailWidth x thumbnailHeight 为 100 x 100
+//     uploader.makeThumb( file, function( error, src ) {
+//         if ( error ) {
+//             $img.replaceWith('<span>不能预览</span>');
+//             return;
+//         }
+
+//         $img.attr( 'src', src );
+//     }, 120, 120);
+// });
+// // 文件上传过程中创建进度条实时显示。
+// uploader.on( 'uploadProgress', function( file, percentage ) {
+//     var $li = $( '#'+file.id ),
+//         $percent = $li.find('.progress span');
+
+//     // 避免重复创建
+//     if ( !$percent.length ) {
+//         $percent = $('<p class="progress"><span></span></p>')
+//                 .appendTo( $li )
+//                 .find('span');
+//     }
+
+//     $percent.css( 'width', percentage * 100 + '%' );
+// });
+
+// // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+// uploader.on( 'uploadSuccess', function( file,response ) {
+//     $( '#'+file.id ).addClass('upload-state-done');
+//     tr="<input type='hidden' name='id-photo[]' value='"+response.success+"'>";
+//     $('#password').after( tr );
+// });
+
+// // 文件上传失败，显示上传出错。
+// uploader.on( 'uploadError', function( file ) {
+//     var $li = $( '#'+file.id ),
+//         $error = $li.find('div.error');
+//     $error.text('上传失败');
+// });
+
+// 
+// 
+// //上传图片
+//  // 初始化Web Uploader
+// var uploader = WebUploader.create({
+
+//     // 选完文件后，是否自动上传。
+//     auto: true,
+
+//     // swf文件路径
+//     swf: 'js/Uploader.swf',
+
+//     // 文件接收服务端。
+//     server: "{:U('Index/ajaxpic',array('idcard'=>0))}",
+
+//     // 选择文件的按钮。可选。
+//     // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+//     pick: '#imgPicker2',
+
+//     // 只允许选择图片文件。
+//     accept: {
+//         title: 'Images',
+//         extensions: 'gif,jpg,jpeg,bmp,png',
+//         mimeTypes: 'image/*'
+//     }
+// });
+
+// // 当有文件添加进来的时候
+//   var n=0;
+// uploader.on( 'fileQueued', function( file ) {
+//   n++;
+//     var $list = $("#imgPicker2"),
+//         $li = $(
+//             '<div id="WU_FILE2" class="file-item thumbnail" style="position:absolute; width: 140px; height: 140px" border-radius:50px; >' +
+//                 '<img style="padding-left:135px ">' +
+//             '</div>'
+//             ),
+//         $img = $li.find('img');
+
+
+//     // $list为容器jQuery实例
+//    if(n>1){
+//      $('#WU_FILE2').remove();
+//   } 
+//     $list.after( $li );
+
+//     // 创建缩略图
+//     // 如果为非图片文件，可以不用调用此方法。
+//     // thumbnailWidth x thumbnailHeight 为 100 x 100
+//     uploader.makeThumb( file, function( error, src ) {
+//         if ( error ) {
+//             $img.replaceWith('<span>不能预览</span>');
+//             return;
+//         }
+
+//         $img.attr( 'src', src );
+//     }, 120, 120);
+// });
+// // 文件上传过程中创建进度条实时显示。
+// uploader.on( 'uploadProgress', function( file, percentage ) {
+//     var $li = $( '#'+file.id ),
+//         $percent = $li.find('.progress span');
+
+//     // 避免重复创建
+//     if ( !$percent.length ) {
+//         $percent = $('<p class="progress"><span></span></p>')
+//                 .appendTo( $li )
+//                 .find('span');
+//     }
+
+//     $percent.css( 'width', percentage * 100 + '%' );
+// });
+
+// // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+// uploader.on( 'uploadSuccess', function( file,response ) {
+//     $( '#'+file.id ).addClass('upload-state-done');
+//     tr="<input type='hidden' name='photo' value='"+response.success+"'>";
+//     $('#password').after( tr );
+// });
+
+// // 文件上传失败，显示上传出错。
+// uploader.on( 'uploadError', function( file ) {
+//     var $li = $( '#'+file.id ),
+//         $error = $li.find('div.error');
+//     $error.text('上传失败');
+// });
+
+
+</script>
+

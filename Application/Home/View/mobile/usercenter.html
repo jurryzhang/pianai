@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>偏爱婚恋交友网</title>
+
+
+
+    <script type="text/javascript" src="__PUBLIC__/Home/js1/mui.min.js"></script>
+
+</head>
+
+
+
+
+<body style="width:100%;height:100%;">
+
+<style>
+   body{
+
+                  background: url("__PUBLIC__/Home/image/bk1.jpg");
+           background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;
+        }
+
+        .register,.login{
+            width:72%;
+            height:30px;
+            line-height: 30px;
+            position: absolute;
+            left:50%;
+            transform: translate(-50%);
+            border-radius:12px;
+            text-align: center;
+            font-size:16px;
+
+        }
+        .register{
+            top:78%;
+            background: #f24992;
+            color: #ffffff;
+        }
+        .login{
+            top:86%;
+            background: #fff;
+            color: #000;
+        }
+</style>
+
+
+					<!-- <php> $this->redirect="Mobile/login";</php> -->
+
+
+<!--              <img src="" style="width: 100%;margin-top: 30px;margin-bottom:30px;z-index: 100px;"> -->
+
+<a href="{:U('Mobile/login')}">
+    <div class="register">登录</div>
+</a>
+<a href="{:U('Mobile/register')}">
+    <div class="login">注册</div>
+</a>
+
+			<!-- <div style=" width: 30%; margin:0 auto; margin-bottom: 30px;">
+				<img src="__PUBLIC__/Home/image1/img04_35.png" style="width: 90%; margin: 0 auto;"/>
+				<p style=" text-align: center; color: #d00053; font-size: 16px;width:200px;">
+
+				偏爱婚恋网 </p>
+			</div>
+					 <div class="jubao-infor" style=" width: 85%; margin: auto;
+					 ">
+
+	<dl class="main-log" style="margin: 0 auto;">
+
+					<dd class="main-logbox">
+						<i class="main-user">账号</i>
+						<input placeholder="请输入账号" type="text" class="mui-input-clear mui-input main-user-input username" name="username">
+					</dd>
+
+					<dd class="main-logbox">
+						<i class="main-password">密码</i>
+						<input placeholder="请输入密码" type="password" class="mui-input-clear mui-input main-user-input password" name="password">
+					</dd>
+
+					<dd class="main-button">
+						<button type="button" class="main-btn submit mui-btn mui-btn-block mui-btn-primary" >立即登录</button>
+
+
+
+						<p class="link-area">
+					没有账号？<a href="<?php echo U('register')?>">立即注册</a></p>
+						<div class="clearfix"></div>
+					</dd>
+
+				</dl> -->
+
+
+
+
+	</body>
+
+	<script>
+		mui.init();
+		mui.ready(function() {
+			var slider = document.getElementById('Gallery');
+			var group = slider.querySelector('.mui-slider-group');
+			var items = mui('.mui-slider-item', group);
+			//克隆第一个节点
+			var first = items[0].cloneNode(true);
+			first.classList.add('mui-slider-item-duplicate');
+			//克隆最后一个节点
+			var last = items[items.length - 1].cloneNode(true);
+			last.classList.add('mui-slider-item-duplicate');
+			//处理是否循环逻辑，若支持循环，需支持两点：
+			//1、在.mui-slider-group节点上增加.mui-slider-loop类
+			//2、重复增加2个循环节点，图片顺序变为：N、1、2...N、1
+			var sliderApi = mui(slider).slider();
+
+			function toggleLoop(loop) {
+					if (loop) {
+						group.classList.add('mui-slider-loop');
+						group.insertBefore(last, group.firstChild);
+						group.appendChild(first);
+						sliderApi.refresh();
+						sliderApi.gotoItem(0);
+					} else {
+						group.classList.remove('mui-slider-loop');
+						group.removeChild(first);
+						group.removeChild(last);
+						sliderApi.refresh();
+						sliderApi.gotoItem(0);
+					}
+				}
+				//按下“循环”按钮的处理逻辑；
+			document.getElementById('Gallery_Toggle').addEventListener('toggle', function(e) {
+				var loop = e.detail.isActive;
+				toggleLoop(loop);
+			});
+		});
+
+//	高级搜索
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			var zuo = ["性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：","年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：","身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：","住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：","收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入：","籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：","婚姻状况：","有无小孩："];
+			var you0 = ["男","女"];
+			var you1 = ["不限","20~25","25~30","30~35","35以上"];
+			var you2 = ["不限","160~160","165~170","170~175","175~180","180以上"];
+			var you3 = ["无","有，有贷款","有，无贷款"];
+			var you4 = ["3000以下","3000~5000","5000~10000","10000以上"];
+			var you5 = ["河南","郑州","开封","新乡"];
+			var you6 = ["单身","离婚","丧偶"];
+			var you7 = ["无","有，不同住","有，同住"];
+
+
+			var html = [];
+			var i = 1,
+				j = 1,
+				m = 16, //左侧选项卡数量+1
+				n = 21; //每个选项卡列表数量+1
+			for (i=0 ; i < zuo.length; i++) {
+				html.push('<a class="mui-control-item" href="#content' + i + '">' + zuo[i] + '</a>');
+			}
+			controls.innerHTML = html.join('');
+			html = [];
+			for (i = 0; i < zuo.length; i++) {
+				html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">');
+
+				if(i == 0){
+					for (j = 0; j < you0.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you0[j] + '</li>');
+				}
+				}
+
+				if(i == 1){
+					for (j = 0; j < you1.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you1[j] + '</li>');
+				}
+				}
+
+				if(i == 2){
+					for (j = 0; j < you2.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you2[j] + '</li>');
+				}
+				}
+
+				if(i == 3){
+					for (j = 0; j < you3.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you3[j] + '</li>');
+				}
+				}
+
+				if(i == 4){
+					for (j = 0; j < you4.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you4[j] + '</li>');
+				}
+				}
+
+				if(i == 5){
+					for (j = 0; j < you5.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you5[j] + '</li>');
+				}
+				}
+
+				if(i == 6){
+					for (j = 0; j < you6.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you6[j] + '</li>');
+				}
+				}
+
+				if(i == 7){
+					for (j = 0; j < you7.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you7[j] + '</li>');
+				}
+				}
+
+				html.push('</ul></div>');
+			}
+			contents.innerHTML = html.join('');
+			 //默认选中第一个
+			controls.querySelector('.mui-control-item').classList.add('mui-active');
+			contents.querySelector('.mui-control-content').classList.add('mui-active');
+
+
+
+
+
+	</script>
+</html>

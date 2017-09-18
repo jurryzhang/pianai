@@ -1,0 +1,42 @@
+/*2015-4-5 wong*/
+#tablecontent{
+	display:block;
+	padding: 5px 10px 10px 10px;
+}
+#list_table{
+	border-right:1px solid #eee;
+	width: 100%;
+}
+#list_table .th{
+	background: #ddd;
+	height: 30px;
+}
+#list_table .th:hover{
+	background: #ddd;
+}
+#list_table td{
+	border-left:1px solid #eee;
+	border-bottom:1px solid #eee;
+	height: 30px;
+}
+#list_table th{
+	border-bottom:1px solid #eee;
+	border-left:1px solid #eee;
+	border-top:1px solid #eee;
+	height: 30px;
+}
+#list_table tr:hover{
+	background: #eee;
+	cursor: pointer;
+}
+#list_table .pagenation{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+#list_table .pagenation:hover{
+	background: #fff;
+}
+#list_table .pagenation td{
+	border: none;
+}

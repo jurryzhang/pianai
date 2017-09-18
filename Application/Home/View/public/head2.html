@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>偏爱婚恋官网</title>
+		<meta name="Keywords"  />
+        <meta name="Description"/>
+
+		<link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/index.css"/>
+
+		<script type="text/javascript"  src="__PUBLIC__/Home/js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/js/comment.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/Home/js/popup.mini.js"></script>
+		<style>
+			.sequence .sort_a .current {
+				color:red;
+			}
+		</style>
+	</head>
+
+	<body>
+<div class="top_title">
+	<ul>
+		<a href="{:U('Index/index')}">
+			<li class="logo"><img src="__PUBLIC__/Home/image/logo.png"></li>
+		</a>
+
+	<if condition="$Think.session.uid eq ''">
+	<li class="login_box">
+		<input type="text"  placeholder="手机号/用户名" class="username" />
+		<input type="password" placeholder="密码" class="password"/>
+		<input type="button"  value="登录" class="login_button"/>
+
+	</li>
+
+	<li class="select_box">
+		<!-- <a href="Password_reset.html" class="password">忘记密码</a> -->
+		<a href="{:U('Index/register_no1')}" class="register">注册账户</a>
+	</li>
+
+	<else/>
+	<li class="select_box">
+		<a href="{:U('Userinfo/index',array('u'=>'1'))}" class="password">个人中心</a>
+		<a href="{:U('Login/exitlogin')}" class="register">退出登录</a>
+	</li>
+	</if>
+	<div class="clearfix"></div>
+</ul>
+</div>
+
+<script type="text/javascript">
+	$(".login_button").click(function(){
+   var username=$('.username').val();
+   var password=$('.password').val();
+   var url="{:U('Login/dologin')}";
+   if(!username || !password){
+   	 alert('用户名或密码不能为空');
+   	 return false;
+   }
+   $.post(url,{password:password,username:username},function(data){
+        if(data.success=='1'){
+        	alert(data.msg);
+        	location.href="{:U('Index/Index')}";
+        }else{
+        	alert(data.msg);
+        	return false;
+        }
+   },'json')
+
+});
+</script>

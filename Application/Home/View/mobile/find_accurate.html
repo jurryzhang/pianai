@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <title>偏爱婚恋交友网</title>
+    
+    <link href="__PUBLIC__/Home/css1/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css1/app.css"/>
+    
+     <script type="text/javascript"  src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js1/mui.min.js"></script>
+	<style>
+		.current {
+			color:red;
+		}
+	</style>
+</head>
+
+
+
+
+<body>
+<div class="mui-bar mui-bar-nav">
+			<a href="{:U('Mobile/index',array('uid'=>$vo['id']))}" class=" mui-icon">
+				<img src="__PUBLIC__/Home/image1/arrow.png"/ style=" width: 22px; margin-left: 10px;">
+			</a>
+			<h1 class="mui-title">优质推荐</h1>
+		</div>
+		
+
+<div id="tabbar-with-chat" style="margin-top: 44px;">
+				
+	
+				<style type="text/css">
+					/*.sequence li{
+
+						margin-left:3px;
+					}*/
+					.content_show{
+						margin-left:5px;
+					}
+				</style>
+
+				<ul class="sequence" >
+					<li><a href="" class="sort_a" style="color: #333333;">
+
+					<if condition="$_GET">
+						<span class="show_font">综合排序</span>
+						<else/>
+						<span class="show_font current">综合排序</span>
+					</if>
+						
+					</a></li>
+					<div class="content_show">
+					<li ><a href="{:U('Mobile/find_accurate',array('sid'=>'addtime'))}" class="sort_a sort_a01">
+
+						<if condition="$Think.get.sid neq ''">
+							<span class="show_font current">最新会员</span>
+						<else/>
+						<span class="show_font">最新会员</span>
+						</if>
+						
+					</a></li>
+					<li><a href="{:U('Mobile/find_accurate',array('sage'=>'year'))}" class="sort_a sort_a01">
+
+						<if condition="$Think.get.sage neq ''">
+							<span class="show_font current">年龄</span>
+						<else/>
+						<span class="show_font">年龄</span>
+						</if>
+						
+					</a></li>
+					<li><a href="{:U('Mobile/find_accurate',array('sheight'=>'height'))}" class="sort_a sort_a01">
+
+						<if condition="$Think.get.sheight neq ''">
+							<span class="show_font current">身高</span>
+						<else/>
+							<span class="show_font">身高</span>
+						</if>
+						
+					</a></li>
+					<li><a href="{:U('Mobile/find_accurate',array('smonthly'=>'monthly'))}" class="sort_a sort_a01">
+
+						<if condition="$Think.get.smonthly neq ''">
+							<span class="show_font current">收入</span>
+						<else/>
+							<span class="show_font">收入</span>
+						</if>
+						
+					</a></li>
+					</div>
+					<div class="clearfix"></div>
+				</ul>
+				
+
+
+
+  <div id="middlePopover" class="mui-popover" style=" width: 100%;">
+
+		<div class="mui-content mui-row mui-fullscreen">
+			<div class="mui-col-xs-3">
+				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+				</div>
+			</div>
+			
+			<div id="segmentedControlContents" class="mui-col-xs-9" style="">
+				<div id="item1" class="">
+				
+				</div>
+				<div id="item2" class="">
+				</div>
+				<div id="item3" class="">
+				</div>
+			</div>
+		</div>
+				
+	</div>
+	
+				
+		<div class="mui-content" style="background-color:#fff">
+		   
+		       <ul class="mui-table-view mui-grid-view">
+		       <volist name="user" id="vo">
+		       
+		       <li class="mui-table-view-cell mui-media mui-col-xs-6" onclick="javascript:location.href='__URL__/personal/uid/{$vo['id']}';">
+		       <php> $piclist = explode(",",substr($vo['photo'],1,strlen($vo['photo']))); </php>
+		            <a href="#">
+		                <img class="mui-media-object" src="{$piclist[0]}" style="height:236px;width:297px;">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>{$vo['nickname']} <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：{$vo['id']}</dd>
+								<dd>{$vo['agenow']}岁    {$vo['workad']} </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+
+									<span class="likeit_one" data-id="{$vo['id']}" >暗恋她</span>
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		           
+		            </a>     
+		  		           		          
+		        </li>
+		        </volist>
+		
+			
+				
+			</ul>
+					
+			</div>
+			
+			</div>
+			
+
+	</body>
+	<script type='text/javascript'>
+ /* (function(){
+     new PopUp_api({el:'.s-jubao',html:'.ddd'});   
+  })()*/
+
+  $("span.likeit_one").click(function(){
+  //	alert('a');
+  //首页暗恋
+      var _this = $(this);
+      var hisid = $(this).attr('data-id');
+
+      // alert(hisid);
+      var url="{:U('Search/likeit')}";
+      if ("{$Think.session.uid}") { 
+                $.ajax({
+          type : 'post',
+          data : "hisid="+hisid,
+          url  : url,
+          //dataType : 'json',
+          success : function(msg){
+            if(msg != 0){
+              alert('暗恋成功！');
+              //_this.parent().parent('tr').remove();
+            }else{
+              alert('你已经暗恋过不能重复暗恋');
+            }
+          }
+        });
+      }else{
+         window.location.href="{:U('Login/login')}";  
+      };
+      
+      
+    }
+  );
+</script>    
+	
+	<script>
+
+
+
+
+		mui.init();
+		mui.ready(function() {
+			var slider = document.getElementById('Gallery');
+			var group = slider.querySelector('.mui-slider-group');
+			var items = mui('.mui-slider-item', group);
+			//克隆第一个节点
+			var first = items[0].cloneNode(true);
+			first.classList.add('mui-slider-item-duplicate');
+			//克隆最后一个节点
+			var last = items[items.length - 1].cloneNode(true);
+			last.classList.add('mui-slider-item-duplicate');
+			//处理是否循环逻辑，若支持循环，需支持两点：
+			//1、在.mui-slider-group节点上增加.mui-slider-loop类
+			//2、重复增加2个循环节点，图片顺序变为：N、1、2...N、1
+			var sliderApi = mui(slider).slider();
+
+			function toggleLoop(loop) {
+					if (loop) {
+						group.classList.add('mui-slider-loop');
+						group.insertBefore(last, group.firstChild);
+						group.appendChild(first);
+						sliderApi.refresh();
+						sliderApi.gotoItem(0);
+					} else {
+						group.classList.remove('mui-slider-loop');
+						group.removeChild(first);
+						group.removeChild(last);
+						sliderApi.refresh();
+						sliderApi.gotoItem(0);
+					}
+				}
+				//按下“循环”按钮的处理逻辑；
+			document.getElementById('Gallery_Toggle').addEventListener('toggle', function(e) {
+				var loop = e.detail.isActive;
+				toggleLoop(loop);
+			});
+		});
+		
+//	高级搜索
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			var zuo = ["性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：","年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：","身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：","住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：","收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入：","籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：","婚姻状况：","有无小孩："];
+			var you0 = ["男","女"];
+			var you1 = ["不限","20~25","25~30","30~35","35以上"]; 
+			var you2 = ["不限","160~160","165~170","170~175","175~180","180以上"]; 
+			var you3 = ["无","有，有贷款","有，无贷款"];
+			var you4 = ["3000以下","3000~5000","5000~10000","10000以上"]; 
+			var you5 = ["河南","郑州","开封","新乡"]; 
+			var you6 = ["单身","离婚","丧偶"];
+			var you7 = ["无","有，不同住","有，同住"];
+		
+			
+			var html = [];
+			var i = 1,
+				j = 1,
+				m = 16, //左侧选项卡数量+1
+				n = 21; //每个选项卡列表数量+1
+			for (i=0 ; i < zuo.length; i++) {
+				html.push('<a class="mui-control-item" href="#content' + i + '">' + zuo[i] + '</a>');
+			}
+			controls.innerHTML = html.join('');
+			html = [];
+			for (i = 0; i < zuo.length; i++) {
+				html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">');
+				
+				if(i == 0){
+					for (j = 0; j < you0.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you0[j] + '</li>');
+				} 
+				}
+				
+				if(i == 1){
+					for (j = 0; j < you1.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you1[j] + '</li>');
+				}
+				}
+				
+				if(i == 2){
+					for (j = 0; j < you2.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you2[j] + '</li>');
+				} 
+				}
+				
+				if(i == 3){
+					for (j = 0; j < you3.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you3[j] + '</li>');
+				} 
+				}
+				
+				if(i == 4){
+					for (j = 0; j < you4.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you4[j] + '</li>');
+				} 
+				}
+				
+				if(i == 5){
+					for (j = 0; j < you5.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you5[j] + '</li>');
+				}
+				}
+				
+				if(i == 6){
+					for (j = 0; j < you6.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you6[j] + '</li>');
+				} 
+				}
+				
+				if(i == 7){
+					for (j = 0; j < you7.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you7[j] + '</li>');
+				} 
+				}
+				
+				html.push('</ul></div>');
+			}
+			contents.innerHTML = html.join('');
+			 //默认选中第一个
+			controls.querySelector('.mui-control-item').classList.add('mui-active');
+			contents.querySelector('.mui-control-content').classList.add('mui-active');
+	
+
+		
+		
+				
+	</script>
+</html>

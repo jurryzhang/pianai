@@ -1,0 +1,157 @@
+/*
+ *这是单独为hello mui准备的个性化css，可以覆盖标准mui的css定义；
+ * 在实际项目开发时，建议为App单独写一个css文件，从而实现项目的自定义皮肤功能；
+ * 
+ * */
+.mui-plus.mui-android header.mui-bar{
+	display: none;
+}
+.mui-plus.mui-android .mui-bar-nav~.mui-content{
+	padding: 0;
+}
+
+/*hm开头的表示仅为 Hello MUI示例定义*/
+.hm-description{
+	margin: .5em 0;
+}
+
+.hm-description>li {
+	font-size: 14px;
+	color: #8f8f94;
+}
+
+
+
+ul,ol,h1,h2,h3,h4{ margin: 0 ; padding: 0;}
+li{ list-style: none;}
+dl,dd{ margin: 0; padding: 0;}
+.clearfix{ clear: both;}
+
+/*顶部栏*/
+.mui-bar-nav{background: #d00053; position:fixed; top: 0;}
+.mui-bar-nav h1{ color: #FFFFFF;}
+
+
+.mui-bar-tab .mui-tab-item .mui-icon img{width: 100%;}
+
+.mui-media-body dt{ color: #d00053; font-size: 16px; margin-bottom: 5px;}
+.mui-media-body dt img{ width: 22px; margin-right: 3px;}
+.mui-media-body dt span{ color: #ec9e4d; font-size: 14px;}
+.mui-media-body dd{ color: #666; line-height: 20px; font-size: 14px;}
+.mui-media-body .hidden_love{ background:#d00053 ; width: 110px; border-radius: 6px; color: #fff;margin-top: 19px;
+ padding-bottom:8px; padding-left: 10px;}
+.mui-media-body .hidden_love img{padding-top: 5px; width: 30px;}
+
+.search_intro_box .head{width: 40px; height: 40px; float: left; border-radius: 50%;}
+.search_intro_box .head img{ width: 100%; height: 100%; border-radius: 50%;}
+.search_intro{ font-size: 12px; color:#666; float: left; text-align: left; margin-left: 6px;}
+.search_intro dt { color: #d00053;}
+.search_intro dt img{ width: 20px;}
+.search_intro dt span { color: #ec9e4d;}
+
+.search_intro .hidden_love{ background:#d00053 ; width: 80px; border-radius: 4px; color: #fff;margin-top: 6px;
+padding-left: 10px; padding-bottom: 2px;}
+.search_intro .hidden_love img{padding-top: 5px; width:20px;}
+
+
+.mui-popover {height: 300px;}
+.search{ background: #fff; padding: 20px 0;}
+.search dd{ float: left; width: 33%; text-align: center; border-right: 1px solid #d9d9d9; color: #666; line-height: 20px;}			
+.search dd img{ width: 16px;}
+.search dd a{ color: #666;}
+
+/*高级搜索*/
+	.mui-segmented-control .mui-control-item {
+				line-height: 50px;
+				width: 100%;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #fff;
+			}
+			
+/*我的*/
+.mui-grid-view.mui-grid-9 .mui-media01{ width: 33.3%;}
+.mui-grid-view.mui-grid-9 .mui-media01 img{width: 50px;}
+
+.head_portrait dt{ position: absolute; width: 100%;}
+.head_portrait dt img{width: 100px; height: 100px; border: 2px solid #FFFFFF; border-radius: 50%; position: absolute;
+ bottom:10px; left: 50%; margin-left: -50px;}
+.head_portrait dt .head_font{ position: absolute; bottom:60px; color: #fff; width:260px; left: 50%; margin-left: -112px;}
+
+.contact_way { width: 100px; margin: 0 auto; padding-top: 5px;}
+.contact_way img{ width: 30px;}
+
+/*个人信息*/
+
+.relation{ position: absolute; bottom: 0; right: 20px;}
+.relation img{ width: 30px;}
+
+.search_intro_box li{ padding: 10px 0; margin: 0 20px; border-bottom: 1px dashed #D9D9D9;}
+
+.intro { color: #D00053;}
+.intro img{ width: 26px;}
+.intro p{ line-height: 20px; margin-top: 10px;}
+
+
+/*.credential_title li{ float: left;  width: 50%; text-align: center; padding-top: 10px; cursor:pointer;}*/
+.credential_title h1{ float: left; font-size: 18px;  color: #666;line-height: 40px;  width: 80px; margin: 0 16%;cursor:pointer;}
+.credential_title .current{ border-bottom: 2px solid #D00053; color: #D00053;}
+
+.credential_box ul{ background: #FFFFFF;}
+.credential_box ul li{ padding:20px 0; margin: 0 20px; border-bottom: 1px dashed #D9D9D9;}
+.credential_box img{ width: 30px;}
+.credential_box ul dl{ margin-top: 10px; margin-left: 36px;}
+.credential_box ul dd{ float: left; width: 50%; line-height: 30px; color: #666; font-size: 14px;}
+.credential_box ul dd span{ color: #999;}
+
+.details01{ float: left;}
+.details01,.details02{ width:100%;}
+
+.suspension_box{ position: fixed; bottom:10px; width: 90%; left: 50%; margin-left: -45%;}
+.suspension_box ul{ background: #D00053; color: #fff; border-radius: 6px; padding: 10px 0;}
+.suspension_box ul li{ float: left; width: 33%; font-size: 16px; text-align: center;}
+.suspension_box ul li img{ height: 20px;}
+
+
+/*分类子页*/
+
+.sequence{ background: #fff; line-height: 40px; padding-left: 20px;}
+.sequence li {
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    width:20%;
+   /* margin-right: 5px;*/
+}
+
+.sequence .sort_a {
+    padding-left: 5px;
+    cursor: pointer;
+    padding-right: 20px;
+    font-style: normal;
+    color: #999;
+    
+}
+
+.sequence .sort_a01 {
+    background:url(../image/jt.png) no-repeat right center;
+   
+}
+
+
+/*.mui-media-body a{border: 1px solid;}*/
+
+
+/*关于我们*/
+
+.mui-content .mui-content-padded{ width:94%; margin:0 auto;}
+.mui-content h3{ text-align: center; color: #D00053; line-height: 40px;}
+.mui-content p{ color: #666;}
+
+
+/*会员条款*/
+
+.member{ color: #D00053;}
+.member p{ text-indent: 27px;}
+
+.mui-content h4{ color: #333; font-weight: normal; line-height: 30px; }

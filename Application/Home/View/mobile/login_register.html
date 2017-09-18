@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+		
+	
+		<script src="__PUBLIC__/Home/js/jquery-1.8.3.js"></script>
+	    <link href="__PUBLIC__/Home/css1/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css1/app.css"/>
+    
+
+		<style>
+	
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 78%;
+			}
+			
+		
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+			
+			.spliter {
+				color: #bbb;
+				padding: 0px 8px;
+			}
+			
+		   .main-logbox input{  padding: 15px 40px; }
+		   .main-log {
+    padding-bottom: 24px;
+}
+		</style>
+
+	</head>
+
+	<body style="background: #fff; margin: 0 auto;">
+	<div class="mui-bar mui-bar-nav">
+			
+			<h1 class="mui-title">偏爱婚恋</h1>
+		</div>
+	          <form action="<?php echo U('Mobile/register_two')?>" method="post" id="loginform">	      
+					
+			<div class="mui-content" style=" width: 85%; margin: auto;margin-top:80px;">
+			
+			<div style=" width: 30%; margin:0 auto; margin-bottom: 30px;">
+				<img src="__PUBLIC__/Home/image1/img04_35.png" style="width: 90%; margin: 0 auto;"/>
+				<p style=" text-align: center; color: #d00053; font-size: 16px;">
+					
+				偏爱婚恋网</p>
+			</div>
+					 <div class="jubao-infor" style=" width: 85%; ">
+    	    	<dl class="main-log" style="margin: 0 auto;">
+					
+				<dd class="main-logbox">
+						<i class="main-user"></i>
+						<input placeholder="手机号/账户名" type="text" name="username" class="main-user-input username">
+					</dd>
+					
+					<dd class="main-logbox">
+						<i class="main-password"></i>
+						<input placeholder="请输入新密码" type="password" name="password" class="main-user-input password">
+					</dd>
+				
+					
+						<dd class="main-logbox">
+						<i class="main-password"></i>
+						<input placeholder="请确认新密码" type="password" name="repassword" class="main-user-input repassword">
+					</dd>
+							<button type="button" class="main-btn" style=" float: none; width: 90%; margin: 0 auto;">下一步</button>
+
+						<!-- <p class="link-area">
+					没有账号？前往<span style="color: #d00053;">偏爱婚恋交友官网www.pahl.com</span>注册吧！！！</p> -->
+						<div class="clearfix"></div>
+					</dd>
+					
+				</dl>
+    	   </div>
+	</form>
+				
+					
+			
+			
+				
+				
+		</div>
+		<script type="text/javascript">
+			 $('.main-btn').click(function(){
+ 	 var username=$('.username').val();
+     var password=$('.password').val();
+     var repassword=$('.repassword').val();
+     var url="{:U('Mobile/register')}";
+	   if(!username || !password){
+	   	 alert('用户名或密码不能为空');
+	   	 return false;
+	   }
+	   if(password != repassword){
+	   	  alert('两次密码输入不一致');
+	   	  return false;
+	   }
+	   $.post(url,{username:username},function(data){
+            if(data=='1'){
+            	alert('用户已经注册过，请登录');
+            	location.href="{:U('Mobile/login')}";
+            }else{
+            	$('#loginform').submit();
+            }
+	   },'json');
+ })
+
+		</script>
+	
+	</body>
+
+</html>

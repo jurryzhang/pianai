@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <title>偏爱婚恋交友网</title>
+    
+    <link href="__PUBLIC__/Home/css1/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css1/app.css"/>
+    
+    
+    <script type="text/javascript" src="__PUBLIC__/Home/js1/mui.min.js"></script>
+    <style>
+.itemnav{display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;}
+.itemnav .span1 {top: 5px;
+    width: 24px;
+    height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+
+        font-family: Muiicons;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;}
+
+
+.itemnav img {width: 100%;}
+.itemnav  .span2{font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;}
+
+    </style>
+</head>
+
+
+
+
+<body>
+		<div class="mui-bar mui-bar-nav" id="titles" style="z-index: 10px; background-color: #ed5994; height: 44px;line-height: 44px;
+			border-radius:22px; margin:0 auto;text-align: center;
+		" align="center">
+			
+			<div ><img src="__PUBLIC__/Home/image/logohead.png" style="width:30px;vertical-align: middle;margin-top:-6px;" /><span style="line-height: 44px; display:inline-block;color:#fff;">偏爱婚恋 </span></div><span class="mui-icon mui-icon-home"></span>
+		</div>
+			<nav class="mui-bar mui-bar-tab" style="  border-top: 1px solid rgba(285,0,85,1.0); background-color: #fff;">
+			<a href="{:U('Mobile/home')}" class="itemnav mui-active" >
+				<span class="span1"><img src="__PUBLIC__/Home/image1/img_18.png"/></span>
+				<span class="span2">偏爱</span>
+			</a>
+			<a  href="{:U('Mobile/home')}" class="itemnav">
+				<span class="span1"><img src="__PUBLIC__/Home/image1/img_21.png"/></span>
+				<span class="span2">搜索</span>
+			</a>
+			<a  href="{:U('Mobile/home')}" class="itemnav">
+				<span class="span1"><img src="__PUBLIC__/Home/image1/img_13.png"/></span>
+				<span class="span2">服务</span>
+			</a>
+		<a  style="display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #929292;" href="{:U('Mobile/usercenters')}" >
+				<span style="top: 5px;
+    width: 24px;
+    height: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 24px;
+    position: relative;
+    z-index: 20;
+
+        font-family: Muiicons;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;"><img src="__PUBLIC__/Home/image1/img_15.png" style="width: 100%;"/></span>
+				<span style="font-size: 11px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;" >我的</span>
+			</a>
+		</nav>
+		<style>
+	<style type="text/css">
+
+
+.do_btm{position:fixed; bottom:0;height:38px;line-height:38px;width:50%; background:#4d7de2;color:#fff;}
+#divOne_1{display:none;border-radius: 5px;width:250px;height:160px;position: fixed;left:13%;top: 28%;z-index: 100;line-height: 70px;}
+
+
+
+		</style>
+	
+		<div id="divOne_1" style="background:#fff;">
+        	
+			     
+  <div class="camera-area" style="margin-left: 20px;" align="center">
+      <form enctype="multipart/form-data" method="post" action="__APP__/Home/Userinfo/updateuserimg">
+        <input type="file" name="upload[]"/>
+		  <input type="submit" value="提交">
+        </form>
+     <!--  <div class="thumb" style="display: none;"></div> -->
+  </div>
+			
+		</div>	
+		<!--我的-->
+		 	<div id="tabbar-with-map">
+									
+			<div class="title" style="width: 100%; position: relative;">
+						<img src="__PUBLIC__/Home/image1/img04.png" style="width: 100%; "/>
+					<dl class="head_portrait">
+							<!-- 更换头像 -->
+						<dt>	
+
+							<img src="{$userinfo['headpic']}" onclick="return click_a('divOne_1')" data-id="{$userinfo['id']}"  class="thumb"/>
+
+							<div class="head_font">
+								<span>  <if condition="$userinfo['sex'] eq '1'">男   <else/>女
+                		  </if> &nbsp;&nbsp;</span>
+								<span style="margin-left: 120px";>{$userinfo['workad']}&nbsp;&nbsp;  </span>
+							</div>
+						</dt>
+						
+						<dd class="name" style=" margin-top: 40px; text-align: center;">
+							{$userinfo['nickname']}
+							<!-- <img src="__PUBLIC__/Home/image1/img01_06.png" style="width: 20px;"/>
+							<span style=" color: #ec9e4d;"></span> -->
+						</dd>
+						
+						<dd style=" text-align: center; margin-top:5px; color: #666; font-size: 12px; line-height: 20px;">
+							<span>会员号：	{$userinfo['id']}</span>
+							<span><br>就算中途离去，故事没有结局，小说还在继续</span>
+						</dd>
+						<dd class="contact_way">
+							<img src="__PUBLIC__/Home/image1/img04_07.png"/>
+							<img src="__PUBLIC__/Home/image1/img04_09.png"/>
+							<img src="__PUBLIC__/Home/image1/img04_11.png"/>
+						</dd>
+					</dl>
+
+					<div class="mui-content">
+		        	<ul class="mui-table-view mui-grid-view mui-grid-9" style="background: #FFFFFF; border-top: 1px solid #dcdbe1; border-bottom: 1px solid #dcdbe1;">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01">
+		             <a href="{:U('Mobile/personal',array('uid'=>$userinfo['id']))}">
+		                    <span class="mui-icon mui-icon-home">
+		                    	<img src="__PUBLIC__/Home/image1/img04_17.png"/>
+		                    </span>
+		                    <div class="mui-media-body">个人资料</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="{:U('Mobile/likemeit')}">
+		                    <span class="mui-icon mui-icon-email">
+		                    	<img src="__PUBLIC__/Home/image1/img04_20.png"/>
+		                    </span>
+		                    <div class="mui-media-body">暗恋</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01">
+		            <a href="{:U('Vote/index')}">
+		                    <span class="mui-icon mui-icon-chatbubble">
+		                    	<img src="__PUBLIC__/Home/image1/img04_23.png"/>
+		                    </span>
+		                    <div class="mui-media-body">选秀投票</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="{:U('Mobile/help')}">
+		                    <span class="mui-icon mui-icon-location">
+		                    	<img src="__PUBLIC__/Home/image1/img04_32.png"/>
+		                    </span>
+		                    <div class="mui-media-body">帮助中心</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="{:U('Mobile/hotphone')}">
+		                    <span class="mui-icon mui-icon-search">
+		                    	<img src="__PUBLIC__/Home/image1/img04_29.png"/>
+		                    </span>
+		                    <div class="mui-media-body">服务热线</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="{:U('Mobile/about')}">
+		                    <span class="mui-icon mui-icon-phone">
+		                    	<img src="__PUBLIC__/Home/image1/img04_35.png"/>
+		                    </span>
+		                    <div class="mui-media-body">关于我们</div></a></li>
+		            
+		        </ul> 
+				</div>
+				<div class="mui-content" style="margin-bottom: 60px;">
+		    <div class="mui-content-padded" style="margin-top:25px;">
+		      <a href="{:U('Login/exitlogin')}"><button type="button" class="mui-btn mui-btn-primary mui-btn-block">退出登录</button></a>
+		 
+		    </div>
+		</div>
+			
+			</div>
+			</div>
+
+	</body>
+
+	 <script type="text/javascript" src="http://www.yxzyhz.com/upimg/zepto.min.js"></script>
+  <script type="text/javascript" src="http://www.yxzyhz.com/upimg/upload.js"></script>
+  <script type="text/javascript">
+
+      function click_a(divDisplay)   
+            {   
+                if(document.getElementById(divDisplay).style.display != "block")   
+                {   
+                    document.getElementById(divDisplay).style.display = "block";
+                }   
+                else  
+                {   
+                    document.getElementById(divDisplay).style.display = "none";   
+                }   
+            }  
+    $(function() {
+    	
+      $(".camera-area").fileUpload({
+        "url": "http://www.yxzyhz.com/index.php/Home/Mobile/savetofile",
+        "file": "myFile"
+      });
+    })
+
+
+	
+	function setimg(path){
+  
+       $("#mypic").append('<img src="http://115.28.215.122/upimg/uploads/"'+path+'>');
+       window.stub.jsMethod("meimeide");
+	}
+
+
+
+		mui.init();
+		mui.ready(function() {
+			var slider = document.getElementById('Gallery');
+			var group = slider.querySelector('.mui-slider-group');
+			var items = mui('.mui-slider-item', group);
+			//克隆第一个节点
+			var first = items[0].cloneNode(true);
+			first.classList.add('mui-slider-item-duplicate');
+			//克隆最后一个节点
+			var last = items[items.length - 1].cloneNode(true);
+			last.classList.add('mui-slider-item-duplicate');
+			//处理是否循环逻辑，若支持循环，需支持两点：
+			//1、在.mui-slider-group节点上增加.mui-slider-loop类
+			//2、重复增加2个循环节点，图片顺序变为：N、1、2...N、1
+			var sliderApi = mui(slider).slider();
+
+			function toggleLoop(loop) {
+					if (loop) {
+						group.classList.add('mui-slider-loop');
+						group.insertBefore(last, group.firstChild);
+						group.appendChild(first);
+						sliderApi.refresh();
+						sliderApi.gotoItem(0);
+					} else {
+						group.classList.remove('mui-slider-loop');
+						group.removeChild(first);
+						group.removeChild(last);
+						sliderApi.refresh();
+						sliderApi.gotoItem(0);
+					}
+				}
+				//按下“循环”按钮的处理逻辑；
+			document.getElementById('Gallery_Toggle').addEventListener('toggle', function(e) {
+				var loop = e.detail.isActive;
+				toggleLoop(loop);
+			});
+		});
+		
+//	高级搜索
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			var zuo = ["性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：","年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：","身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：","住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：","收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入：","籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：","婚姻状况：","有无小孩："];
+			var you0 = ["男","女"];
+			var you1 = ["不限","20~25","25~30","30~35","35以上"]; 
+			var you2 = ["不限","160~160","165~170","170~175","175~180","180以上"]; 
+			var you3 = ["无","有，有贷款","有，无贷款"];
+			var you4 = ["3000以下","3000~5000","5000~10000","10000以上"]; 
+			var you5 = ["河南","郑州","开封","新乡"]; 
+			var you6 = ["单身","离婚","丧偶"];
+			var you7 = ["无","有，不同住","有，同住"];
+		
+			
+			var html = [];
+			var i = 1,
+				j = 1,
+				m = 16, //左侧选项卡数量+1
+				n = 21; //每个选项卡列表数量+1
+			for (i=0 ; i < zuo.length; i++) {
+				html.push('<a class="mui-control-item" href="#content' + i + '">' + zuo[i] + '</a>');
+			}
+			controls.innerHTML = html.join('');
+			html = [];
+			for (i = 0; i < zuo.length; i++) {
+				html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">');
+				
+				if(i == 0){
+					for (j = 0; j < you0.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you0[j] + '</li>');
+				} 
+				}
+				
+				if(i == 1){
+					for (j = 0; j < you1.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you1[j] + '</li>');
+				}
+				}
+				
+				if(i == 2){
+					for (j = 0; j < you2.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you2[j] + '</li>');
+				} 
+				}
+				
+				if(i == 3){
+					for (j = 0; j < you3.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you3[j] + '</li>');
+				} 
+				}
+				
+				if(i == 4){
+					for (j = 0; j < you4.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you4[j] + '</li>');
+				} 
+				}
+				
+				if(i == 5){
+					for (j = 0; j < you5.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you5[j] + '</li>');
+				}
+				}
+				
+				if(i == 6){
+					for (j = 0; j < you6.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you6[j] + '</li>');
+				} 
+				}
+				
+				if(i == 7){
+					for (j = 0; j < you7.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you7[j] + '</li>');
+				} 
+				}
+				
+				html.push('</ul></div>');
+			}
+			contents.innerHTML = html.join('');
+			 //默认选中第一个
+			controls.querySelector('.mui-control-item').classList.add('mui-active');
+			contents.querySelector('.mui-control-content').classList.add('mui-active');
+	
+
+		
+		
+				
+	</script>
+</html>

@@ -1,0 +1,815 @@
+
+<include file="public/head2" />
+
+
+<script type="text/javascript"  src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript"  src="__PUBLIC__/Home/js/comment.js"></script>
+
+<div class="s-topbox">
+	 <php> $piclist = explode(",",substr($user['photo'],1,strlen($user['photo']))); </php>
+		<div class="s-top">
+			    <div class="preview">
+	               <div id="vertical" class="bigImg">
+                 <img src="__PUBLIC__/Admin/kindeditor-4.1.10/attached/image{$piclist[1]}" alt="" id="midimg" /></div>
+	               <div class="smallImg">
+		              <div class="scrollbutton smallImgUp disabled"></div>
+		              <div id="imageMenu">
+			            <ul  style=" width:100%;">
+                 
+                  <volist name="piclist" id="vo">
+				           <li ><img src="__PUBLIC__/Admin/kindeditor-4.1.10/attached/image{$vo}" width="68" height="68" /></li>
+				            </volist>
+                   <!--<li><img src="__PUBLIC__/Home/image/img01_03.png" width="68" height="68" /></li>-->
+				           <div class="clearfix">  </div>
+			            </ul>
+		              </div>
+		               <div class="scrollbutton smallImgDown"></div>
+	                 </div>
+                </div>
+                
+                <div class="s-minfor">
+                	<div class="tit">
+                		<div class="">
+                			<h1 class="s-mname">{$user['nickname']}</h1>
+                			<img src="__PUBLIC__/Home/image/img01_06.png"/ style="float: left; margin: 9px 0 0 10px;">
+                			<span style=" color: #ec9e4d; font-size: 16px; margin: 9px 0 0 5px;">V2</span>	
+                		</div>
+                			
+                		
+                		<div class="m-icon">
+                			<p style="font-size:16px; float: left; margin-right: 40px; color: #666;">会员号：000001</p>
+                			<a href="" class="m-icon-iphone"></a>
+                			<a href="" class="m-icon-man"></a>
+                			<a href="" class="m-icon-email"></a>
+                			<a href="" class="m-icon-xue"></a>
+                		</div>
+                	</div>
+                	<ul class="infor">
+                	   <li>
+                		  <p>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<span>
+                		  <if condition="$user['sex'] eq '1'">男   <else/>女
+                		  </if>
+
+                		  </span></p>
+                		  <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span>
+                		  {$user['qualification']}</span></p>
+                	   </li>
+                	   <li>
+                		  <p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span>
+                		  {$user['age']}</span></p>
+                		  <p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span>
+                		  {$user['height']}</span></p>
+                	   </li>
+                	   <li>
+                		  <p>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;肖：<span>
+                		  {$user['ani']}</span></p>
+                		  <p>婚姻状况：<span>
+                          <switch name="$user['marriage']" >
+            							<case value="1">离婚</case>
+            							<case value="2">丧偶</case>
+            							<default />未婚
+							            </switch>
+                		  <span></p>
+                	   </li>
+                
+                    </ul>
+
+                    <div class="s-introduce">
+                    	<div class="tit01">自我介绍</div>
+                    	<p>{$user['intro']|htmlspecialchars_decode=###}
+                    	</p>
+
+              	 <ul class="infor_button">
+                <?php if($user['ismember']){  ?>
+                  <li>
+                        <img src="__PUBLIC__/Home/image/img01_30.png"/>
+                        <span id="likeme" data-id="{$user['id']}" onclick="likeme()">查看暗恋</span>
+                  </li>
+
+                <?php   } ?>
+                
+                 <?php
+                      
+                  if ($user['li']){
+                    ?>
+                    <li>
+                      <img src="__PUBLIC__/Home/image/img01_30.png"/>
+                      <span class="likeit" data-id="{$user['id']}">暗恋她</span>
+                    </li>
+                  <?php }else{ ?>
+                      <li>
+                      <img src="__PUBLIC__/Home/image/img01_30.png"/>
+                      <span>已暗恋</span>
+                    </li>
+                  <?php
+                }
+                  ?>
+                   	<li>
+                   		<img src="__PUBLIC__/Home/image/img01_33.png"/>
+                   		<span id="photo" data-id="{$user['id']}" onclick="screen()">求照片</span>
+                   	</li>
+                   	<li>
+                   		<img src="__PUBLIC__/Home/image/img01_35.png"/>
+                   		<span id="vcr" data-id="{$user['id']}" onclick="screen1()">个人VCR</span>
+                   	</li>
+                   	<div class="clearfix"></div>
+                   </ul>
+     
+                    </div>
+                    
+             
+                </div>
+                </div>
+             
+  </div>  
+
+<!--$Think.session.uid-->
+
+<div id="screen1" style="display: none;">
+  <div class="banner_box">
+  <video width="100%" height="100%" controls="controls" autoplay>
+  <source src="/i/movie.ogg" type="video/ogg">
+  <source src="58a3f727d3cec.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+<ideo>
+
+</div>
+</div>
+
+<div id="screen" style="display: none;">
+  <div class="banner_box">
+  
+    
+  <img src="__PUBLIC__/Admin/kindeditor-4.1.10/attached/image{$vo}" style="display: block;" height: 350px;>
+  <img src="__PUBLIC__/Admin/kindeditor-4.1.10/attached/image{$piclist[1]}" id="midimg" style="display: none;" height: 350px; align="center"/>
+  <img src="/pahl/Public/Home/image/banner01.jpg" style="display: none;" height: 350px; >
+    <img src="/pahl/Public/Home/image/banner03.png" style="display: none;" height: 350px; >
+    <img src="/pahl/Public/Home/image/banner04.png" style="display: none;" height: 350px; >
+    
+    <ul class="btn">
+      <li class="current"></li>
+        <li class=""></li>
+        <li class=""></li>
+        <li class=""></li>
+    </ul>
+    
+    <div class="leftarrows"><img src="/pahl/Public/Home/image/left.png"></div>
+    <div class="rightarrows"><img src="/pahl/Public/Home/image/right.png"></div>
+    <div class="conter"></div>
+  
+</div>
+
+</div>
+
+<div id="mainright" style="display: none;">
+        <div class="main-message">
+                
+          <ul class="member-list">
+
+           <volist name="u" id="vo" offset="1">
+
+            <li><php> $piclist = explode(",",substr($vo['photo'],1,strlen($vo['photo']))); </php>
+              <a href="{:U('Userinfo/index',array('uid'=>$vo['id']))}">
+              <img src="__PUBLIC__/Admin/kindeditor-4.1.10/attached/image{$piclist[1]}" id="img1"/>
+              </a>
+              <div class="name_title">
+                <h1>{$vo['nickname']}</h1>
+                <img src="__PUBLIC__/Home/image/img01_06.png"/>
+                <span>v2</span>
+                <div class="clearfix"></div>
+              </div>
+              
+              <p>会员号：100001</p>
+                            <p style=" padding: 5px 0 10px;">{$vo['age']}岁    {$vo['workad']}      <switch name="$vo['marriage']" >
+                              <case value="1">离婚</case>
+                              <case value="2">丧偶</case>
+                              <default />未婚
+                              </switch> </p>
+                            <p style="padding: 10px 0 20px; border-top: 1px dashed #D9D9D9;">自我介绍：{$vo['intro']|mb_substr=###,0,10,'utf-8'}</p>
+                          
+            </li>
+            
+            </volist>
+            <div class="clearfix"></div>
+          </ul>
+        
+        </div>
+                
+      </div>
+
+<style>
+  #screen{
+    width: 820px;
+    background-color: lightcyan;
+    margin: 0 auto;
+  }
+  #screen1{
+    width: 620px;
+    height: 500px
+    border-color:#0000FF;
+    border: 2px solid ;
+    background-color: lightcyan;
+    margin: 0 auto;
+  }
+
+  #mainright{
+    width: 1200px;
+    height: 500px
+    border-color:#0000FF;
+    border: 2px solid ;
+    background-color: lightcyan;
+    margin: 0 auto;
+  }
+   .banner_box>img{
+            margin-left: -420px !important;
+        }
+</style>
+
+
+<script type="text/javascript"> 
+
+/*原生简写（三元运算）*/
+ 
+function screen(){
+ 
+/*
+ 
+原理相同只是写法不同，判断show的display是不是none  是则设为block显示不是则设为none隐藏
+ 
+*/
+ 
+document.getElementById('screen').style.display = document.getElementById('screen').style.display=="none"?"block":"none";
+ 
+}
+
+function screen1(){
+ 
+/*
+ 
+原理相同只是写法不同，判断show的display是不是none  是则设为block显示不是则设为none隐藏
+ 
+*/
+ 
+document.getElementById('screen1').style.display = document.getElementById('screen1').style.display=="none"?"block":"none";
+ 
+}
+
+function likeme(){
+ 
+/*
+ 
+原理相同只是写法不同，判断show的display是不是none  是则设为block显示不是则设为none隐藏
+ 
+*/
+ 
+document.getElementById('mainright').style.display = document.getElementById('mainright').style.display=="none"?"block":"none";
+ 
+}
+
+   
+
+    var z=0
+$(".banner_box>img").hide().eq(0).show()
+$(".btn li").click(
+  function(){
+    z=$(this).index()
+    $(".banner_box>img").hide().eq(z).show()
+    $(this).addClass("current").siblings().removeClass("current")
+    }
+) 
+$(".leftarrows").click(
+  function(){
+    if(z>0){z=z-1}
+    else{z=3}
+    $(".banner_box>img").hide().eq(z).show()
+    $(".btn li").eq(z).addClass("current").siblings().removeClass("current")
+    }
+)
+$(".rightarrows").click(
+  function(){
+    if(z<3){z=z+1}
+    else{z=0}
+    $(".banner_box>img").hide().eq(z).show()
+    $(".btn li").eq(z).addClass("current").siblings().removeClass("current")
+    }
+)
+
+</script> 
+
+
+
+
+<!--<div class="main">-->
+<if condition="$user['id'] eq $userid">
+
+
+<form action="{:U('Userinfo/updateuserinfo',array('uid'=>$user['id']))}" method="post" id="myform">
+
+<!-- <input type="text" name="uid" value="{$user['id']}"/> -->
+<input type="submit" value="保存"/>
+		<div class="main-box1">
+			<div class="main-left"><!--left-->
+
+         <div class="s-introduce"> 
+             	<img src="__PUBLIC__/Home/image/img01_43.png"/>
+             	<div class="tit">详细资料</div>
+             	<div class="clearfix"></div>
+             </div>
+              <ul class="s-yaoqiu">
+              	<li>
+              		<p>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<span> 
+              		<if condition="$user['sex'] eq '1'">男             
+              		            <else/>女
+                		  </if></span></p>
+              		<p>血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：<span>{$user['blood']}</span></p>
+              		<p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span>{$user['qualification']}</span></p>
+              		<p>婚姻状况：<span>
+              			<switch name="$user['marriage']" >
+      							<case value="1">离婚</case>
+      							<case value="2">丧偶</case>
+      							<default />未婚
+      							</switch>
+              		</span></p>
+              	</li>
+              	<li>
+              		<p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span>{$user['age']}</span></p>
+              		<p>属&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相：<span>{$user['ani']}</span></p>
+              		<p>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：<span>
+
+              		<switch name="$user['housing']" >
+							<case value="1">已购房（有贷款）</case>
+							<case value="2">已购房（无贷款）</case>
+							<default />无
+							</switch></span></p>
+              	</li>
+              	<li>
+              		<p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span>{$user['height']}</span></p>
+              		<p>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：<span>{$user['const']}</span></p>
+              		<p>月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;薪：<span>{$user['monthly']}</span></p>
+              	</li>
+              	<li>
+              		<p>体&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重：<span>{$user['weight']}</span></p>
+              		<p>民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：<span>{$user['nation']}</span></p>
+              		<p>从事工作：<span>{$user['work']}</span></p>
+              	</li>
+              </ul>
+              
+
+               
+               <div class="s-introduce"> 
+               	<img src="__PUBLIC__/Home/image/img01_46.png"/>
+               	<div class="tit">生活状况</div>
+               	
+               	<div class="clearfix"></div>
+               </div>
+               <ul class="s-yaoqiu1">
+              	<li>
+              		<p>吸&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;烟：<span>
+              		<input name="smoking" value="{$user['smoking']}" id="input_spec"/></span></p>
+              		<p>较大消费：<span>
+                    <input name="consumption" value="{$user['consumption']}" id="input_spec"/>
+              		</span></p>
+              		<p>是否与父母同住：<span>
+
+              		<input name="livingwithparents" value="{$user['livingwithparents']}" id="input_spec"/></span></p>
+              	</li>
+              	<li>
+              		<p>饮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酒：<span>
+                    <input name="drinking" value="{$user['drinking']}" id="input_spec"/>
+              		</span></p>
+              		<p>购物逛街：<span>
+                    <input name="shopping" value="{$user['shopping']}" id="input_spec"/>
+              		</span></p>
+              		<p>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务：<span>
+                    <input name="housework" value="{$user['housework']}" id="input_spec"/>
+              		</span></p>
+              	</li>
+              	<li>
+              		<p>是否购车：<span>
+                    <input name="car" value="{$user['car']}" id="input_spec"/>
+
+              		</span></p>
+              		<p>宗教信仰：<span>
+                     <input name="beliefs" value="{$user['beliefs']}" id="input_spec"/>
+
+              		</span></p>
+              	</li>
+              	<li>
+              </ul>
+      
+              
+              <div class="s-introduce"> 
+              	<img src="__PUBLIC__/Home/image/img01_48.png"/>
+              	<div class="tit">择偶要求</div>
+              	<div class="clearfix"></div>
+              </div>
+               <ul class="s-yaoqiu1">
+               	
+
+              	<li>
+              		<p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span>
+              		 {$chuser['cage']}岁之间</span></p>
+              		<p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span>{$chuser['qualification']}</span></p>
+              		<!-- <p>婚后是否与父母同住：<span>{$chuser['']}</span></p> -->
+              		<p>从事工作：<span>{$chuser['work']}</span></p>
+              	</li>
+              	<li>
+              		<p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span>{$chuser['height']}</span></p>
+              		<p>婚后是否要小孩：<span>
+
+              		<switch name="$chuser['child']" >
+							<case value="1">有同住</case>
+							<case value="2">有不同住</case>
+							<default />无
+							</switch></span></p>
+              		<!-- <p>购&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车：<span>{$chuser['']}</span></p> -->
+              		<!-- <p>工作地点：<span>{$chuser['work']}</span></p> -->
+              	</li>
+              	<li>
+              		<p>月&nbsp;&nbsp;收&nbsp;&nbsp;入：<span>{$chuser['monthly']}</span></p>
+              		<p>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：<span>
+              		<switch name="$chuser['housing']" >
+							<case value="1">已购房（有贷款）</case>
+							<case value="2">已购房（无贷款）</case>
+							<default />无
+							</switch></span></p>
+              		<p>婚姻状况：<span>
+
+              		<switch name="$chuser['marriage']" >
+							<case value="1">已婚</case>
+							<case value="2">丧偶</case>
+							<default />未婚
+							</switch></span></p>
+              	</li>
+              	<li>
+              </ul>
+  
+               <div class="s-introduce"> 
+               	<img src="__PUBLIC__/Home/image/img01_50.png"/>
+               	<div class="tit">关于婚姻</div>
+               <div class="clearfix"></div>
+               </div>
+               <ul class="s-yaoqiu1" style="border-bottom: none;">
+              	<li>
+              		<p>是否要小孩：<span>
+                    <input name="getchild" value="{$user['getchild']}" id="input_spec"/>
+              		</span></p>
+              		<p>家中排行：<span>
+                    <input name="ranking" value="{$user['ranking']}" id="input_spec"/></span></p>
+              		<p>兄弟姐妹：<span>
+                    <input name="brothersandsisters" value="{$user['brothersandsisters']}" id="input_spec"/></span></p>
+              	
+              	</li>
+              	<li>
+              		<p>何时结婚：<span>
+                    <input name="whenmarried" value="{$user['whenmarried']}" id="input_spec"/></span></p>
+              		<p>父母情况：<span>
+                    <input name="parents" value="{$user['parents']}" id="input_spec"/></span></p>
+              		<p>父母经济情况：<span>{$user['parentseconomic']}
+                    <input name="parentseconomic" value="{$user['parentseconomic']}" id="input_spec"/></span></p>
+              	</li>
+              	<li>
+              		<p>愿与对方父母同住：<span>
+                    <input name="wishlivewithparents" value="{$user['wishlivewithparents']}" id="wishlivewithparents"/></span></p>             		
+              		<p>父母医保情况：<span>
+                    <input name="parentshealth" value="{$user['parentshealth']}" id="input_spec"/></span></p>
+              	</li>
+              	<li>
+              </ul>
+    
+			</div><!--left-->
+
+
+</div>
+
+</div>
+</form>
+
+<else/>
+
+
+    <div class="main-box1">
+      <div class="main-left"><!--left-->
+
+         <div class="s-introduce"> 
+              <img src="__PUBLIC__/Home/image/img01_43.png"/>
+              <div class="tit">详细资料</div>
+              <div class="clearfix"></div>
+             </div>
+              <ul class="s-yaoqiu">
+                <li>
+                  <p>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<span> 
+                  <if condition="$user['sex'] eq '1'">男             
+                              <else/>女
+                      </if></span></p>
+                  <p>血&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：<span>{$user['blood']}</span></p>
+                  <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span>{$user['qualification']}</span></p>
+                  <p>婚姻状况：<span>
+                    <switch name="$user['marriage']" >
+              <case value="1">离婚</case>
+              <case value="2">丧偶</case>
+              <default />未婚
+              </switch>
+                  </span></p>
+                </li>
+                <li>
+                  <p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span>{$user['age']}</span></p>
+                  <p>属&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相：<span>{$user['ani']}</span></p>
+                  <p>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：<span>
+
+                  <switch name="$user['housing']" >
+              <case value="1">已购房（有贷款）</case>
+              <case value="2">已购房（无贷款）</case>
+              <default />无
+              </switch></span></p>
+                </li>
+                <li>
+                  <p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span>{$user['height']}</span></p>
+                  <p>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座：<span>{$user['const']}</span></p>
+                  <p>月&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;薪：<span>{$user['monthly']}</span></p>
+                </li>
+                <li>
+                  <p>体&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重：<span>{$user['weight']}</span></p>
+                  <p>民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族：<span>{$user['nation']}</span></p>
+                  <p>从事工作：<span>{$user['work']}</span></p>
+                </li>
+              </ul>
+              
+
+               
+               <div class="s-introduce"> 
+                <img src="__PUBLIC__/Home/image/img01_46.png"/>
+                <div class="tit">生活状况</div>
+                <div class="clearfix"></div>
+               </div>
+               <ul class="s-yaoqiu1">
+                <li>
+                  <p>吸&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;烟：<span>{$user['smoking']}</span></p>
+                  <p>较大消费：<span>{$user['consumption']}</span></p>
+                  <p>是否与父母同住：<span>{$user['livingwithparents']}</span></p>
+                </li>
+                <li>
+                  <p>饮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;酒：<span>{$user['drinking']}</span></p>
+                  <p>购物逛街：<span>{$user['shopping']}</span></p>
+                  <p>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;务：<span>{$user['housework']}</span></p>
+                </li>
+                <li>
+                  <p>是否购车：<span>{$user['car']}</span></p>
+                  <p>宗教信仰：<span>{$user['beliefs']}</span></p>
+                </li>
+                <li>
+              </ul>
+      
+              
+              <div class="s-introduce"> 
+                <img src="__PUBLIC__/Home/image/img01_48.png"/>
+                <div class="tit">择偶要求</div>
+                <div class="clearfix"></div>
+              </div>
+               <ul class="s-yaoqiu1">
+                
+
+                <li>
+                  <p>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：<span>
+                   {$chuser['cage']}岁之间</span></p>
+                  <p>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：<span>{$chuser['qualification']}</span></p>
+                  <!-- <p>婚后是否与父母同住：<span>{$chuser['']}</span></p> -->
+                  <p>从事工作：<span>{$chuser['work']}</span></p>
+                </li>
+                <li>
+                  <p>身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：<span>{$chuser['height']}</span></p>
+                  <p>婚后是否要小孩：<span>
+
+                  <switch name="$chuser['child']" >
+              <case value="1">有同住</case>
+              <case value="2">有不同住</case>
+              <default />无
+              </switch></span></p>
+                  <!-- <p>购&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车：<span>{$chuser['']}</span></p> -->
+                  <!-- <p>工作地点：<span>{$chuser['work']}</span></p> -->
+                </li>
+                <li>
+                  <p>月&nbsp;&nbsp;收&nbsp;&nbsp;入：<span>{$chuser['monthly']}</span></p>
+                  <p>住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：<span>
+                  <switch name="$chuser['housing']" >
+              <case value="1">已购房（有贷款）</case>
+              <case value="2">已购房（无贷款）</case>
+              <default />无
+              </switch></span></p>
+                  <p>婚姻状况：<span>
+
+                  <switch name="$chuser['marriage']" >
+              <case value="1">已婚</case>
+              <case value="2">丧偶</case>
+              <default />未婚
+              </switch></span></p>
+                </li>
+                <li>
+              </ul>
+  
+               <div class="s-introduce"> 
+                <img src="__PUBLIC__/Home/image/img01_50.png"/>
+                <div class="tit">关于婚姻</div>
+               <div class="clearfix"></div>
+               </div>
+               <ul class="s-yaoqiu1" style="border-bottom: none;">
+                <li>
+                  <p>是否要小孩：<span>{$user['getchild']}</span></p>
+                  <p>家中排行：<span>{$user['ranking']}</span></p>
+                  <p>兄弟姐妹：<span>{$user['brothersandsisters']}</span></p>
+                
+                </li>
+                <li>
+                  <p>何时结婚：<span>{$user['whenmarried']}</span></p>
+                  <p>父母情况：<span>{$user['parents']}</span></p>
+                  <p>父母经济情况：<span>{$user['parentseconomic']}</span></p>
+                </li>
+                <li>
+                  <p>愿与对方父母同住：<span>{$user['wishlivewithparents']}</span></p>                 
+                  <p>父母医保情况：<span>{$user['parentshealth']}</span></p>
+                </li>
+                <li>
+              </ul>
+    
+      </div>
+
+
+</div>
+</if>
+<!--right-->
+			<div class="main-right">
+
+
+				<div class="main-message">
+					
+				<div class="tit">最新会员推荐</div>
+					
+					<ul class="member-list">
+
+					 <volist name="userrecom" id="vo">
+
+						<li><php> $piclist = explode(",",substr($vo['photo'],1,strlen($vo['photo']))); </php>
+              <a href="{:U('Userinfo/index',array('uid'=>$vo['id']))}">
+							<img src="__PUBLIC__/Admin/kindeditor-4.1.10/attached/image{$piclist[1]}" id="img1"/>
+              </a>
+							<div class="name_title">
+								<h1>{$vo['nickname']}</h1>
+								<img src="__PUBLIC__/Home/image/img01_06.png"/>
+								<span>v2</span>
+								<div class="clearfix"></div>
+							</div>
+							
+							<p>会员号：100001</p>
+                            <p style=" padding: 5px 0 10px;">{$vo['age']}岁    {$vo['workad']}      <switch name="$vo['marriage']" >
+                              <case value="1">离婚</case>
+                              <case value="2">丧偶</case>
+                              <default />未婚
+                              </switch> </p>
+                            <p style="padding: 10px 0 20px; border-top: 1px dashed #D9D9D9;">自我介绍：{$vo['intro']|mb_substr=###,0,10,'utf-8'}</p>
+                           
+                          <div class="member_button">
+                            <?php
+                 
+                                if ($vo['li']){
+                                  ?>
+                                  
+                                    <img src="__PUBLIC__/Home/image/img01_30.png"/>
+                                    <span class="likeit" data-id="{$vo['id']}">暗恋她</span>
+                                  
+                                <?php }else{ ?>
+                                   
+                                    <img src="__PUBLIC__/Home/image/img01_30.png"/>
+                                    <span>已暗恋</span>
+                                  
+                                <?php
+                              }
+                                ?>
+
+                          </div> 
+						</li>
+						
+						</volist>
+						<div class="clearfix"></div>
+					</ul>
+				
+				</div>
+								
+			</div>
+
+
+      <style>
+          #img1{
+            width: 267px;
+            height: 330px;
+          }
+      
+      </style>
+
+<div class="bgbox">
+		<ul class="couter_box">
+			<li class="foot_box">
+				<dl>
+					<dt>
+						<img src="__PUBLIC__/Home/image/img_56.png"/>
+						<h2>关于我们</h2>
+						<div class="clearfix"></div>
+					</dt>
+					<dd>关于我们</dd>
+					<dd>媒体报道 </dd>
+					<dd>恋爱百科 </dd>
+					<dd>招商合作</dd>
+					<div class="clearfix"></div>
+				</dl>
+			</li>
+			
+			<li class="foot_box">
+				<dl>
+					<dt>
+						<img src="__PUBLIC__/Home/image/img_58.png"/>
+						<h2>帮助中心</h2>
+						<div class="clearfix"></div>
+					</dt>
+					<dd> 会员条款</dd>
+					<dd>常见问题 </dd>
+					<dd>征婚提醒 </dd>
+					<div class="clearfix"></div>
+				</dl>
+			</li>
+			
+			<li class="foot_box">
+				<dl>
+					<dt>
+						<img src="__PUBLIC__/Home/image/img_61.png"/>
+						<h2>服务热线</h2>
+						<div class="clearfix"></div>
+					</dt>
+					<dd>热线电话：0855-85855200  18085055520</dd>
+					<dd>地址：贵州省凯里市永丰南路 锐馨鑫园A栋2208</dd>
+
+					<div class="clearfix"></div>
+				</dl>
+			</li>
+			
+			<li class="foot_box foot_box4">
+				<dl>
+					<dt>
+						<img src="__PUBLIC__/Home/image/img_64.png"/>
+						<h2>关于我们</h2>
+						<div class="clearfix"></div>
+					</dt>
+					<dd>郑州交友</dd>
+					<dd>情缘活动</dd>
+					<dd>选秀投票</dd>
+					<dd>相亲大会</dd>
+					<dd>交友活动</dd>
+					<dd>找对象</dd>
+					<div class="clearfix"></div>
+				</dl>
+			</li>
+			<div class="clearfix">
+				
+			</div>
+		</ul>
+</div>
+
+ 
+
+</div>
+	
+	
+<script type='text/javascript'>
+	(function(){
+		 new PopUp_api({el:'.s-jubao',html:'.ddd'});	 
+	})()
+</script>
+<script type='text/javascript'>
+  $("span.likeit").click(function(){
+      var _this = $(this);
+      var hisid = $(this).attr('data-id');
+      // alert(hisid);
+      var url="{:U('Search/likeit')}";
+      if ("{$Think.session.uid}") { 
+                $.ajax({
+          type : 'post',
+          data : "hisid="+hisid,
+          url  : url,
+          //dataType : 'json',
+          success : function(msg){
+            if(msg != 0){
+              alert('暗恋成功！');
+              window.location.href=''
+              //_this.parent().parent('tr').remove();
+            }else{
+              alert('出错了！');
+            }
+          }
+        });
+      }else{
+         window.location.href="{:U('Login/login')}";  
+      };
+      
+      
+    }
+
+  );
+</script> 

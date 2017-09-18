@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    	<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <title>偏爱婚恋交友网</title>
+    
+    <link href="__PUBLIC__/Home/css1/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css1/app.css"/>
+    
+    <script type="text/javascript"  src="__PUBLIC__/Home/js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/Home/js1/mui.min.js"></script>
+    
+</head>
+
+
+
+
+<body>
+		<div class="mui-bar mui-bar-nav">
+			
+			<h1 class="mui-title">偏爱婚恋</h1>
+		</div>
+		
+	
+		
+		 	<!--搜索-->
+	<div id="tabbar-with-chat" style="margin-top: 44px; margin-bottom: 60px;">
+				
+		<div class="mui-content" style=" padding-bottom: 0;">
+		
+		
+	<style type="text/css">
+
+	</style>
+		<div class="search_box">
+			<dl class="search">
+				
+				<form action="<?php echo U('search')?>" name="search_form" method="post">
+					
+				
+	<input class="width_size" type="text" name="serach_name" placeholder="请输入你要搜索佳丽名称？">
+				<input type="submit" value="搜索">
+				</form>
+			<!-- 	<dd>
+					<img src="__PUBLIC__/Home/image1/img02_03.png"/>
+					找佳丽
+				</dd>
+				
+				<dd>
+					<img src="__PUBLIC__/Home/image1/img02_02.png"/>
+					找型男
+				</dd>
+				
+				<dd style="border: none;">
+					<img src="__PUBLIC__/Home/image1/img02_04.png"/>
+					<a href="#middlePopover">高级搜索</a>
+				</dd> -->
+				<div class="clearfix"></div>
+			</dl>
+		</div>
+		<!--右上角弹出菜单-->
+
+  <div id="middlePopover" class="mui-popover" style=" width: 100%;">
+
+		<div class="mui-content mui-row mui-fullscreen">
+			<div class="mui-col-xs-3">
+				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+				</div>
+			</div>
+			
+			<div id="segmentedControlContents" class="mui-col-xs-9" style="">
+				<div id="item1" class="">
+				
+				</div>
+				<div id="item2" class="">
+				</div>
+				<div id="item3" class="">
+				</div>
+			</div>
+		</div>
+				
+	</div>
+	
+				<style type="text/css">
+					
+					.imgbg{
+						width:130px;
+						height:130px;
+
+					}
+				</style>
+		<div class="mui-content" style="background-color:#fff">
+		   
+		       <ul class="mui-table-view mui-grid-view">
+
+		        <volist name="userinfo" id="vo">
+		       
+		       <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="#">
+		                <img id="imgbg" class="mui-media-object" src="__PUBLIC__/Admin/kindeditor-4.1.10/attached/image{$vo['headpic']}">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>梦醒时分 <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：18121132</dd>
+								<dd>24岁   河南  郑州 </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+									暗恋她
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		           
+		            </a>     
+		  		           		          
+		        </li>
+		        </volist>
+		
+			<!--  <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="#">
+		                <img class="mui-media-object" src="__PUBLIC__/Home/image1/img02_01.png">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>梦醒时分 <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：18121132</dd>
+								<dd>24岁   河南  郑州 </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+									暗恋她
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		            </a>     
+		  		           		          
+		        </li>
+		
+		  <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="#">
+		                <img class="mui-media-object" src="__PUBLIC__/Home/image1/img02_01.png">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>梦醒时分 <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：18121132</dd>
+								<dd>24岁   河南  郑州 </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+									暗恋她
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		            </a>     
+		  		           		          
+		        </li>
+		
+			 <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="#">
+		                <img class="mui-media-object" src="__PUBLIC__/Home/image1/img02_01.png">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>梦醒时分 <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：18121132</dd>
+								<dd>24岁   河南  郑州 </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+									暗恋她
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		            </a>     
+		  		           		          
+		        </li>
+		
+		         <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="#">
+		                <img class="mui-media-object" src="__PUBLIC__/Home/image1/img02_01.png">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>梦醒时分 <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：18121132</dd>
+								<dd>24岁   河南  郑州 </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+									暗恋她
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		            </a>     
+		  		           		          
+		        </li>
+		
+			 <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="#">
+		                <img class="mui-media-object" src="__PUBLIC__/Home/image1/img02_01.png">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>梦醒时分 <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：18121132</dd>
+								<dd>24岁   河南  郑州 </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+									暗恋她
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		            </a>     
+		  		           		          
+		        </li>
+		
+		  <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="#">
+		                <img class="mui-media-object" src="__PUBLIC__/Home/image1/img02_01.png">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>梦醒时分 <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：18121132</dd>
+								<dd>24岁   河南  郑州 </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+									暗恋她
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		            </a>     
+		  		           		          
+		        </li>
+		
+			 <li class="mui-table-view-cell mui-media mui-col-xs-6">
+		            <a href="#">
+		                <img class="mui-media-object" src="__PUBLIC__/Home/image1/img02_01.png">
+		            		            	
+		            	<div class="search_intro_box">
+		            		<div class="head">
+		            			<img src="__PUBLIC__/Home/image1/img02_01.png"/>
+		            		</div>
+		            		
+		            		<dl class="search_intro">
+								<dt>梦醒时分 <img src="__PUBLIC__/Home/image1/img01_06.png"/><span>V1</span></dt>
+								<dd>会员号：18121132</dd>
+								<dd>24岁   河南  郑州 </dd>
+								
+								<div class="hidden_love">
+									<img src="__PUBLIC__/Home/image1/img01_07.png"/>
+									暗恋她
+								</div>
+							</dl>
+							<div class="clearfix"></div>
+		            	</div>
+		            </a>     
+		  		           		          
+		        </li> -->
+		
+		  
+				
+				
+			</ul>
+					
+			</div>
+			
+			</div>
+				
+			<!--服务-->
+			<div id="tabbar-with-contact" class="mui-control-content">
+			
+					
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="__PUBLIC__/Home/image1/img03_01.png">
+														
+							<span class="mui-slider-title">
+								精准推荐
+								<p>
+									只向你推荐最合适的TA
+								</p>
+							</span>
+						</a>
+					</div>
+						
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="__PUBLIC__/Home/image1/img03_02.png">
+														
+							<span class="mui-slider-title">
+								个性VCR
+								<p>
+									把最好的自己展现在别人面前
+								</p>
+							</span>
+						</a>
+					</div>
+							
+							<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="__PUBLIC__/Home/image1/img03_03.png">
+														
+							<span class="mui-slider-title">
+								个人形象&婚恋教育
+								<p>
+									如何追到TA? 如何提升情感？如何做到贤德
+								</p>
+							</span>
+						</a>
+					</div>
+						
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="__PUBLIC__/Home/image1/img03_04.png">
+														
+							<span class="mui-slider-title">
+								爱在旅途
+								<p>
+									来一次说走就走的恋爱旅行，我们会让大家在旅
+								</p>
+							</span>
+						</a>
+					</div>
+					
+							<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="__PUBLIC__/Home/image1/img03_05.png">
+														
+							<span class="mui-slider-title">
+								个性娱乐节目
+								<p>
+									节目交友
+								</p>
+							</span>
+						</a>
+					</div>
+						
+					<div class="mui-slider-item mui-slider-item-duplicate" style="margin-bottom: 50px;">
+						<a href="#">
+							<img src="__PUBLIC__/Home/image1/img03_06.png">
+														
+							<span class="mui-slider-title">
+								马尔代夫恋
+								<p>
+									婚恋对对碰
+								</p>
+							</span>
+						</a>
+					</div>
+					
+					
+			</div>
+			
+			<!--我的-->
+			<div id="tabbar-with-map" class="mui-control-content">
+									
+				<div class="title" style="width: 100%; position: relative;">
+					<img src="__PUBLIC__/Home/image1/img04.png" style="width: 100%; "/>
+					<dl class="head_portrait">
+						<dt>													
+							<img src="__PUBLIC__/Home/image1/img04_03.png"/>
+							<div class="head_font">
+								<span>女 &nbsp;&nbsp;26</span>
+								<span style="margin-left: 120px";>河南&nbsp;&nbsp; 郑州 </span>
+							</div>
+
+						</dt>
+						
+						<dd class="name" style=" margin-top: 40px; text-align: center;">
+							岁月
+							<img src="__PUBLIC__/Home/image1/img01_06.png" style="width: 20px;"/>
+							<span style=" color: #ec9e4d;">v2</span>
+						</dd>
+						
+						<dd style=" text-align: center; margin-top:5px; color: #666; font-size: 12px; line-height: 20px;">
+							<span>会员号：000001</span>
+							<span><br>就算中途离去，故事没有结局，小说还在继续</span>
+						</dd>
+						<dd class="contact_way">
+							<img src="__PUBLIC__/Home/image1/img04_07.png"/>
+							<img src="__PUBLIC__/Home/image1/img04_09.png"/>
+							<img src="__PUBLIC__/Home/image1/img04_11.png"/>
+						</dd>
+					</dl>
+					
+					
+				</div>
+				
+				
+				<div class="mui-content">
+		        	<ul class="mui-table-view mui-grid-view mui-grid-9"style="background: #FFFFFF; border-top: 1px solid #dcdbe1; border-bottom: 1px solid #dcdbe1;">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="#">
+		                    <span class="mui-icon mui-icon-home">
+		                    	<img src="__PUBLIC__/Home/image1/img04_17.png"/>
+		                    </span>
+		                    <div class="mui-media-body">个人资料</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="#">
+		                    <span class="mui-icon mui-icon-email">
+		                    	<img src="__PUBLIC__/Home/image1/img04_20.png"/>
+		                    </span>
+		                    <div class="mui-media-body">暗恋</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="#">
+		                    <span class="mui-icon mui-icon-chatbubble">
+		                    	<img src="__PUBLIC__/Home/image1/img04_23.png"/>
+		                    </span>
+		                    <div class="mui-media-body">选秀投票</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="help.html">
+		                    <span class="mui-icon mui-icon-location">
+		                    	<img src="__PUBLIC__/Home/image1/img04_32.png"/>
+		                    </span>
+		                    <div class="mui-media-body">帮助中心</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="#">
+		                    <span class="mui-icon mui-icon-search">
+		                    	<img src="__PUBLIC__/Home/image1/img04_29.png"/>
+		                    </span>
+		                    <div class="mui-media-body">服务热线</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3 mui-media01"><a href="about.html">
+		                    <span class="mui-icon mui-icon-phone">
+		                    	<img src="__PUBLIC__/Home/image1/img04_35.png"/>
+		                    </span>
+		                    <div class="mui-media-body">关于我们</div></a></li>
+		            
+		        </ul> 
+				</div>
+				
+		<div class="mui-content" style="margin-bottom: 60px;">
+		    <div class="mui-content-padded">
+		       
+		        <button type="button" class="mui-btn mui-btn-primary mui-btn-block">退出登录</button>
+		 
+		    </div>
+		</div>
+				
+				
+				
+				<!--<div style="margin-top: 25px; background-color: #efeff4;">
+					<p style=" width: 80%; margin: auto; border-radius: 6px; background:#d00053 ;">退出登录</p>
+				</div>-->
+			
+			<!--<div class="mui-table-view" style="margin-top: 25px; background-color: #efeff4;">
+				<h5 class="mui-table-view-cell" style=" width: 80%; margin: auto; border-radius: 6px; background:#d00053 ;">
+					<a style="text-align: center;color: #fff;">
+						退出登录
+					</a>
+				</h5>
+			</div>-->
+			
+			</div>
+		</div>
+	
+</body>
+	
+	<script>
+//		mui.init();
+//		mui.ready(function() {
+//			var slider = document.getElementById('Gallery');
+//			var group = slider.querySelector('.mui-slider-group');
+//			var items = mui('.mui-slider-item', group);
+//			//克隆第一个节点
+//			var first = items[0].cloneNode(true);
+//			first.classList.add('mui-slider-item-duplicate');
+//			//克隆最后一个节点
+//			var last = items[items.length - 1].cloneNode(true);
+//			last.classList.add('mui-slider-item-duplicate');
+//			//处理是否循环逻辑，若支持循环，需支持两点：
+//			//1、在.mui-slider-group节点上增加.mui-slider-loop类
+//			//2、重复增加2个循环节点，图片顺序变为：N、1、2...N、1
+//			var sliderApi = mui(slider).slider();
+//
+//			function toggleLoop(loop) {
+//					if (loop) {
+//						group.classList.add('mui-slider-loop');
+//						group.insertBefore(last, group.firstChild);
+//						group.appendChild(first);
+//						sliderApi.refresh();
+//						sliderApi.gotoItem(0);
+//					} else {
+//						group.classList.remove('mui-slider-loop');
+//						group.removeChild(first);
+//						group.removeChild(last);
+//						sliderApi.refresh();
+//						sliderApi.gotoItem(0);
+//					}
+//				}
+//				//按下“循环”按钮的处理逻辑；
+//			document.getElementById('Gallery_Toggle').addEventListener('toggle', function(e) {
+//				var loop = e.detail.isActive;
+//				toggleLoop(loop);
+//			});
+//		});
+//		
+//	高级搜索
+
+
+
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			var controls = document.getElementById("segmentedControls");
+			var contents = document.getElementById("segmentedControlContents");
+			var zuo = ["性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：","年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：","身&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高：","住&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;房：","收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;入：","籍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;贯：","婚姻状况：","有无小孩："];
+			var you0 = ["男","女"];
+			var you1 = ["不限","20~25","25~30","30~35","35以上"]; 
+			var you2 = ["不限","160~160","165~170","170~175","175~180","180以上"]; 
+			// var you3 = ["无","有，有贷款","有，无贷款"];
+			// var you4 = ["3000以下","3000~5000","5000~10000","10000以上"]; 
+			// var you5 = ["河南","郑州","开封","新乡"]; 
+			var you6 = ["单身","离婚","丧偶"];
+			var you7 = ["无","有，不同住","有，同住"];
+		
+			
+			var html = [];
+			var i = 1,
+				j = 1,
+				m = 16, //左侧选项卡数量+1
+				n = 21; //每个选项卡列表数量+1
+			for (i=0 ; i < zuo.length; i++) {
+				html.push('<a class="mui-control-item" href="#content' + i + '">' + zuo[i] + '</a>');
+			}
+			controls.innerHTML = html.join('');
+			html = [];
+			for (i = 0; i < zuo.length; i++) {
+				html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">');
+				
+				if(i == 0){
+					for (j = 0; j < you0.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you0[j] + '</li>');
+				} 
+				}
+				
+				if(i == 1){
+					for (j = 0; j < you1.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you1[j] + '</li>');
+				}
+				}
+				
+				if(i == 2){
+					for (j = 0; j < you2.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you2[j] + '</li>');
+				} 
+				}
+				
+				if(i == 3){
+					for (j = 0; j < you3.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you3[j] + '</li>');
+				} 
+				}
+				
+				if(i == 4){
+					for (j = 0; j < you4.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you4[j] + '</li>');
+				} 
+				}
+				
+				if(i == 5){
+					for (j = 0; j < you5.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you5[j] + '</li>');
+				}
+				}
+				
+				if(i == 6){
+					for (j = 0; j < you6.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you6[j] + '</li>');
+				} 
+				}
+				
+				if(i == 7){
+					for (j = 0; j < you7.length; j++) {
+					html.push('<li class="mui-table-view-cell">'+ you7[j] + '</li>');
+				} 
+				}
+				
+				html.push('</ul></div>');
+			}
+			contents.innerHTML = html.join('');
+			 //默认选中第一个
+			controls.querySelector('.mui-control-item').classList.add('mui-active');
+			contents.querySelector('.mui-control-content').classList.add('mui-active');
+	
+
+		 
+				
+	</script>
+</html>

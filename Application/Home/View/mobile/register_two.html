@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		    <link href="__PUBLIC__/Home/css1/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css1/app.css"/>
+			<link type="text/css" rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/webUploads/css/webuploader.css">
+		<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.css" />
+		<link rel="stylesheet" href="__PUBLIC__/Admin/kindeditor-4.1.10/themes/default/default.css" />
+		<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/kindeditor.js"></script>
+		<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/lang/zh_CN.js"></script>
+		<script charset="utf-8" src="__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.js"></script>
+		<script src="__PUBLIC__/Home/js/jquery-1.8.3.js"></script>
+	   <script type="text/javascript">
+	   		  
+var n = 0;
+
+	// KindEditor.ready(function(K) {
+	// 		var editor1 = K.create('textarea[name="intro"]', {
+	// 			cssPath : '__PUBLIC__/Admin/kindeditor-4.1.10/plugins/code/prettify.css',
+	// 			uploadJson : '__PUBLIC__/Admin/kindeditor-4.1.10/php/upload_json.php',
+	// 			fileManagerJson : '__PUBLIC__/Admin/kindeditor-4.1.10/php/file_manager_json.php',
+	// 			allowFileManager : true,
+	// 			afterCreate : function() {
+	// 				var self = this;
+	// 				K.ctrl(document, 13, function() {
+	// 					self.sync();
+	// 					K('form[name=example]')[0].submit();
+	// 				});
+	// 				K.ctrl(self.edit.doc, 13, function() {
+	// 					self.sync();
+	// 					K('form[name=example]')[0].submit();
+	// 				});
+	// 			}
+	// 		});
+	// 		prettyPrint();
+	// 	});
+
+
+	KindEditor.ready(function(K) {
+				var editor1 = K.editor({
+					 allowImageRemote : false,
+					allowFileManager : false
+				});
+				K('#image1').click(function() {
+					editor1.loadPlugin('image', function() {
+						editor1.plugin.imageDialog({
+							imageUrl : K('#url1').val(),
+							clickFn : function(url) {
+									
+								K('#url1').val(K('#url1').val()+","+url.replace('/pahl/Public/Admin/kindeditor-4.1.10/attached/image',''));
+						
+								K('#imgli').append('<li class="imgitem" ><img src='+url+'  style="width:100%; height: 100%;"><a class="deleteimg" href="javascript:void(0);" data-id='+url+'><img src="__PUBLIC__/Home/image/delete.png" class="imgdelete"></a></li>');
+								
+								editor1.hideDialog();
+							}
+						});
+					});
+				});
+			
+			
+			});
+
+KindEditor.ready(function(K) {
+				var editor2 = K.editor({
+					 allowImageRemote : false,
+					allowFileManager : false
+				});
+				K('#image2').click(function() {
+
+					editor2.loadPlugin('image', function() {
+						editor2.plugin.imageDialog({
+							imageUrl : K('#urlid').val(),
+							clickFn : function(url) {
+								
+								K('#urlid').val(K('#urlid').val()+","+url.replace('/pahl/Public/Admin/kindeditor-4.1.10/attached/image',''));
+						n++;
+								K('#imgliid').append('<li class="imgitem" ><img src='+url+'  style="width:100%; height: 100%;"><a class="deleteimg" href="javascript:void(0);" data-id='+url+'><img src="__PUBLIC__/Home/image/delete.png" class="imgdelete"></a></li>');
+									if (n==2) {
+                                     K('#image2').hide();
+									}
+								editor2.hideDialog();
+							}
+						});
+					});
+				});
+			
+			
+			});
+	
+
+	   </script>
+    
+
+<style>
+	
+			.search-find li{width: 90%;}
+		.message input{width: 60%;}
+			.search-find li select{height: 49px;}
+		
+		</style> 
+		
+
+	</head>
+
+	<body style="background: #fff;">
+
+		<div class="mui-bar mui-bar-nav">
+			
+			<h1 class="mui-title">偏爱婚恋</h1>
+		</div>
+	          <form action="{:U('Mobile/register_three')}" method="post" id="loginform">	      
+			
+			
+				<div class="message_box message_box1">
+		<h1 style="width:100%; margin-top: 40px;">个人资料</h1>
+					
+					<ul class="search-find message" >
+						<!-- <li>
+							<span style="float: left;">会号：</span>
+							<p>100{$info.id}</p>
+							<div class="clearfix"></div>
+						</li> -->
+						
+						<li>
+							<span>昵称：</span>
+							<input type="text" placeholder="哈哈" name="nickname"/>
+						</li>
+							<li>
+							<span>姓名：</span>
+							<input type="text" placeholder="哈哈" name="name"/>
+						</li>
+						
+						<li>
+							<span>性别：</span>
+							<select name="sex">
+							<if condition="$info['sex'] eq '1'">
+								<option value="1" selected>男</option>
+								<option  value="2">女</option>
+								<else/>
+								<option value="1" >男</option>
+								<option  value="2" selected>女</option>
+								</if>
+							</select>
+						</li>
+						<li>
+							<span>年龄：</span>
+							<select name="age">
+								<option value="20~25">20~25</option>
+								<option value="25~30">25~30</option>
+								<option value="35~35">35~35</option>
+								<option value="35以上">35以上</option>
+							</select>
+						</li>
+						
+						<li>
+							<span>身高：</span>
+							<select name="height">
+								
+								<option value="170~175">170~175</option>
+								<option value="175~180">175~180</option>
+								<option value="180以上">180以上</option>
+							</select>
+						</li>
+						<li>
+							<span>体重：</span>
+							<select name="weight">
+								<option value="0">保密</option>
+								<option value="90以下">90斤以下</option>
+								<option value="90~100">90~100斤</option>
+								<option value="100~120">100~120斤</option>
+								<option value="120~150">120~150斤</option>
+								<option value="150以上">150以上</option>
+							</select>
+						</li>
+								<li>
+							<span>血型：</span>
+							<select name="blood">
+								<option value="保密">保密</option>
+								<option value="A型">A型</option>
+								<option value="B型">B型</option>
+								<option value="AB型">AB型</option>
+								<option value="RH型">RH型</option>
+								
+								
+							</select>
+						</li>
+						<li>
+							<span>属相：</span>
+							<select name="ani">
+								<option value="保密">保密</option>
+								<option value="鼠">鼠</option>
+								<option value="牛">牛</option>
+								<option value="虎">虎</option>
+								<option value="兔">兔</option>
+								<option value="龙">龙</option>
+								<option value="蛇">蛇</option>
+								<option value="马">马</option>
+								<option value="羊">羊</option>
+								<option value="猴">猴</option>
+								<option value="鸡">鸡</option>
+								<option value="狗">狗</option>
+								<option value="猪">猪</option>
+							</select>
+						</li>
+						<li>
+							<span>星座：</span>
+							<select name="const">
+								<option value="保密">保密</option>
+								<option value="白羊座">白羊座</option>
+								<option value="金牛座">金牛座</option>
+								<option value="双子座">双子座</option>
+								<option value="巨蟹座">巨蟹座</option>
+								<option value="狮子座">狮子座</option>
+								<option value="处女座">处女座</option>
+								<option value="天秤座">天秤座</option>
+								<option value="天蝎座">天蝎座</option>
+								<option value="射手座">射手座</option>
+								<option value="摩羯座">摩羯座</option>
+								<option value="水瓶座">水瓶座</option>
+								<option value="双鱼座">双鱼座</option>
+							</select>
+						</li>
+				
+						
+							<li>
+							<span>民族：</span>
+							<select name="nation">
+								<option value="汉族">汉族</option>
+								<option value="回族">回族</option>
+								<option value="蒙古族">蒙古族</option>
+								<option value="维吾尔族">维吾尔族</option>
+								<option value="朝鲜族">朝鲜族</option>
+								<option value="藏族">藏族</option>
+								<option value="傣族">傣族</option>
+								<option value="其他">其他</option>
+							</select>
+						</li>
+						<li>
+							<span>学历：</span>
+							<select name="qualification">
+								
+								<option value="博士研究生">博士研究生</option>
+								<option value="硕士研究生">硕士研究生</option>
+								<option value="本科">本科</option>
+								<option value="专科">专科</option>
+								<option value="中专/高中">中专/高中</option>
+								<option value="初中">初中</option>
+							</select>
+						</li>
+								<li>
+							<span>住房：</span>
+							<select name="housing">
+								<option value="2">已购房（无贷款）</option>
+								<option value="1">已购房（有贷款）</option>
+								<option value="3">无</option>
+								
+							</select>
+						</li>
+						<li>
+							<span>月薪：</span>
+							<select name="monthly">
+								
+								<option value="5000以下">5000以下</option>
+								<option value="5000~10000">5000~10000</option>
+								<option value="10000~20000">10000~20000</option>
+								<option value="20000以上">20000以上</option>
+								
+							</select>
+						</li>
+						<li>
+							<span>从事工作：</span>
+							<input type="text" placeholder="" name="work" />
+						</li>
+						
+						<li>
+							<span>婚姻状况：</span>
+							<select name="marriage">
+								<option value="3">未婚</option>
+								<option value="1">离婚</option>
+								<option value="2">丧偶</option>
+							</select>
+						</li>
+							<li>
+							<span>微&nbsp;&nbsp;信&nbsp;&nbsp;号：</span>
+							<input type="text" placeholder="" name="wxnum"/>
+						</li>
+						<li>
+							<span>Q&nbsp;&nbsp;Q&nbsp;&nbsp;号：</span>
+							<input type="text" placeholder=""  name="qqnum"/>
+						</li>
+						<li>
+							<span>手&nbsp;&nbsp;机&nbsp;&nbsp;号：</span>
+							<input type="text" placeholder="" name="phone"/>
+						</li>
+						<li>
+						  <span>有无小孩：</span>
+						   <select name="cchild">
+								<option value="3">无</option>
+								<option value="1">有，不同住</option>
+								<option value="2">有，同住</option>
+							</select>
+						</li>
+						<div class="clearfix"></div>
+					</ul>
+					<ol class="message_box01" style="position:relative">
+						<li style="">
+							<span>上&nbsp;&nbsp;&nbsp;传&nbsp;&nbsp;&nbsp;照&nbsp;&nbsp;&nbsp; 片：</span>
+
+							<!-- <div id="imgPicker2" style="position:absolute;top:50;left:280;padding-left:140px;opacity: 0"> --><!-- </div> -->
+							<input type="hidden" style="margin-left:10px;" id="url1" name="photo" value="">
+							<input style="margin-left:5px; margin-right:50px; padding:0 10px; line-height:30px; border-radius:4px;" type="button" id="image1" value="选择图片">
+							<div class="imglist"> <ul id="imgli"></ul></div>
+							<div class="clearfix"></div>
+						</li>
+
+						<li>
+							<span>上传身份证照片：<br>（正反面）</span>
+
+							<!--<input type="text" style="margin-left:10px;" id="urlid" name="idcardpic" value="">-->
+							<input style="margin-left:5px; margin-right:50px;padding:0 10px; line-height:30px; border-radius:4px;" type="button" id="image2" value="选择图片">
+							<div class="imglistid"> <ul id="imgliid"></ul></div>
+							<div class="clearfix"></div>
+						</li>
+        
+  
+
+
+<div class="imgzip"></div> 
+
+  <script type="text/javascript">
+
+document.addEventListener('DOMContentLoaded', init, false); 
+ 
+function init() { 
+var u = new UploadPic(); 
+u.init({ 
+input: document.querySelector('.input'), 
+callback: function (base64) { 
+$.ajax({ 
+url:"{:U('Mobile/uploadimg')}", 
+data:{str:base64,type:this.fileType}, 
+type:'post', 
+dataType:'json', 
+success:function(i){ 
+alert(i.info); 
+} 
+}) 
+}, 
+loading: function () { 
+ 
+} 
+}); 
+} 
+ 
+function UploadPic() { 
+this.sw = 0; 
+this.sh = 0; 
+this.tw = 0; 
+this.th = 0; 
+this.scale = 0; 
+this.maxWidth = 0; 
+this.maxHeight = 0; 
+this.maxSize = 0; 
+this.fileSize = 0; 
+this.fileDate = null; 
+this.fileType = ''; 
+this.fileName = ''; 
+this.input = null; 
+this.canvas = null; 
+this.mime = {}; 
+this.type = ''; 
+this.callback = function () {}; 
+this.loading = function () {}; 
+} 
+ 
+UploadPic.prototype.init = function (options) { 
+this.maxWidth = options.maxWidth || 800; 
+this.maxHeight = options.maxHeight || 600; 
+this.maxSize = options.maxSize || 3 * 1024 * 1024; 
+this.input = options.input; 
+this.mime = {'png': 'image/png', 'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'bmp': 'image/bmp'}; 
+this.callback = options.callback || function () {}; 
+this.loading = options.loading || function () {}; 
+ 
+this._addEvent(); 
+}; 
+ 
+/** 
+* @description 绑定事件 
+* @param {Object} elm 元素 
+* @param {Function} fn 绑定函数 
+*/ 
+UploadPic.prototype._addEvent = function () { 
+var _this = this; 
+ 
+function tmpSelectFile(ev) { 
+_this._handelSelectFile(ev); 
+} 
+ 
+this.input.addEventListener('change', tmpSelectFile, false); 
+}; 
+ 
+/** 
+* @description 绑定事件 
+* @param {Object} elm 元素 
+* @param {Function} fn 绑定函数 
+*/ 
+UploadPic.prototype._handelSelectFile = function (ev) { 
+var file = ev.target.files[0]; 
+ 
+this.type = file.type 
+ 
+// 如果没有文件类型，则通过后缀名判断（解决微信及360浏览器无法获取图片类型问题） 
+if (!this.type) { 
+this.type = this.mime[file.name.match(/\.([^\.]+)$/i)[1]]; 
+} 
+ 
+if (!/image.(png|jpg|jpeg|bmp)/.test(this.type)) { 
+alert('选择的文件类型不是图片'); 
+return; 
+} 
+ 
+if (file.size > this.maxSize) { 
+alert('选择文件大于' + this.maxSize / 1024 / 1024 + 'M，请重新选择'); 
+return; 
+} 
+ 
+this.fileName = file.name; 
+this.fileSize = file.size; 
+this.fileType = this.type; 
+this.fileDate = file.lastModifiedDate; 
+ 
+this._readImage(file); 
+}; 
+ 
+/** 
+* @description 读取图片文件 
+* @param {Object} image 图片文件 
+*/ 
+UploadPic.prototype._readImage = function (file) { 
+var _this = this; 
+ 
+function tmpCreateImage(uri) { 
+_this._createImage(uri); 
+} 
+ 
+this.loading(); 
+ 
+this._getURI(file, tmpCreateImage); 
+}; 
+ 
+/** 
+* @description 通过文件获得URI 
+* @param {Object} file 文件 
+* @param {Function} callback 回调函数，返回文件对应URI 
+* return {Bool} 返回false 
+*/ 
+UploadPic.prototype._getURI = function (file, callback) { 
+var reader = new FileReader(); 
+var _this = this; 
+ 
+function tmpLoad() { 
+// 头不带图片格式，需填写格式 
+var re = /^data:base64,/; 
+var ret = this.result + ''; 
+ 
+if (re.test(ret)) ret = ret.replace(re, 'data:' + _this.mime[_this.fileType] + ';base64,'); 
+ 
+callback && callback(ret); 
+} 
+ 
+reader.onload = tmpLoad; 
+ 
+reader.readAsDataURL(file); 
+ 
+return false; 
+}; 
+ 
+/** 
+* @description 创建图片 
+* @param {Object} image 图片文件 
+*/ 
+UploadPic.prototype._createImage = function (uri) { 
+var img = new Image(); 
+var _this = this; 
+ 
+function tmpLoad() { 
+_this._drawImage(this); 
+} 
+ 
+img.onload = tmpLoad; 
+ 
+img.src = uri; 
+}; 
+ 
+/** 
+* @description 创建Canvas将图片画至其中，并获得压缩后的文件 
+* @param {Object} img 图片文件 
+* @param {Number} width 图片最大宽度 
+* @param {Number} height 图片最大高度 
+* @param {Function} callback 回调函数，参数为图片base64编码 
+* return {Object} 返回压缩后的图片 
+*/ 
+UploadPic.prototype._drawImage = function (img, callback) { 
+this.sw = img.width; 
+this.sh = img.height; 
+this.tw = img.width; 
+this.th = img.height; 
+ 
+this.scale = (this.tw / this.th).toFixed(2); 
+ 
+if (this.sw > this.maxWidth) { 
+this.sw = this.maxWidth; 
+this.sh = Math.round(this.sw / this.scale); 
+} 
+ 
+if (this.sh > this.maxHeight) { 
+this.sh = this.maxHeight; 
+this.sw = Math.round(this.sh * this.scale); 
+} 
+ 
+this.canvas = document.createElement('canvas'); 
+var ctx = this.canvas.getContext('2d'); 
+ 
+this.canvas.width = this.sw; 
+this.canvas.height = this.sh; 
+ 
+ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, this.sw, this.sh); 
+ 
+this.callback(this.canvas.toDataURL(this.type)); 
+ 
+ctx.clearRect(0, 0, this.tw, this.th); 
+this.canvas.width = 0; 
+this.canvas.height = 0; 
+this.canvas = null; 
+}; 
+</script>
+   
+	</script>
+                 <!--    <input type="file" name="person_pic" >上传图片 -->
+                    <!--  <div class="imglist"> <ul id="imgli"></ul></div>
+							<div class="clearfix"></div>
+						</li>
+						
+						<li>
+							<span>上传身份证照片：<input type="file" name="up_pic" >（正面）</span><br>
+							<span>上传身份证照片：<input type="file" name="down_pic" >（反面）</span>
+						
+				
+                     <div class="imglistid"> <ul id="imgliid"></ul></div>
+							<div class="clearfix"></div>
+						</li> -->
+						
+						<li>
+							<span>自我介绍：</span>
+							<textarea name="intro" style="width:90%;height:100px;"></textarea>
+							<div class="clearfix"></div>
+						</li>
+					</ol>	
+					<input  type="hidden" name="year" value="{$info.year}" />
+					<input  type="hidden" name="username" value="{$info.username}" />
+                    <input  type="hidden" name="month" value="{$info.month}" />
+                    <input  type="hidden" name="workad" value="{$info.workad}" />
+					<input  type="hidden" id="password" name="password" value="{$info.password}" />	
+						<div class="s-btnbox next">
+					<button class="s-btn next-sub" type="button">下一步</button>
+					</div>
+						
+			</div>
+			<div class="message_box message_box2" style="display:none">
+				
+				
+					<h1 style="width:100%; margin-top: 40px;">择偶条件</h1>
+					<ul class="search-find message">
+						<li>
+							<span>年龄：</span>
+							<select name="cage">
+								<option value="20~25" selected="selected">20~25</option>
+								<option value="25~30">25~30</option>
+								<option value="30~35">30~35</option>
+								<option value="35以上">35以上</option>
+							</select>
+						</li>
+						
+						<li>
+							<span>身高：</span>
+							<select name="cheight">
+								<option value="170~175" selected="selected">170~175</option>
+								<option value="175~180">175~180</option>
+								<option value="180以上">180以上</option>
+							</select>
+						</li>
+									
+						<li>
+							<span>民族：</span>
+							<select name="cnation">
+								<option value="汉族" selected="selected">汉族</option>
+								<option value="回族">回族</option>
+								<option value="蒙古族">蒙古族</option>
+								<option value="维吾尔族">维吾尔族</option>
+								<option value="朝鲜族">朝鲜族</option>
+								<option value="藏族">藏族</option>
+								<option value="傣族">傣族</option>
+								<option value="其他">其他</option>
+							</select>
+						</li>
+						<li>
+							<span>学历：</span>
+							<select name="cqualification">
+								
+								<option value="博士研究生" selected="selected">博士研究生</option>
+								<option value="硕士研究生">硕士研究生</option>
+								<option value="本科">本科</option>
+								<option value="专科">专科</option>
+								<option value="中专/高中">中专/高中</option>
+								<option value="初中">初中</option>
+							</select>
+						</li>
+								<li>
+							<span>住房：</span>
+							<select name="chousing">
+								<option value="2" >已购房（无贷款）</option>
+								<option value="1">已购房（有贷款）</option>
+								<option value="3" selected="selected">无</option>
+								
+							</select>
+						</li>
+						<li>
+							<span>从事工作：</span>
+							<input type="text" placeholder="" name="cwork"/>
+						</li>
+						
+						<li>
+							<span>月薪：</span>
+							<select name="cmonthly">
+								<option value="5000以下" selected="selected">5000以下</option>
+								<option value="5000~10000">5000~10000</option>
+								<option value="10000~20000">10000~20000</option>
+								<option value="20000以上">20000以上</option>
+							</select>
+						</li>
+						<li>
+							<span>婚姻状况：</span>
+							<select name="cmarriage">
+								<option value="3" selected="selected">未婚</option>
+								<option value="1">离婚</option>
+								<option value="2">丧偶</option>
+							</select>
+						</li>
+							<li>
+							<span>有无小孩：</span>
+							<select name="cchild">
+								<option value="3" selected="selected">无</option>
+								<option value="1" >有，不同住</option>
+								<option value="2">有，同住</option>
+							</select>
+						</li>
+							
+						
+						<div class="clearfix"></div>
+					</ul>
+						<div class="s-btnbox next">
+						<a href="#" style="border: 1px solid;">
+							<button class="s-btn">完成注册</button>
+						</a>
+						<p>注册代表我已同意<span>《偏爱婚恋会员用户协议》</span></p>
+					</div>
+	</form>
+				
+					
+			
+			
+				
+				
+		</div>
+
+	
+	</body>
+<script>
+ $('.next-sub').click(function(){
+ 	 var imgsrc="__PUBLIC__/Home/image/no3.png";
+ 	 $('.message_box1').hide();
+ 	 $('.message_box2').show();
+ 	 $('.register_box').find('img').attr('src',imgsrc);
+ 	 $(window).scrollTop(220)
+ })
+</script>	
+</html>
