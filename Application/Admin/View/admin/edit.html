@@ -38,11 +38,19 @@
 	<table cellpadding="2" cellspacing="1" class="table">
 	    <tr> 
 	        <td class="text"><span class="bi_tian">*</span>管理员名称：</td>
-	        <td class="input"><input required="required" name="adminName" type="text" class="text" value="{$admin['username']}"/></td>
+	        <td class="input"><input required="required" name="adminName" disabled="true" type="text" class="text" value="{$admin['username']}"/></td>
 	    </tr>
 	    <tr> 
-	        <td class="text"><span class="bi_tian">*</span>管理员密码：</td>
-	        <td class="input"><input required="required" name="password" type="password" class="text" value="{$admin['password']}"/></td>
+	        <td class="text"><span class="bi_tian">*</span> 原 密 码 ：</td>
+	        <td class="input"><input required="required" name="password_old" type="password" class="text" /></td>
+	    </tr>
+	    <tr>
+	        <td class="text"><span class="bi_tian">*</span> 新 密 码 ：</td>
+	        <td class="input"><input required="required" name="password_new" type="password" class="text" /></td>
+	    </tr>
+	    <tr>
+	        <td class="text"><span class="bi_tian">*</span> 重复 密码：</td>
+	        <td class="input"><input required="required" name="password_new_reply" type="password" class="text" /></td>
 	    </tr>
 
 		<tr> 
