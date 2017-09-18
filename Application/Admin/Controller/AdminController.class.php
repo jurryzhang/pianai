@@ -19,11 +19,16 @@ class AdminController extends BaseController
     //修改管理员密码
     public function edit()
     {
+        // 只能修改自己的密码
         $id = $_GET['id'];
+        if($id != session('aid'))
+        {
+            error('只能修改自己的密码', U('Admin/index'));
+        }
         $model = D('Admin')->find($id);
         if(!$model)
         {
-            error('系统错误', U('Index/index'));
+            error('系统错误', U('Admin/index'));
         }
         if (IS_POST) {
             $pass_old = isset($_POST['password_old'])?$_POST['password_old']:'';
