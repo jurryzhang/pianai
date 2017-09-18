@@ -6,36 +6,42 @@ use Think\Controller;
 
 class AccessController extends Controller
 {
-    //登陆 ---
     public function login()
     {
         layout(false);
         if (!empty($_POST)) {
-            $admin = D('Admininfo');
-            if ($admin->create($_POST, 5)) {
-                $adminName = $_POST['adminName'];
-                $password = md5($_POST['password']);
-                $data = $admin->where("adminName='%s' and password='%s'", $adminName, $password)->find();
+            $admin = D('Admin');
+            if (array_key_exists('username', $_POST) && array_key_exists('password', $_POST)
+                    && array_key_exists('captcha', $_POST) && $_POST['username']
+                && $_POST['password'] && $_POST['captcha']) {
+                // 先判断验证码 array('verify_code'=>'当前验证码的值','verify_time'=>'验证码生成的时间戳')
+                $verify = new \Think\Verify();
+                if(!$verify->check($_POST['captcha']))
+                {
+                    error("验证码错误", U('Access/login'));
+                }
+                $where = [
+                    'username' => $_POST['username'],
+                    'password' => md5($_POST['password']),
+                ];
+                $data = $admin->where($where)->find();
                 if ($data == NULL) {
-                    error("用户名或密码错误", 'Access/login');
+                    error("用户名或密码错误", U('Access/login'));
                 } else {
 
-                    $aid = $data['aid'];
+                    $id = $data['id'];
+                    session('aid', $id);
+
                     session('adminMsg', $data);
-                    $admin_name = $data['adminname'];
 
-
+                    $admin_name = $data['username'];
                     session('adminName', $admin_name);
-
-
-                    session('aid', $aid);
-                    //执行登陆
 
                     //跳转
                     $this->redirect('Index/index');
                 }
             } else {
-                error($admin->getError(), U('Access/login'));
+                error('请输入用户名和密码,以及验证码', U('Access/login'));
             }
         } else {
             $this->display('login');
@@ -45,12 +51,14 @@ class AccessController extends Controller
     //创建一个用来产生验证码的方法
     public function captcha()
     {
-        //创建验证码图片
+        $Verify = new \Think\Verify();
+        $Verify->entry();
+        /*//创建验证码图片
         //1.加载验证码类
         import("ORG.Util.Image");
         //Image::buildImageVerify(4,1,'png','140','35');
         $fontface = dirname(THINK_PATH) . "/Public/msyh.ttf";
-        Image::GBVerify(1, 'png', '140', '35', $fontface);
+        Image::GBVerify(1, 'png', '140', '35', $fontface);*/
     }
 
     //退出登陆

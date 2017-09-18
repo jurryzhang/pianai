@@ -1,38 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<title>管理员登录</title>
-<link href="__PUBLIC__/Admin/css/login1.css" type="text/css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <title>管理员登录</title>
+    <link href="__PUBLIC__/Admin/css/login1.css" type="text/css" rel="stylesheet"/>
 
 </head>
 <body id="userlogin_body">
- <h1>YXKJ Login Form</h1>
+<h1>YXKJ Login Form</h1>
 <div class="login-form">
-	<div class="close"> </div>
-		<div class="head-info">
-			<label class="lbl-1"> </label>
-			<label class="lbl-2"> </label>
-			<label class="lbl-3"> </label>
-		</div>
-			<div class="clear"> </div>
-                <div class="avtar">
-                    <img src="__PUBLIC__/Admin/images/avtar.png" />
-                </div>
-			  <form action="{:U('Access/login')}" method="post">
-					<input type="text" class="text" value="用户名" onfocus="this.value = 'admin';" onblur="if (this.value == '') {this.value = '用户名';}"  name="adminName" maxlength="20" id="TxtUserName" >
-			<div class="key">
-					<input type="password" value="Password" onfocus="this.value = '';"
-                    name="password" id="TxtPassword"
-                     onblur="if (this.value == '') {this.value = '';}">
-				</div>
-                        	<div class="signin">
-		                      <input type="submit" value="Login" 	class="ibtnentercssclass">
-	                         </div>
-			</form>
-
+    <div class="close"></div>
+    <div class="head-info">
+        <label class="lbl-1"> </label>
+        <label class="lbl-2"> </label>
+        <label class="lbl-3"> </label>
+    </div>
+    <div class="clear"></div>
+    <div class="avtar">
+        <img src="__PUBLIC__/Admin/images/avtar.png"/>
+    </div>
+    <form action="{:U('Access/login')}" method="post">
+        <input type="text" class="text" value="用户名" onfocus="this.value = 'admin';"
+               onblur="if (this.value == '') {this.value = '用户名';}" name="username" maxlength="20" id="TxtUserName">
+        <div class="key">
+            <input type="password" value="Password" onfocus="this.value = '';"
+                   name="password" id="TxtPassword"
+                   onblur="if (this.value == '') {this.value = '';}">
+        </div>
+        <div>
+            <img src="/index.php/Admin/Access/captcha" onclick='this.src = this.src + "?code=" + Math.random();'/>
+            验证码:<input type="'text" name="captcha">
+        </div>
+        <div class="signin">
+            <input type="submit" value="Login" class="ibtnentercssclass">
+        </div>
+    </form>
 </div>
-
 </body>
 </html>
