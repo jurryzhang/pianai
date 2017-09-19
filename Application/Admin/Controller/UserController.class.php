@@ -15,11 +15,12 @@ class UserController extends BaseController
         $page = new \Think\Page($count, $tot);
         $show = $page->show();
         $user = $model->field(array('id', 'name', 'nickname', 'age', 'qualification', 'sex', 'loginip', 'logintime', 'isrecom', 'vcrpath', 'ismember'))->order('id DESC')->limit($page->firstRow . ',' . $page->listRows)->select();
-        $this->assign('list', $list);
+//        $this->assign('list', $list);
         //总量大于每页个数进行分页
-        if ($count > $tot) {
-            $this->assign('page', $show);
+        if ($count <= $tot) {
+            $show = '';
         }
+        $this->assign('page', $show);
         $this->user = $user;
         $this->display();
     }
@@ -43,6 +44,7 @@ class UserController extends BaseController
 
     }
 
+    // 就是个查看详情
     public function edit()
     {
         $id = $_GET['id'];
@@ -51,7 +53,6 @@ class UserController extends BaseController
         $this->user = $user;
         $this->display();
     }
-
 
     public function delete()
     {

@@ -25,6 +25,9 @@
         color:white;
         background-color:#0291d4;
     }
+	.left {
+		padding-left:100px;
+	}
 </style>
 	<script>
 		KindEditor.ready(function(K) {
@@ -52,7 +55,8 @@
 
 <body>
 <div class="metinfotop">
-	<div class="position">简体中文：后台管理 > <a href="javascript:">管理员列表</a></div>
+	<div class="position">简体中文：后台管理 > <a href="javascript:">文章列表</a></div>
+	<div class="position left"><a href="add">添加文章</a></div>
 </div>
 <div class="clear"></div>
 <div id="tablecontent">
@@ -66,7 +70,7 @@
 			 
 			<th width="100px">操作</th>
 		</tr>
-		<foreach name="result" item="item">
+		<volist name="result" id="item">
 	    <tr> 
 	        <td align="center">{$item.tid}</td>
 	        <td align="center">{$item.title}</td>
@@ -78,7 +82,7 @@
 
 	        <td align="center"><a href="{:U('Voteht/edit',array('tid'=>$item['tid']))}">编辑</a> | <a data-id="{$item.tid}" class="delete" href="javascript:void(0)">删除</a></td>
 	    </tr>
-	    </foreach>
+	    </volist>
 	    <tr class="pagenation">
 	    	<td colspan="10">{$page}</td>
 	    </tr>

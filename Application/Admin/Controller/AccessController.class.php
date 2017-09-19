@@ -18,7 +18,7 @@ class AccessController extends Controller
                 $verify = new \Think\Verify();
                 if(!$verify->check($_POST['captcha']))
                 {
-                    error("验证码错误", U('Access/login'));
+                    error("验证码错误", U('access/login'));
                 }
                 $where = [
                     'username' => $_POST['username'],
@@ -26,7 +26,7 @@ class AccessController extends Controller
                 ];
                 $data = $admin->where($where)->find();
                 if ($data == NULL) {
-                    error("用户名或密码错误", U('Access/login'));
+                    error("用户名或密码错误", U('access/login'));
                 } else {
 
                     $id = $data['id'];
@@ -41,7 +41,7 @@ class AccessController extends Controller
                     $this->redirect('Index/index');
                 }
             } else {
-                error('请输入用户名和密码,以及验证码', U('Access/login'));
+                error('请输入用户名和密码,以及验证码', U('access/login'));
             }
         } else {
             $this->display('login');
@@ -67,7 +67,7 @@ class AccessController extends Controller
         session(null);
         layout(false);
         if (!session("?isLogin") || session("?isLogin") != 1) {
-            $this->redirect('Access/login');
+            $this->redirect('access/login');
         }
     }
 

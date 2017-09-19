@@ -51,7 +51,7 @@ $order = empty($_GET['order']) ? 'name' : strtolower($_GET['order']);
 
 //不允许使用..移动到上一级目录
 if (preg_match('/\.\./', $current_path)) {
-	echo 'Access is not allowed.';
+	echo 'access is not allowed.';
 	exit;
 }
 //最后一个字符不是/

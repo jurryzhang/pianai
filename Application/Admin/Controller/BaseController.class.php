@@ -9,7 +9,7 @@ class BaseController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $url = U('Access/login');
+        $url = U('access/login');
         check_admin_login($url);
     }
 }

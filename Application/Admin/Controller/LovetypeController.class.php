@@ -6,23 +6,23 @@ use Think\Controller;
 
 class LovetypeController extends BaseController
 {
-
-
     public function index()
     {
-        //恋爱精选分裂列表
+        //恋爱精选分类列表
         $model = M('Lovetype');
         $count = $model->count();
         //分页，10个每页
-        $tot = 10;
+        $tot = '10';
         $page = new \Think\Page($count, $tot);
         $show = $page->show();
         $love = $model->order('id ASC')->limit($page->firstRow . ',' . $page->listRows)->select();
-        $this->assign('list', $list);
+        $this->assign('list', $count);
         //总量大于每页个数进行分页
-        if ($count > $tot) {
-            $this->assign('page', $show);
+        if ($count <= $tot)
+        {
+            $show = '';
         }
+        $this->assign('page', $show);
         $this->love = $love;
         $this->display();
     }

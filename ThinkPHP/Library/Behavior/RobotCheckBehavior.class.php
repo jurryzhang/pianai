@@ -19,7 +19,7 @@ class RobotCheckBehavior {
         // 机器人访问检测
         if(C('LIMIT_ROBOT_VISIT',null,true) && self::isRobot()) {
             // 禁止机器人访问
-            exit('Access Denied');
+            exit('access Denied');
         }
     }
 

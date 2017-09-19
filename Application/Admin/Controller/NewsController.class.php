@@ -10,13 +10,11 @@ class NewsController extends BaseController
 
     public function index()
     {
-
         $this->display('addnews');
     }
 
     public function newslist()
     {
-
         $model = M("news");// 实例化对象
         //$re=$model->select();
         $arr['type'] = I('type');
@@ -41,7 +39,6 @@ class NewsController extends BaseController
         $id = $_GET['id'];
         $model = M("news");// 实例化对象
         $res = $model->where("id=%d", $id)->find();// 通过id查找数据
-        //var_dump($res);
         $this->assign("data", $res);
         $this->display("edit");
     }

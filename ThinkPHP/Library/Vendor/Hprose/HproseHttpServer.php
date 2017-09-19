@@ -110,11 +110,11 @@ class HproseHttpServer {
         }
         if ($this->crossDomain) {
             if (array_key_exists('HTTP_ORIGIN', $_SERVER) && $_SERVER['HTTP_ORIGIN'] != "null") {
-                header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
-                header("Access-Control-Allow-Credentials: true");  
+                header("access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+                header("access-Control-Allow-Credentials: true");
             }
             else {
-                header('Access-Control-Allow-Origin: *');
+                header('access-Control-Allow-Origin: *');
             }
         }
     }
