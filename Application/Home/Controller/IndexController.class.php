@@ -21,7 +21,6 @@ class IndexController extends CommonController
 
     public function lg_regist()
     {
-
         $this->display();
     }
 
@@ -33,7 +32,7 @@ class IndexController extends CommonController
         // 获取-被推荐-交友的用户,根据id顺序取后6位
         $umodel = M('User');
         $recom["isrecom"] = '1';
-        $user = $umodel->where($recom)->order('id DESC')->limit(6)->select();
+        $user = $umodel->where($recom)->order('id DESC')->limit(2)->select();
         // 处理用户数据
         foreach ($user as $k => $v) {
             // 当前年龄, --todo: 如果用户没有填写生日的话,没有处理
@@ -48,7 +47,7 @@ class IndexController extends CommonController
 
         // 优质VCR
         $recomvcr = array('isrecom' => "1", 'vcrpath' => array('neq', ''));
-        $uvcr = $umodel->where($recomvcr)->order('id DESC')->limit(7)->select();
+        $uvcr = $umodel->where($recomvcr)->order('id DESC')->limit(2)->select();
         // dump($uvcr);die;
         foreach ($uvcr as $k => $v) {
             $y = date('Y', time());
@@ -62,7 +61,7 @@ class IndexController extends CommonController
         // 婚恋家庭教育
         $newsModel = D('news');
         $where = array();
-        $edu = $newsModel->where($where)->order('sequence DESC')->limit(7)->select();
+        $edu = $newsModel->where($where)->order('sequence DESC')->limit(2)->select();
         foreach ($edu as $k => &$v) {
             $v['addTime'] = date('Y-m-d h:i:s', $v['addTime']);
             $v['upTime'] = date('Y-m-d h:i:s', $v['upTime']);
@@ -72,7 +71,7 @@ class IndexController extends CommonController
         // 同城佳丽
         // 同城的条件,
         $where = array('sex' => '2');
-        $women = $umodel->where($where)->order('id DESC')->limit(7)->select();
+        $women = $umodel->where($where)->order('id DESC')->limit(2)->select();
         foreach ($women as $k => $v) {
             // 当前年龄, --todo: 如果用户没有填写生日的话,没有处理
             $y = date('Y', time());
@@ -85,7 +84,7 @@ class IndexController extends CommonController
         // 节目视频
         $vModel = D('video');
         $where = array();
-        $videos = $vModel->where($where)->order('id DESC')->limit(7)->select();
+        $videos = $vModel->where($where)->order('id DESC')->limit(2)->select();
         foreach ($videos as $k => $v) {
             $pic = explode(",", substr($v['video'], 1, strlen($v['video'])));
             $videos[$k]['video'] = $pic[0];
@@ -97,7 +96,7 @@ class IndexController extends CommonController
         // 成功案例
         $pdmodel = D('userpd');
         $where = array();
-        $pds = $pdmodel->where($where)->order('id DESC')->limit(7)->select();
+        $pds = $pdmodel->where($where)->order('id DESC')->limit(2)->select();
         $this->pds = $pds;
 
 
